@@ -58,7 +58,7 @@ looker.plugins.visualizations.add({
             position: absolute;
             content: '';
             width: 100%;
-    //        border-top: 1px solid #059142;
+            border-top: 1px solid #059142;
             top: 102px;
          }
           th:after {
@@ -199,8 +199,8 @@ looker.plugins.visualizations.add({
             position: absolute;
             content: '';
             width: 100%;
-     //       border-top: 1px solid #471fe3; 
-            top: 102px;
+            border-top: 1px solid #471fe3; 
+            top: 103px;
         }          
           th:after {
             content:''; 
@@ -224,7 +224,7 @@ looker.plugins.visualizations.add({
       generatedHTML += "<table class='table'>";
       generatedHTML += "<thead class='thead'>";
       generatedHTML += "<tr class='table-header'>";
-      generatedHTML += "<th class='table-header' colspan='8' style='font-weight: bold;height:20px;border: 1px solid black;background-color: #eee;font-family: Verdana;width: -webkit-fill-available; position: absolute;'>COUNTERPARTY IDENTIFICATION</th>";
+      generatedHTML += "<th class='table-header' colspan='8' style='font-weight: bold;height:19px;border: 1px solid black;background-color: #eee;font-family: Verdana;width: -webkit-fill-available;'>COUNTERPARTY IDENTIFICATION</th>";
       generatedHTML += "</tr>";
       generatedHTML += "<tr class='table-header'>";
       generatedHTML += "<th class='table-header' style='border: 1px solid black;background-color: #eee;font-family: Verdana;font-weight: normal;height:100px;'>Code</th>";
