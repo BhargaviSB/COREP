@@ -53,14 +53,6 @@ looker.plugins.visualizations.add({
             top: 0px; 
             z-index: 3;
           }
-          th:after {
-            content:''; 
-            position:absolute; 
-            left: 0; 
-            bottom: 0; 
-            width:100%; 
-            border-bottom: 1px solid rgba(0,0,0,0.12);
-          }
           th:before {
             left: 0;
             position: absolute;
@@ -69,6 +61,14 @@ looker.plugins.visualizations.add({
             border-top: 1px solid #4c535b;
             top: 102px;
          }
+          th:after {
+            content:''; 
+            position:absolute; 
+            left: 0; 
+            bottom: 0; 
+            width:100%; 
+            border-bottom: 1px solid rgba(0,0,0,0.12);
+          }
          .div{
             overflow-y: auto;
             height: calc(100vh - 100px);
@@ -194,6 +194,14 @@ looker.plugins.visualizations.add({
             top: 0px; 
             z-index: 3;
           }
+        th:before {
+            left: 0;
+            position: absolute;
+            content: '';
+            width: 100%;
+            border-top: 1px solid #4c535b; 
+            top: 102px;
+        }          
           th:after {
             content:''; 
             position:absolute; 
@@ -202,14 +210,6 @@ looker.plugins.visualizations.add({
             width:100%; 
             border-bottom: 1px solid rgba(0,0,0,0.12);
          }
-        th:before {
-            left: 0;
-            position: absolute;
-            content: '';
-            width: 100%;
-            border-top: 1px solid #4c535b; 
-            top: 102px;
-        }
         .div{
             overflow-y: auto;
             height: calc(100vh - 100px);
