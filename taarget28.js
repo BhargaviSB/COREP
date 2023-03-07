@@ -97,6 +97,7 @@ looker.plugins.visualizations.add({
     downloadButton.setAttribute('height', '25px');
     downloadButton.setAttribute('width', '25px');
     downloadButton.setAttribute('align', 'right');
+    downloadButton.setAttribute('line-height', '120%');
     downloadButton.setAttribute('title', 'Download As Excel'); 
     this._container.prepend(downloadButton);
     downloadButton.addEventListener('click', (event) => {
