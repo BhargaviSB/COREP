@@ -66,7 +66,7 @@ looker.plugins.visualizations.add({
             position: absolute;
             content: '';
             width: 100%;
-            border-top: 1px solid #4c535b;
+       //     border-top: 1px solid #4c535b;
             top: 102px;
          }
          .div{
@@ -207,7 +207,7 @@ looker.plugins.visualizations.add({
             position: absolute;
             content: '';
             width: 100%;
-            border-top: 1px solid #4c535b;
+      //      border-top: 1px solid #4c535b; 
             top: 102px;
         }
         .div{
