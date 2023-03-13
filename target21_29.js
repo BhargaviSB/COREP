@@ -107,8 +107,8 @@ looker.plugins.visualizations.add({
 
       // Create a new style element and set the default styles
       var table = document.querySelector('table');  
-      // table.style.type = 'text/css';
-      // table.style.innerHTML = 'td, th { background-color: white; border: 1px solid black; font-weight: normal; font-size: 11pt; font-family: Calibri; mso-number-format: "\\\@"; }';
+      //table.style.type = 'text/css';
+    //  table.style.innerHTML = 'td, th { background-color: white; border: 1px solid black; font-weight: normal; font-size: 11pt; font-family: Calibri; mso-number-format: "\\\@"; }';
        var rows = table.rows;
       for (var i = 0; i < rows.length; i++) {
         var cells = rows[i].cells;
@@ -122,7 +122,7 @@ looker.plugins.visualizations.add({
       XLSX.src = 'https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js';
       document.head.appendChild(XLSX);
       var ctx = { Worksheet: '29', table: table.innerHTML };
-      var ctx = { Worksheet: '29', table: "<tr class='table-header'><th class='table-header' rowspan='1' colspan='100' style='align-items: left;text-align: left; height: 40px;border: 1px solid black;background-color: #eee;font-family: Arial;font-size: 11px;'><b>C 29.00 - Detail of the exposures to individual clients within groups of connected clients (LE 3)</b></th></tr><tr class='table-header'><th class='table-header' rowspan='1' colspan='3' style='background-color:none !important;font-family:Arial;font-size:10px;align-items: center;text-align: right;padding: 5px;color:grey;font-weight:normal;'>* All values reported are in millions </th></tr>"+table.innerHTML }
+      var ctx = { Worksheet: '29', table: "<tr class='table-header'><th class='table-header' rowspan='1' colspan='100' style='align-items: left;text-align: left; height: 40px;border: 1px solid black;background-color: #eee;font-family: Arial;font-size: 11px; color:blue'><b>C 29.00 - Detail of the exposures to individual clients within groups of connected clients (LE 3)</b></th></tr><tr class='table-header'><th class='table-header' rowspan='1' colspan='3' style='background-color:none !important;font-family:Arial;font-size:10px;align-items: center;text-align: right;padding: 5px;color:grey;font-weight:normal;'>* All values reported are in millions </th></tr>"+table.innerHTML }
       
       var xl = format(template, ctx);
       const downloadUrl = uri + base64(xl);
@@ -296,7 +296,7 @@ looker.plugins.visualizations.add({
     for (row of data) {
       generatedHTML += "<tr class='table-row'>";
       for (field of queryResponse.fields.dimensions.concat(queryResponse.fields.measures)) {
-        generatedHTML += `<td class='table-cell' style='color:blue; border: 1px solid black; font-family: Arial; font-size: 11px;'>${LookerCharts.Utils.htmlForCell(row[field.name])}</td>`;
+        generatedHTML += `<td class='table-cell' style='border: 1px solid black; font-family: Arial; font-size: 11px;'>${LookerCharts.Utils.htmlForCell(row[field.name])}</td>`;
       }
       generatedHTML += "</tr>";
     }
