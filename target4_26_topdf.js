@@ -140,13 +140,13 @@ looker.plugins.visualizations.add({
           });
         },
 
-        addDownloadButtonListener: function topdf () {
+        addDownloadButtonListener: function () {
             const downloadButton = document.createElement('img');
-            downloadButton.src = "https://cdn.jsdelivr.net/gh/Spoorti-Gandhad/AGBG-Assets@main/downloadAsExcel.jfif";
+            downloadButton.src = "https://cdn.jsdelivr.net/gh/BhargaviSB/COREP@main/downloadAsPdf.png";
             downloadButton.setAttribute('height', '25px');
             downloadButton.setAttribute('width', '25px');
-            downloadButton.setAttribute('title', 'Download As Excel');
-            downloadButton.style.marginLeft='80%';
+            downloadButton.setAttribute('title', 'Download As PDF');
+            downloadButton.style.marginLeft='50%';
             //downloadButton.className = 'download-button';   
             this._container.prepend(downloadButton);
             downloadButton.addEventListener('click', (event) => {
