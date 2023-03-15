@@ -156,6 +156,7 @@ looker.plugins.visualizations.add({
               
                 // Create a new jsPDF instance
                 const pdf = new jsPDF();
+                pdf.src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js";
               
                 // Convert the table to a data URL
                 const dataURL = table.toDataURL();
@@ -239,6 +240,7 @@ looker.plugins.visualizations.add({
         }
       }
   
+      generatedHTML += "<script src='https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js'></script>";
       generatedHTML += "<p style='font-family:Verdana;width:100%;font-weight:bold;font-size:14px;align-items:center;text-align:left;border:1px solid black;padding: 5px;background-color: #eee;'>C 26.00 - Large Exposures limits (LE Limits)</p>";
       generatedHTML += "<p style='font-family:Verdana;font-size:10px;align-items: center;text-align: right;padding: 5px;'>* All values reported are in millions </p>";
       generatedHTML += `<table class='table' id='htmltable'>`;
