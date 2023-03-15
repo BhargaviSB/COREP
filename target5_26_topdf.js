@@ -140,7 +140,7 @@ looker.plugins.visualizations.add({
           });
         },
 
-        addDownloadButtonListener: function () {
+        addDownloadButtonListener2: function () {
             const downloadButton = document.createElement('img');
             downloadButton.src = "https://cdn.jsdelivr.net/gh/BhargaviSB/COREP@main/downloadAsPdf.png";
             downloadButton.setAttribute('height', '25px');
@@ -285,6 +285,7 @@ looker.plugins.visualizations.add({
       generatedHTML += "</table>";
       this._container.innerHTML = generatedHTML;
       this.addDownloadButtonListener();
+      this.addDownloadButtonListener2();
   
       done();
     }
