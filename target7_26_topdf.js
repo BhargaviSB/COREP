@@ -143,40 +143,56 @@ looker.plugins.visualizations.add({
         addDownloadButtonListener2: function () {
             const downloadButton = document.createElement('img');
             downloadButton.src = "https://cdn.jsdelivr.net/gh/BhargaviSB/COREP@main/downloadAsPdf.png";
-            downloadButton.setAttribute('height', '25px');
-            downloadButton.setAttribute('width', '25px');
+            downloadButton.setAttribute('height', '30px');
+            downloadButton.setAttribute('width', '30px');
             downloadButton.setAttribute('title', 'Download As PDF');
             downloadButton.style.marginLeft='50%';
             //downloadButton.className = 'download-button';   
             this._container.prepend(downloadButton);
+            // var pdfref = document.createElement("a");
+            // pdfref.setAttribute('href', '#');
+            // pdfref.setAttribute('id', 'download-pdf-link');
+            // pdfref.setAttribute('download', 'export.pdf');
+            // const downloadpdfLink = document.getElementById('download-pdf-link');
+            // const table = document.getElementById('looker_table');
+
             downloadButton.addEventListener('click', (event) => {
                   var downloadpdfLink;
                   var dataType = 'application/pdf';
                   var tableContent = document.getElementById('htmltable');
+                //   var table = document.getElementById('looker_table');
                   var tableHTMLdata = tableContent.innerHTML;
                 
                 var filename = "export.pdf";
-                downloadpdfLink = document.createElement("b");
+                downloadpdfLink = document.createElement("a");
                 document.body.appendChild(downloadpdfLink);
-                if(navigator.msSaveOrOpenBlob){
-                    var tableBlob = new Blob(['\ufeff', tableHTMLdata], {
-                    //    type: 'application/pdf'
-                        type: dataType 
-                    });
-                    navigator.msSaveOrOpenBlob( tableBlob, filename);
-                    console.log('blob : '+tableBlob);
-                    const pdfurl = URL.createObjectURL(tableBlob);
-                    downloadpdfLink.setAttribute('href', pdfurl);
-                 } else{
-                    const pdfurl = URL.createObjectURL(tableBlob);
-                    downloadpdfLink.setAttribute('href', pdfurl);
-                    downloadpdfLink.href = 'data:' + dataType + ', ' + tableHTMLdata;
-                    downloadpdfLink.download = filename;
+                var tableBlob = new Blob([tableHTMLdata], {
+                        //    type: 'application/pdf'
+                            type: dataType 
+                        });
+                const url = URL.createObjectURL(tableBlob);
+                downloadButton.setAttribute('href', url)
+
+                // if(navigator.msSaveOrOpenBlob){
+                //     var tableBlob = new Blob(['\ufeff', tableHTMLdata], {
+                //     //    type: 'application/pdf'
+                //         type: dataType 
+                //     });
+                //     navigator.msSaveOrOpenBlob( tableBlob, filename);
+                //     console.log('blob : '+tableBlob);
+                //     const pdfurl = URL.createObjectURL(tableBlob);
+                //     downloadpdfLink.setAttribute('href', pdfurl);
+                //  } else{
+                //     const pdfurl = URL.createObjectURL(tableBlob);
+                //     downloadpdfLink.setAttribute('href', pdfurl);
+                //     downloadpdfLink.href = 'data:' + dataType + ', ' + tableHTMLdata;
+                //     downloadpdfLink.download = filename;
                      
-                    //triggering the function
-                    downloadpdfLink.click();
-                    console.log('downloadpdfLink.href : '+downloadpdfLink.href);
-                 }
+                //     //triggering the function
+                //     downloadpdfLink.click();
+                //     console.log('downloadpdfLink.href : '+downloadpdfLink.href);
+                //  }
+
                 
                 });
               },
@@ -293,4 +309,4 @@ looker.plugins.visualizations.add({
     }
   
   });
-  
+ 
