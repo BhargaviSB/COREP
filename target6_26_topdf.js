@@ -163,14 +163,16 @@ looker.plugins.visualizations.add({
                     //    type: 'application/pdf'
                         type: dataType 
                     });
-                    const pdfurl = URL.createObjectURL(tableBlob);
-                    downloadpdfLink.setAttribute('href', pdfurl);
                     navigator.msSaveOrOpenBlob( tableBlob, filename);
                     console.log('blob : '+tableBlob);
+                    const pdfurl = URL.createObjectURL(tableBlob);
+                    downloadpdfLink.setAttribute('href', pdfurl);
                  } else{
+                    const pdfurl = URL.createObjectURL(tableBlob);
+                    downloadpdfLink.setAttribute('href', pdfurl);
                     downloadpdfLink.href = 'data:' + dataType + ', ' + tableHTMLdata;
                     downloadpdfLink.download = filename;
-        
+                     
                     //triggering the function
                     downloadpdfLink.click();
                     console.log('downloadpdfLink.href : '+downloadpdfLink.href);
