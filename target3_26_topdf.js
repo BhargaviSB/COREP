@@ -53,8 +53,6 @@ looker.plugins.visualizations.add({
               mso-number-format: \@;
             }
           </style>
-          <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
-          <button id="download-pdf">Download PDF</button>
         `;
       // Create a container element to let us center the text.
       this._container = element.appendChild(document.createElement("div"));
@@ -148,26 +146,40 @@ looker.plugins.visualizations.add({
             downloadButton.setAttribute('height', '25px');
             downloadButton.setAttribute('width', '25px');
             downloadButton.setAttribute('title', 'Download As Excel');
-            downloadButton.style.marginLeft='90%';
-            const downloadBtn = document.getElementById('download-pdf');
-            downloadBtn.addEventListener('click', () => {
-                // Get a reference to the table element you want to export
-                const table = document.querySelector('#looker_table');
-              
-                // Create a new jsPDF instance
-                const pdf = new jsPDF();
-                pdf.src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js";
-              
-                // Convert the table to a data URL
-                const dataURL = table.toDataURL();
-              
-                // Add the data URL to the PDF document
-                pdf.addImage(dataURL, 'JPEG', 0, 0);
-              
-                // Save the PDF document
-                pdf.save('table.pdf');
-              });
-        },
+            downloadButton.style.marginLeft='80%';
+            //downloadButton.className = 'download-button';   
+            this._container.prepend(downloadButton);
+            downloadButton.addEventListener('click', (event) => {
+                  var downloadpdfLink;
+                  var dataType = 'application/pdf';
+                  var tableContent = document.getElementById('htmltable');
+                  var tableHTMLdata = tableContent.innerHTML;
+                
+                var filename = "export.pdf";
+                downloadpdfLink = document.createElement("b");
+                document.body.appendChild(downloadpdfLink);
+                if(navigator.msSaveOrOpenBlob){
+                    var tableBlob = new Blob(['\ufeff', tableHTMLdata], {
+                    //    type: 'application/pdf'
+                        type: dataType 
+                    });
+                    const pdfurl = URL.createObjectURL(tableBlob);
+                    downloadpdfLink.setAttribute('href', pdfurl);
+                    navigator.msSaveOrOpenBlob( tableBlob, filename);
+                    console.log('blob : '+tableBlob);
+                 } else{
+                    downloadpdfLink.href = 'data:' + dataType + ', ' + tableHTMLdata;
+                    downloadpdfLink.download = filename;
+        
+                    //triggering the function
+                    downloadpdfLink.click();
+                    console.log('downloadpdfLink.href : '+downloadpdfLink.href);
+                 }
+                
+                });
+              },
+
+        
   
     // Render in response to the data or settings changing
     updateAsync: function (data, element, config, queryResponse, details, done) {
@@ -227,8 +239,6 @@ looker.plugins.visualizations.add({
               mso-number-format: \@;
             }
     </style>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
-    <button id="download-pdf">Download PDF</button>
     `;
       var k = 0;
       for (column_type of ["dimension_like", "measure_like", "table_calculations"]) {
@@ -240,7 +250,6 @@ looker.plugins.visualizations.add({
         }
       }
   
-      generatedHTML += "<script src='https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js'></script>";
       generatedHTML += "<p style='font-family:Verdana;width:100%;font-weight:bold;font-size:14px;align-items:center;text-align:left;border:1px solid black;padding: 5px;background-color: #eee;'>C 26.00 - Large Exposures limits (LE Limits)</p>";
       generatedHTML += "<p style='font-family:Verdana;font-size:10px;align-items: center;text-align: right;padding: 5px;'>* All values reported are in millions </p>";
       generatedHTML += `<table class='table' id='htmltable'>`;
@@ -281,3 +290,4 @@ looker.plugins.visualizations.add({
     }
   
   });
+  
