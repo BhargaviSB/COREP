@@ -155,6 +155,29 @@ looker.plugins.visualizations.add({
                     //    type: 'application/pdf'
                         type: dataType 
                     });
+
+                    var table = document.querySelector('table');
+                    table.style.border = '1px solid black';
+                    table.style.fontSize = '11px';
+                    var rows = table.rows;
+                    for (var i = 0; i < rows.length; i++) {
+                      var cells = rows[i].cells;
+                      for (var j = 0; j < cells.length; j++) {
+                        var cell = cells[j];
+                        var backgroundColor = window.getComputedStyle(cell).backgroundColor;
+                        var fontWeight = window.getComputedStyle(cell).fontWeight;
+                        var fontFamily = window.getComputedStyle(cell).fontFamily;
+                        var fontSize = window.getComputedStyle(cell).fontSize;
+                        var style = 'background-color:' + backgroundColor + ';' +
+                          'border: 1px solid black;' +
+                          'font-weight:' + fontWeight + ';' +
+                          'font-size:' + fontSize + ';' +
+                          'font-family:' + fontFamily + ';' +
+                          'mso-number-format: "\ \@";' ;
+                        cell.setAttribute('style', style);
+                      }
+                    }
+                    
                   const url = URL.createObjectURL(tableBlob);
                   downloadButton.setAttribute('href', url);
                   downloadButton.href = 'data:' + dataType + ', ' + tableHTMLdata;
@@ -187,27 +210,6 @@ looker.plugins.visualizations.add({
                  //    }
                  //   }
         
-                 var table = document.querySelector('table');
-                  table.style.border = '1px solid black';
-                  table.style.fontSize = '11px';
-                  var rows = table.rows;
-                  for (var i = 0; i < rows.length; i++) {
-                    var cells = rows[i].cells;
-                    for (var j = 0; j < cells.length; j++) {
-                      var cell = cells[j];
-                      var backgroundColor = window.getComputedStyle(cell).backgroundColor;
-                      var fontWeight = window.getComputedStyle(cell).fontWeight;
-                      var fontFamily = window.getComputedStyle(cell).fontFamily;
-                      var fontSize = window.getComputedStyle(cell).fontSize;
-                      var style = 'background-color:' + backgroundColor + ';' +
-                        'border: 1px solid black;' +
-                        'font-weight:' + fontWeight + ';' +
-                        'font-size:' + fontSize + ';' +
-                        'font-family:' + fontFamily + ';' +
-                        'mso-number-format: "\ \@";' ;
-                      cell.setAttribute('style', style);
-                    }
-                  }
     
                 //   const XLSX = document.createElement('script');
                 //   XLSX.src = 'https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js';
