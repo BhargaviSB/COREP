@@ -335,6 +335,7 @@ looker.plugins.visualizations.add({
       generatedHTML += "</table>";
       this._container.innerHTML = generatedHTML;
       this.addDownloadButtonListener();
+      this.addDownloadButtonListener2();
   
       done();
     }
