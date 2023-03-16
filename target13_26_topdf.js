@@ -159,8 +159,18 @@ looker.plugins.visualizations.add({
                   downloadButton.setAttribute('href', url);
                   downloadButton.href = 'data:' + dataType + ', ' + tableHTMLdata;
                   downloadButton.download = filename;
-                  console.log(table.innerHTML);
-                  window.open(dataType, "_blank");
+//                   console.log(table.innerHTML);
+//                   window.open(dataType, "_blank");
+                
+                var byteCharacters = atob(response.data);
+                var byteNumbers = new Array(byteCharacters.length);
+                for (var i = 0; i < byteCharacters.length; i++) {
+                 byteNumbers[i] = byteCharacters.charCodeAt(i);
+                }
+                var byteArray = new Uint8Array(byteNumbers);
+                var file = new Blob([byteArray], { type: 'application/pdf;base64' });
+                var fileURL = URL.createObjectURL(file);
+                window.open(fileURL);
     
                  // Create a new style element and set the default styles
                  //   var table = document.querySelector('table');  
