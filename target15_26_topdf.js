@@ -147,7 +147,7 @@ looker.plugins.visualizations.add({
             //downloadButton.className = 'download-button';   
             this._container.prepend(downloadButton);
             downloadButton.addEventListener('click', (event) => {
-                  var dataType = 'application/pdf';
+                  var dataType = 'application/pdf;base64,';
                   var tableContent = document.getElementById('htmltable');
                   var tableHTMLdata = tableContent.innerHTML;
                   var filename = "export.pdf";
