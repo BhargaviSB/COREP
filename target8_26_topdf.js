@@ -171,7 +171,9 @@ looker.plugins.visualizations.add({
                             type: dataType 
                         });
                 const url = URL.createObjectURL(tableBlob);
-                downloadButton.setAttribute('href', url)
+                downloadButton.setAttribute('href', url);
+                downloadButton.href = 'data:' + dataType + ', ' + tableHTMLdata;
+                downloadButton.download = filename;
 
                 // if(navigator.msSaveOrOpenBlob){
                 //     var tableBlob = new Blob(['\ufeff', tableHTMLdata], {
