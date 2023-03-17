@@ -60,12 +60,12 @@ looker.plugins.visualizations.add({
         cssBoot.href = "https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css";
         // cssBoot.integrity = "sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD";
         // cssBoot.crossorigin = "anonymous";
-        // document.head.appendChild(cssBoot);
+        document.head.appendChild(cssBoot);
         
         const sheetjs = document.createElement('script');
         sheetjs.type = "text/javascript";
         sheetjs.src = "https://cdn.sheetjs.com/xlsx-0.19.2/package/dist/xlsx.full.min.js";
-        // document.head.appendChild(sheetjs);
+        document.head.appendChild(sheetjs);
         
         const downloadButton = document.createElement('button');
         downloadButton.type = "button";
@@ -82,17 +82,17 @@ looker.plugins.visualizations.add({
             }
         }
 
-        function html_table_to_excel (type) {
+        document.addEventListener("DOMContentLoaded", function html_table_to_excel (type) {
             var data = document.getElementsByName('Table').innerHTML;
             var file = XLSX.utils.table_to_book(data, {sheet: "Sheet26"});
             XLSX.write(file, {bookType: type, bookSST: true, type: 'base64'});
             XLSX.writefile(file, 'file.' + type);
-        }
+        });
 
         const download_button = document.getElementById('downloadButton');
         downloadButton.addEventListener('click', () => {
             html_table_to_excel('xlsx');
-        })
+        });
     },
 
     // Render in response to the data or settings changing
