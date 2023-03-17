@@ -92,7 +92,7 @@ looker.plugins.visualizations.add({
         const download_button = document.getElementById('downloadButton');
         downloadButton.addEventListener('click', () => {
             var type = "xlsx";
-            var data = htmlTable.innerHTML;;
+            var data = htmlTable;
             var wsheet = XLSX.utils.table_to_sheet(data);
             var wbook = XLSX.utils.book_new();
             XLSX.utils.book_append_sheet(wbook, wsheet, "Sheet1");
