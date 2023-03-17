@@ -59,11 +59,11 @@ looker.plugins.visualizations.add({
         cssBoot.rel = "stylesheet";
         cssBoot.href = "https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css";
         // cssBoot.integrity = "sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD";
-        // cssBoot.crossorigin = "anonymous";
+        cssBoot.crossorigin = "anonymous";
         document.head.appendChild(cssBoot);
         
         const sheetjs = document.createElement('script');
-        sheetjs.type = "text/javascript";
+        sheetjs.lang = "javascript";
         sheetjs.src = "https://cdn.sheetjs.com/xlsx-0.19.2/package/dist/xlsx.full.min.js";
         document.head.appendChild(sheetjs);
         
