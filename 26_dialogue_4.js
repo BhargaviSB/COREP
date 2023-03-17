@@ -58,8 +58,8 @@ looker.plugins.visualizations.add({
         const cssBoot = document.createElement('link');
         cssBoot.rel = "stylesheet";
         cssBoot.href = "https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css";
-        cssBoot.integrity = "sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD";
-        cssBoot.crossorigin = "anonymous";
+        // cssBoot.integrity = "sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD";
+        // cssBoot.crossorigin = "anonymous";
         document.head.appendChild(cssBoot);
         
         const sheetjs = document.createElement('script');
@@ -89,8 +89,8 @@ looker.plugins.visualizations.add({
             XLSX.writefile(file, 'file.' + type);
         }
 
-        const exportButton = document.getElementById('downloadButton');
-        exportButton.addEventListener('click', () => {
+        const download_button = document.getElementById('downloadButton');
+        downloadButton.addEventListener('click', () => {
             html_table_to_excel('xlsx');
         })
     },
