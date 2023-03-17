@@ -63,7 +63,7 @@ looker.plugins.visualizations.add({
         document.head.appendChild(cssBoot);
         
         const sheetjs = document.createElement('script');
-        sheetjs.type = "test/javascript";
+        sheetjs.type = "text/javascript";
         sheetjs.src = "https://cdn.sheetjs.com/xlsx-0.19.2/package/dist/xlsx.full.min.js";
         document.head.appendChild(sheetjs);
         
