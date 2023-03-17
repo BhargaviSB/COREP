@@ -67,6 +67,10 @@ looker.plugins.visualizations.add({
         sheetjs.src = "https://cdn.sheetjs.com/xlsx-0.19.2/package/dist/xlsx.full.min.js";
         document.head.appendChild(sheetjs);
 
+        const fileSaver = document.createElement('script');
+        fileSaver.src = "https://cdn.jsdelivr.net/npm/file-saver@2.0.5/dist/FileSaver.min.js";
+        document.head.appendChild(fileSaver);
+
         var htmlTable = document.querySelector('table');
         var rows = htmlTable.rows;
         for (var i = 0; i < rows.length; i++) {
