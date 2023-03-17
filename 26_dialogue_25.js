@@ -58,7 +58,7 @@ looker.plugins.visualizations.add({
         const cssBoot = document.createElement('link');
         cssBoot.rel = "stylesheet";
         cssBoot.href = "https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css";
-        cssBoot.integrity = "sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD";
+        // cssBoot.integrity = "sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD";
         cssBoot.crossorigin = "anonymous";
         document.head.appendChild(cssBoot);
         
@@ -96,14 +96,25 @@ looker.plugins.visualizations.add({
             var wsheet = XLSX.utils.table_to_sheet(data);
             var wbook = XLSX.utils.book_new();
             XLSX.utils.book_append_sheet(wbook, wsheet, "Sheet1");
-            // var wbexport = 
-            XLSX.write(wbook, {
+            var wbexport = XLSX.write(wbook, {
                 bookType: 'xlsx',
                 bookSST: true,
                 type: 'binary'
-            });
-            XLSX.writefile(wbook, 'file.' + 'xlsx');
-            
+            });      
+
+            saveAs(new Blob([s2ab(wbexport)], {
+                type: "application/octet-stream"
+            }), 'export26.xlsx');
+
+            function s2ab(s) {
+                var buf = new ArrayBuffer(s.length);
+                var view = new Uint8Array(buf);
+                for (var i = 0; i < s.length; i++) view[i] = s.charCodeAt(i) & 0xFF;
+                return buf;
+            }
+
+
+
             // var file = XLSX.utils.table_to_book(data, {sheet: "Sheet26"});
             // XLSX.write(file, {bookType: type, bookSST: true, type: 'base64'});
             // XLSX.writefile(file, 'file.' + type);
