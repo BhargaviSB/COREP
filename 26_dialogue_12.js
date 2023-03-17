@@ -92,7 +92,7 @@ looker.plugins.visualizations.add({
         const download_button = document.getElementById('downloadButton');
         downloadButton.addEventListener('click', () => {
             var type = "xlsx";
-            var data = document.getElementsByName('htmltable');
+            var data = document.getElementsByName('looker_table');
             var file = XLSX.utils.table_to_book(data, {sheet: "Sheet26"});
             XLSX.write(file, {bookType: type, bookSST: true, type: 'base64'});
             XLSX.writefile(file, 'file.' + type);
