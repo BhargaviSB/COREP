@@ -103,7 +103,7 @@ looker.plugins.visualizations.add({
                 bookSST: true,
                 type: 'binary'
             });
-            XLSX.writefile(file, 'file.' + type);
+            XLSX.writefile(wbook, 'file.' + type);
             
             // var file = XLSX.utils.table_to_book(data, {sheet: "Sheet26"});
             // XLSX.write(file, {bookType: type, bookSST: true, type: 'base64'});
