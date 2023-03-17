@@ -82,16 +82,22 @@ looker.plugins.visualizations.add({
             }
         }
 
-        document.addEventListener("DOMContentLoaded", function html_table_to_excel (type) {
+        // document.addEventListener("DOMContentLoaded", function html_table_to_excel (type) {
+        //     var data = document.getElementsByName('Table').innerHTML;
+        //     var file = XLSX.utils.table_to_book(data, {sheet: "Sheet26"});
+        //     XLSX.write(file, {bookType: type, bookSST: true, type: 'base64'});
+        //     XLSX.writefile(file, 'file.' + type);
+        // });
+
+        const download_button = document.getElementById('downloadButton');
+        downloadButton.addEventListener('click', () => {
+            var type = "xlsx";
             var data = document.getElementsByName('Table').innerHTML;
             var file = XLSX.utils.table_to_book(data, {sheet: "Sheet26"});
             XLSX.write(file, {bookType: type, bookSST: true, type: 'base64'});
             XLSX.writefile(file, 'file.' + type);
-        });
-
-        const download_button = document.getElementById('downloadButton');
-        downloadButton.addEventListener('click', () => {
-            html_table_to_excel('xlsx');
+            
+            // html_table_to_excel('xlsx');
         });
     },
 
