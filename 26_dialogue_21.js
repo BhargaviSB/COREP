@@ -58,7 +58,7 @@ looker.plugins.visualizations.add({
         const cssBoot = document.createElement('link');
         cssBoot.rel = "stylesheet";
         cssBoot.href = "https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css";
-        // cssBoot.integrity = "sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD";
+        cssBoot.integrity = "sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD";
         cssBoot.crossorigin = "anonymous";
         document.head.appendChild(cssBoot);
         
@@ -66,12 +66,6 @@ looker.plugins.visualizations.add({
         sheetjs.lang = "javascript";
         sheetjs.src = "https://cdn.sheetjs.com/xlsx-0.19.2/package/dist/xlsx.full.min.js";
         document.head.appendChild(sheetjs);
-        
-        const downloadButton = document.createElement('button');
-        downloadButton.type = "button";
-        downloadButton.id = "download_button";
-        downloadButton.title = "Export as Excel";
-        this._container.prepend(downloadButton);
 
         var htmlTable = document.querySelector('table');
         var rows = htmlTable.rows;
@@ -89,13 +83,27 @@ looker.plugins.visualizations.add({
         //     XLSX.writefile(file, 'file.' + type);
         // });
 
-        const download_button = document.getElementById('downloadButton');
+        // const download_Button = document.getElementById('downloadButton'); 
+
+        const downloadButton = document.createElement('button');
+        downloadButton.type = "button";
+        downloadButton.id = "download_button";
+        downloadButton.title = "Export as Excel";
+        this._container.prepend(downloadButton);
         downloadButton.addEventListener('click', () => {
-            var type = "xlsx";
+            // var type = "xlsx";
             var data = htmlTable;
+            
             var wsheet = XLSX.utils.table_to_sheet(data);
             var wbook = XLSX.utils.book_new();
             XLSX.utils.book_append_sheet(wbook, wsheet, "Sheet1");
+            // var wbexport = 
+            XLSX.write(wbook, {
+                bookType: 'xlsx',
+                bookSST: true,
+                type: 'binary'
+            });
+            XLSX.writefile(file, 'file.' + type);
             
             // var file = XLSX.utils.table_to_book(data, {sheet: "Sheet26"});
             // XLSX.write(file, {bookType: type, bookSST: true, type: 'base64'});
