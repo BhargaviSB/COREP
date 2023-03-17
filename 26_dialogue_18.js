@@ -73,8 +73,8 @@ looker.plugins.visualizations.add({
         downloadButton.title = "Export as Excel";
         this._container.prepend(downloadButton);
 
-        var table = document.querySelector('table');
-        var rows = table.rows;
+        var htmlTable = document.querySelector('table');
+        var rows = htmlTable.rows;
         for (var i = 0; i < rows.length; i++) {
             var cells = rows[i].cells;
             for (var j = 0; j < cells.length; j++) {
@@ -92,10 +92,14 @@ looker.plugins.visualizations.add({
         const download_button = document.getElementById('downloadButton');
         downloadButton.addEventListener('click', () => {
             var type = "xlsx";
-            var data = table.innerHTML;
-            var file = XLSX.utils.table_to_book(data, {sheet: "Sheet26"});
-            XLSX.write(file, {bookType: type, bookSST: true, type: 'base64'});
-            XLSX.writefile(file, 'file.' + type);
+            var data = htmlTable.innerHTML;;
+            var wsheet = XLSX.utils.table_to_sheet(data);
+            var wbook = XLSX.utils.book_new();
+            XLSX.utils.book_append_sheet(wbook, wsheet, "Sheet1");
+            
+            // var file = XLSX.utils.table_to_book(data, {sheet: "Sheet26"});
+            // XLSX.write(file, {bookType: type, bookSST: true, type: 'base64'});
+            // XLSX.writefile(file, 'file.' + type);
             
             // html_table_to_excel('xlsx');
         });
