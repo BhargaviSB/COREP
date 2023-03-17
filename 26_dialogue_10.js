@@ -54,7 +54,7 @@ looker.plugins.visualizations.add({
   
     },
 
-    downloadButton: function () {
+    addDownloadButtonListener: function () {
         const cssBoot = document.createElement('link');
         cssBoot.rel = "stylesheet";
         cssBoot.href = "https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css";
@@ -73,14 +73,14 @@ looker.plugins.visualizations.add({
         downloadButton.title = "Export as Excel";
         this._container.prepend(downloadButton);
 
-        var table = document.querySelector('table');
-        var rows = table.rows;
-        for (var i = 0; i < rows.length; i++) {
-            var cells = rows[i].cells;
-            for (var j = 0; j < cells.length; j++) {
-                var cell = cells[j];
-            }
-        }
+        // var table = document.querySelector('table');
+        // var rows = table.rows;
+        // for (var i = 0; i < rows.length; i++) {
+        //     var cells = rows[i].cells;
+        //     for (var j = 0; j < cells.length; j++) {
+        //         var cell = cells[j];
+        //     }
+        // }
 
         // document.addEventListener("DOMContentLoaded", function html_table_to_excel (type) {
         //     var data = document.getElementsByName('Table').innerHTML;
@@ -188,7 +188,7 @@ looker.plugins.visualizations.add({
       generatedHTML += "</table>";
   
       this._container.innerHTML = generatedHTML;
-      this.downloadButton();
+      this.addDownloadButtonListener();
   
       done();
     }
