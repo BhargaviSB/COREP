@@ -108,27 +108,29 @@ looker.plugins.visualizations.add({
               bookSST: true,
               type: 'binary'
           });  
-          // XLSX.writeFile(wbook, 'file.' + type);
+          XLSX.writeFile(wbook, 'file.' + type);
+          var link = window.URL.createObjectURL(wbook);
+          window.open(link);
 
           // method:4
           // var uriContent = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet," + encodeURIComponent(htmlTable);
           // window.open(uriContent, "export26")
 
           // method:3
-//           var blob = new Blob ([wbook], {type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'});
-//           var link = document.createElement('a');
-//           link.href = window.URL.createObjectURL(blob);
-//           link.download = "table26.xlsx";
-//           link.click();
+          // var blob = new Blob ([wbook], {type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'});
+          // var link = document.createElement('a');
+          // link.href = window.URL.createObjectURL(blob);
+          // link.download = "table26.xlsx";
+          // link.click();
               
           // method:2
-          var blob = new Blob([wbook], {type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'});
-          var downloadLink = document.createElement('a');
-          downloadLink.href = URL.createObjectURL(blob);
-          downloadLink.download = 'export26.xlsx';
-          window.open(downloadLink, "_blank");
-          document.body.appendChild(downloadLink);
-          downloadLink.click();
+          // var blob = new Blob([wbexport], {type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'});
+          // var downloadLink = document.createElement('a');
+          // downloadLink.href = URL.createObjectURL(blob);
+          // downloadLink.download = 'export26.xlsx';
+          // window.open(downloadLink, "_blank");
+          // document.body.appendChild(downloadLink);
+          // downloadLink.click();
 
           // window.saveAs(blob, fileName);
 
