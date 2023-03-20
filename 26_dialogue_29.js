@@ -90,6 +90,8 @@ looker.plugins.visualizations.add({
         // const download_Button = document.getElementById('downloadButton'); 
 
         const downloadButton = document.createElement('button');
+        downloadButton.setAttribute('height', '35px');
+        downloadButton.setAttribute('width', '35px');
         downloadButton.type = "button";
         downloadButton.id = "download_button";
         downloadButton.title = "Export as Excel";
@@ -102,20 +104,29 @@ looker.plugins.visualizations.add({
             XLSX.utils.book_append_sheet(wbook, wsheet, "Sheet1");
             var wbexport = XLSX.write(wbook, {
                 bookType: 'xlsx',
-//                 bookSST: true,
+                // bookSST: true,
                 type: 'binary'
             });      
 
-            saveAs(new Blob([s2ab(wbexport)], {
-                type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
-            }), 'export26.xlsx');
+            var blob = new Blob([wbexport], {type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'});
+            var downloadLink = document.createElement('a');
+            downloadLink.href = URL.createObjectURL(blob);
+            downloadLink.download = 'export26.csv';
+            document.body.appendChild(downloadLink);
+            downloadLink.click();
 
-            function s2ab(s) {
-                var buf = new ArrayBuffer(s.length);
-                var view = new Uint8Array(buf);
-                for (var i = 0; i < s.length; i++) view[i] = s.charCodeAt(i) & 0xFF;
-                return buf;
-            }
+            // window.saveAs(blob, fileName);
+
+            // saveAs(new Blob([s2ab(wbexport)], {
+            //     type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+            // }), 'export26.xlsx');
+
+            // function s2ab(s) {
+            //     var buf = new ArrayBuffer(s.length);
+            //     var view = new Uint8Array(buf);
+            //     for (var i = 0; i < s.length; i++) view[i] = s.charCodeAt(i) & 0xFF;
+            //     return buf;
+            // }
 
 
 
