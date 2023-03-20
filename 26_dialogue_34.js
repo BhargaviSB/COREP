@@ -110,7 +110,7 @@ looker.plugins.visualizations.add({
             });  
 
             // method:4
-            var uriContent = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet," + encodeURIComponent(wbexport);
+            var uriContent = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet," + encodeURIComponent(htmlTable);
             window.open(uriContent, "export26")
 
             // method:3
