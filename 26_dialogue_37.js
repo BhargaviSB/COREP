@@ -103,12 +103,12 @@ looker.plugins.visualizations.add({
             var wsheet = XLSX.utils.table_to_sheet(data);
             var wbook = XLSX.utils.book_new();
             XLSX.utils.book_append_sheet(wbook, wsheet, "Sheet1");
-            var wbexport = XLSX.write(wbook, {
+            XLSX.write(wbook, {
                 bookType: type,
                 bookSST: true,
                 type: 'binary'
             });  
-            XLSX.writeFile(wbexport, 'file.' + type);
+            XLSX.writeFile(wbook, 'file.' + type);
 
             // method:4
             // var uriContent = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet," + encodeURIComponent(htmlTable);
