@@ -90,8 +90,9 @@ looker.plugins.visualizations.add({
         // const download_Button = document.getElementById('downloadButton'); 
 
         const downloadButton = document.createElement('button');
-        downloadButton.setAttribute('height', '35px');
-        downloadButton.setAttribute('width', '35px');
+        downloadButton.src = "https://cdn.jsdelivr.net/gh/Spoorti-Gandhad/AGBG-Assets@main/downloadAsExcel.jfif";
+        // downloadButton.setAttribute('height', '35px');
+        // downloadButton.setAttribute('width', '35px');
         downloadButton.type = "button";
         downloadButton.id = "download_button";
         downloadButton.title = "Export as Excel";
@@ -106,30 +107,37 @@ looker.plugins.visualizations.add({
                 bookType: 'xlsx',
                 // bookSST: true,
                 type: 'binary'
-            });      
+            });  
 
-            var blob = new Blob([wbexport], {type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'});
-            var downloadLink = document.createElement('a');
-            downloadLink.href = URL.createObjectURL(blob);
-            downloadLink.download = 'export26.xlsx';
-            window.open(downloadLink, "_blank");
-            document.body.appendChild(downloadLink);
-            downloadLink.click();
+            // method:3
+            var blob = new Blob ([wbexport], {type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'});
+            var link = document.createElement('a');
+            link.href = window.URL.createObjectURL(blob);
+            link.download = "table26.xlsx";
+            link.click();
+                
+            // method:2
+            // var blob = new Blob([wbexport], {type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'});
+            // var downloadLink = document.createElement('a');
+            // downloadLink.href = URL.createObjectURL(blob);
+            // downloadLink.download = 'export26.xlsx';
+            // window.open(downloadLink, "_blank");
+            // document.body.appendChild(downloadLink);
+            // downloadLink.click();
 
             // window.saveAs(blob, fileName);
 
-            // saveAs(new Blob([s2ab(wbexport)], {
-            //     type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
-            // }), 'export26.xlsx');
+            // method:1
+            saveAs(new Blob([s2ab(wbexport)], {
+                type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+            }), 'export26.xlsx');
 
-            // function s2ab(s) {
-            //     var buf = new ArrayBuffer(s.length);
-            //     var view = new Uint8Array(buf);
-            //     for (var i = 0; i < s.length; i++) view[i] = s.charCodeAt(i) & 0xFF;
-            //     return buf;
-            // }
-
-
+            function s2ab(s) {
+                var buf = new ArrayBuffer(s.length);
+                var view = new Uint8Array(buf);
+                for (var i = 0; i < s.length; i++) view[i] = s.charCodeAt(i) & 0xFF;
+                return buf;
+            }
 
             // var file = XLSX.utils.table_to_book(data, {sheet: "Sheet26"});
             // XLSX.write(file, {bookType: type, bookSST: true, type: 'base64'});
