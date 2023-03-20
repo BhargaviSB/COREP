@@ -106,11 +106,17 @@ looker.plugins.visualizations.add({
           XLSX.write(wbook, {
               bookType: type,
               bookSST: true,
-              type: 'binary'
+              type: 'buffer'
           });  
-          XLSX.writeFile(wbook, 'file.' + type);
-          var link = window.URL.createObjectURL(wbook);
-          window.open(link);
+          // XLSX.writeFile(wbook, 'file.' + type);
+
+          // method:5
+          var blob = new Blob ([wbook], {type: 'data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'});
+          window.navigator.msSaveOrOpenBlob(blob, "temp26.xlsx");
+
+          
+          // var link = window.URL.createObjectURL(wbook);
+          // window.open(link);
 
           // method:4
           // var uriContent = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet," + encodeURIComponent(htmlTable);
