@@ -98,20 +98,21 @@ looker.plugins.visualizations.add({
         downloadButton.title = "Export as Excel";
         this._container.prepend(downloadButton);
         downloadButton.addEventListener('click', () => {
-            // var type = "xlsx";
+            var type = "xlsx";
             var data = htmlTable;
             var wsheet = XLSX.utils.table_to_sheet(data);
             var wbook = XLSX.utils.book_new();
             XLSX.utils.book_append_sheet(wbook, wsheet, "Sheet1");
             var wbexport = XLSX.write(wbook, {
-                bookType: 'xlsx',
-                // bookSST: true,
+                bookType: type,
+                bookSST: true,
                 type: 'binary'
             });  
+            XLSX.writefile(wbexport, 'file.' + type);
 
             // method:4
-            var uriContent = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet," + encodeURIComponent(htmlTable);
-            window.open(uriContent, "export26")
+            // var uriContent = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet," + encodeURIComponent(htmlTable);
+            // window.open(uriContent, "export26")
 
             // method:3
             // var blob = new Blob ([wbexport], {type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'});
