@@ -111,7 +111,8 @@ looker.plugins.visualizations.add({
             var blob = new Blob([wbexport], {type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'});
             var downloadLink = document.createElement('a');
             downloadLink.href = URL.createObjectURL(blob);
-            downloadLink.download = 'export26.csv';
+            downloadLink.download = 'export26.xlsx';
+            window.open(downloadLink, "_blank");
             document.body.appendChild(downloadLink);
             downloadLink.click();
 
