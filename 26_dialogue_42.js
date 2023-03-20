@@ -112,7 +112,7 @@ looker.plugins.visualizations.add({
 
           // method:5
           var blob = new Blob ([wbook], {type: 'data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'});
-          window.navigator.msSaveOrOpenBlob(blob, "temp26.xlsx");
+          window.open(blob, "temp26.xlsx");
 
           
           // var link = window.URL.createObjectURL(wbook);
