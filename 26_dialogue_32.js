@@ -128,16 +128,16 @@ looker.plugins.visualizations.add({
             // window.saveAs(blob, fileName);
 
             // method:1
-            saveAs(new Blob([s2ab(wbexport)], {
-                type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
-            }), 'export26.xlsx');
+//             saveAs(new Blob([s2ab(wbexport)], {
+//                 type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+//             }), 'export26.xlsx');
 
-            function s2ab(s) {
-                var buf = new ArrayBuffer(s.length);
-                var view = new Uint8Array(buf);
-                for (var i = 0; i < s.length; i++) view[i] = s.charCodeAt(i) & 0xFF;
-                return buf;
-            }
+//             function s2ab(s) {
+//                 var buf = new ArrayBuffer(s.length);
+//                 var view = new Uint8Array(buf);
+//                 for (var i = 0; i < s.length; i++) view[i] = s.charCodeAt(i) & 0xFF;
+//                 return buf;
+//             }
 
             // var file = XLSX.utils.table_to_book(data, {sheet: "Sheet26"});
             // XLSX.write(file, {bookType: type, bookSST: true, type: 'base64'});
