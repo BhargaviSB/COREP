@@ -102,12 +102,12 @@ looker.plugins.visualizations.add({
             XLSX.utils.book_append_sheet(wbook, wsheet, "Sheet1");
             var wbexport = XLSX.write(wbook, {
                 bookType: 'xlsx',
-                bookSST: true,
+//                 bookSST: true,
                 type: 'binary'
             });      
 
-            saveAs(new Blob([s2ab(wbout)], {
-                type: "application/octet-stream"
+            saveAs(new Blob([s2ab(wbexport)], {
+                type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
             }), 'export26.xlsx');
 
             function s2ab(s) {
