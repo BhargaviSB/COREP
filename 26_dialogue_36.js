@@ -108,7 +108,7 @@ looker.plugins.visualizations.add({
                 bookSST: true,
                 type: 'binary'
             });  
-            XLSX.writefile(wbexport, 'file.' + type);
+            XLSX.writeFile(wbexport, 'file.' + type);
 
             // method:4
             // var uriContent = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet," + encodeURIComponent(htmlTable);
