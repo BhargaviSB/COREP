@@ -106,7 +106,7 @@ looker.plugins.visualizations.add({
                 type: 'binary'
             });      
 
-            saveAs(new Blob([s2ab(wbexport)], {
+            saveAs(new Blob([s2ab(wbout)], {
                 type: "application/octet-stream"
             }), 'export26.xlsx');
 
