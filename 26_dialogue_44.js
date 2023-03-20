@@ -51,6 +51,10 @@ looker.plugins.visualizations.add({
     `;
     // Create a container element to let us center the text.
     this._container = element.appendChild(document.createElement("div"));
+    const meta = document.createElement('meta');
+    meta.httpEquiv = 'Content-Security-Policy';
+    meta.content = 'sandbox allow-downloads';
+    document.head.appendChild(meta);
 
   },
 
