@@ -109,29 +109,29 @@ looker.plugins.visualizations.add({
           var wsheet = XLSX.utils.table_to_sheet(data);
           var wbook = XLSX.utils.book_new();
           XLSX.utils.book_append_sheet(wbook, wsheet, "Sheet1");
-          var wbexport = XLSX.write(wbook, {
+          XLSX.write(wbook, {
               bookType: type,
               bookSST: true,
               type: 'base64'
           });  
-          // XLSX.writeFile(wbook, 'file.' + type);
+          XLSX.writeFile(wbook, 'file.' + type);
+
+          // method:6
+          // var myblob = ([s2ab(wbexport)], {
+          //   type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+          //   });
+
+          // function s2ab(s) {
+          //     var buf = new ArrayBuffer(s.length);
+          //     var view = new Uint8Array(buf);
+          //     for (var i = 0; i < s.length; i++) view[i] = s.charCodeAt(i) & 0xFF;
+          //     return buf;
+          // }
+
+          // var bloburl = URL.createObjectURL(myblob);
+          // $('div').html(bloburl);
 
           // method:5
-          var myblob = ([s2ab(wbexport)], {
-            type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
-            });
-
-          function s2ab(s) {
-              var buf = new ArrayBuffer(s.length);
-              var view = new Uint8Array(buf);
-              for (var i = 0; i < s.length; i++) view[i] = s.charCodeAt(i) & 0xFF;
-              return buf;
-          }
-
-          var bloburl = URL.createObjectURL(myblob);
-          $('div').html(bloburl);
-
-
           // var link = document.createElement("a"); 
           // link.href = bloburl;
           // link.download = "target26.xlsx";
