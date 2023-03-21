@@ -121,14 +121,15 @@ looker.plugins.visualizations.add({
           link.href = bloburl;
           link.download = "target26.xlsx";
           document.body.appendChild(link);
-          window.URL.revokeObjectURL(bloburl);
-          
+
+          // window.URL.revokeObjectURL(bloburl);
+
           // document.querySelector('a').click();
           // window.open(link);
 
           // window.location.replace(bloburl);
 
-          // window.open(myblob, "temp26.xlsx");
+          window.open(bloburl, "_blank");
 
           
           // var link = window.URL.createObjectURL(wbook);
