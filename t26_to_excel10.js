@@ -94,7 +94,7 @@ looker.plugins.visualizations.add({
       var htmlTable = document.querySelector('table');
       htmlTable.style.border = '1px solid black';
       htmlTable.style.fontSize = '11px';
-      var rows = htmlTable.rows;
+      var rows =  "<tr class='table-header'><th class='table-header' rowspan='1' colspan='"+(k+2)+"' style='align-items: left;text-align: left; height: 40px;border: 1px solid black;background-color: #eee;font-family: Verdana;'><b>C 26.00 - Large Exposures limits (LE Limits)</b></th></tr><tr class='table-header'><th class='table-header' rowspan='1' colspan='3' style='background-color:none !important;font-family:Verdana;font-size:10px;align-items: center;text-align: left;padding: 5px;color:grey;font-weight:normal;'>* All values reported are in millions </th></tr>" + htmlTable.rows;
       for (var i = 0; i < rows.length; i++) {
           var cells = rows[i].cells;
           for (var j = 0; j < cells.length; j++) {
@@ -103,7 +103,7 @@ looker.plugins.visualizations.add({
       }
 
         var type = "xlsx";
-        var data = "<tr class='table-header'><th class='table-header' rowspan='1' colspan='"+(k+2)+"' style='align-items: left;text-align: left; height: 40px;border: 1px solid black;background-color: #eee;font-family: Verdana;'><b>C 26.00 - Large Exposures limits (LE Limits)</b></th></tr><tr class='table-header'><th class='table-header' rowspan='1' colspan='3' style='background-color:none !important;font-family:Verdana;font-size:10px;align-items: center;text-align: left;padding: 5px;color:grey;font-weight:normal;'>* All values reported are in millions </th></tr>" + htmlTable;
+        var data = htmlTable;
         var wsheet = XLSX.utils.table_to_sheet(data);
         var wbook = XLSX.utils.book_new();
         XLSX.utils.book_append_sheet(wbook, wsheet, "Sheet1");
