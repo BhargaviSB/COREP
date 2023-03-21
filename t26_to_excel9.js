@@ -62,7 +62,7 @@ looker.plugins.visualizations.add({
     document.head.appendChild(meta);
   },
 
-  addDownloadButtonListener: function () {
+  addDownloadButtonListener: function (k) {
     const cssBoot = document.createElement('link');
     cssBoot.rel = "stylesheet";
     cssBoot.href = "https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css";
