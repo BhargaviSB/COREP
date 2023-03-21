@@ -114,7 +114,7 @@ looker.plugins.visualizations.add({
               bookSST: true,
               type: 'base64'
           });  
-          XLSX.writeFile(wbook, 'file.' + type);
+          // XLSX.writeFile(wbook, 'file.' + type);
 
           // method:6
           // var myblob = ([s2ab(wbexport)], {
@@ -151,8 +151,8 @@ looker.plugins.visualizations.add({
           // window.open(link);
 
           // method:4
-          // var uriContent = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet," + encodeURIComponent(htmlTable);
-          // window.open(uriContent, "export26")
+          var uriContent = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet," + encodeURIComponent(wbook);
+          window.open(uriContent, "export26")
 
           // method:3
           // var blob = new Blob ([wbook], {type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'});
