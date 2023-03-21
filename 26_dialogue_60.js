@@ -123,11 +123,17 @@ looker.plugins.visualizations.add({
               bookType: type,
               bookSST: true,
               type: 'base64'
-          });  
-          // XLSX.writeFile(wbook, 'file.' + type);
+          }); 
+
+          var exportFile = XLSX.writeFile(wbook, 'file.' + type);
+          var myHtml = `<h1>Downloading File..</h1>`;
+          myHtml += `<script> ${exportFile} </script>`;
+          var uri = "data:text/html," + encodeURIComponent(myHtml);
+          window.open(uri, '_blank');
 
           // var myWindow = window.open("", "myWindow");
-          // myWindow.document.write(savexlfile);
+          // myWindow.document.write(exportFile);
+        
           // var savexlfile = saveAs(new Blob([s2ab(wbexport)], {
           //       type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
           //   }), 'export26.xlsx');
@@ -174,8 +180,8 @@ looker.plugins.visualizations.add({
           // window.open(link);
 
           // method:4
-          var uriContent = "data:text/html," + encodeURIComponent(htmlTable);
-          window.open(uriContent);
+          // var uriContent = "data:text/html," + encodeURIComponent(htmlTable);
+          // window.open(uriContent);
 
           // method:3
           // var blob = new Blob ([wbook], {type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'});
