@@ -34,7 +34,7 @@ looker.plugins.visualizations.add({
             text-align: center;
             margin: auto;
             width: 90px;
-     //     postion: inherit;
+            postion: inherit;
           }
           .table-cell {
             padding: 5px;
@@ -53,14 +53,6 @@ looker.plugins.visualizations.add({
             top: 0px; 
             z-index: 3;
           }
-          th:before {
-            left: 0;
-            position: absolute;
-            content: '';
-            width: 100%;
-            border-top: 1px solid #000000;
-            top: 102px;
-         }
           th:after {
             content:''; 
             position:absolute; 
@@ -69,6 +61,14 @@ looker.plugins.visualizations.add({
             width:100%; 
             border-bottom: 1px solid rgba(0,0,0,0.12);
           }
+          th:before {
+            left: 0;
+            position: absolute;
+            content: '';
+            width: 100%;
+            border-top: 1px solid #4c535b;
+            top: 103px;
+         }
          .div{
             overflow-y: auto;
             height: calc(100vh - 100px);
@@ -84,57 +84,116 @@ looker.plugins.visualizations.add({
       this._container = element.appendChild(div);
   
     },
-  
+
     addDownloadButtonListener: function () {
-    const downloadButton = document.createElement('img');
-    downloadButton.src = "https://cdn.jsdelivr.net/gh/Spoorti-Gandhad/AGBG-Assets@main/downloadAsExcel.jfif";
-    downloadButton.setAttribute('height', '25px');
-    downloadButton.setAttribute('width', '25px');
-    downloadButton.setAttribute('title', 'Download As Excel');   
-    this._container.prepend(downloadButton);
-    downloadButton.addEventListener('click', (event) => {
-          var uri = 'data:application/vnd.ms-excel;base64,'
-            , template = '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40"><head><!--[if gte mso 9]><xml><x:ExcelWorkbook><x:ExcelWorksheets><x:ExcelWorksheet><x:Name>{Worksheet}</x:Name><x:WorksheetOptions><x:DisplayGridlines/></x:WorksheetOptions></x:ExcelWorksheet></x:ExcelWorksheets></x:ExcelWorkbook></xml><![endif]--><meta http-equiv="content-type" content="text/plain; charset=UTF-8"/></head><body><table>{table}</table></body></html>'
-            , base64 = function (s) { return window.btoa(unescape(encodeURIComponent(s))) }
-            , format = function (s, c) {
-              const regex = /style="([^"]*)"/g;
-              return s.replace(/{(\w+)}/g, function (m, p) {
-                const cellHtml = c[p];
-                const cellHtmlWithStyle = cellHtml.replace(regex, function (m, p1) {
-                  return 'style="' + p1 + '"';
-                });
-                return cellHtmlWithStyle;
-              });
-            };
-         // Create a new style element and set the default styles
-        var table = document.querySelector('table');  
-      // table.style.type = 'text/css';
-      // table.style.innerHTML = 'td, th { background-color: white; border: 1px solid black; font-weight: normal; font-size: 11pt; font-family: Calibri; mso-number-format: "\\\@"; }';
-         
-      var rows = table.rows;
-        for (var i = 0; i < rows.length; i++) {
-        var cells = rows[i].cells;
-        for (var j = 0; j < cells.length; j++) {
-          var cell = cells[j];
+        // const cssBoot = document.createElement('link');
+        // cssBoot.rel = "stylesheet";
+        // cssBoot.href = "https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css";
+        // // cssBoot.integrity = "sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD";
+        // cssBoot.crossorigin = "anonymous";
+        // document.head.appendChild(cssBoot);
+        
+        const sheetjs = document.createElement('script');
+        sheetjs.lang = "javascript";
+        sheetjs.src = "https://cdn.sheetjs.com/xlsx-0.19.2/package/dist/xlsx.full.min.js";
+        document.head.appendChild(sheetjs);
+    
+        // const fileSaver = document.createElement('script');
+        // fileSaver.src = "https://cdn.jsdelivr.net/npm/file-saver@2.0.5/dist/FileSaver.min.js";
+        // document.head.appendChild(fileSaver);
+    
+        const downloadButton = document.createElement('img');
+        downloadButton.src = "https://cdn.jsdelivr.net/gh/Spoorti-Gandhad/AGBG-Assets@main/downloadAsExcel.jfif";
+        downloadButton.setAttribute('height', '25px');
+        downloadButton.setAttribute('width', '25px');
+        downloadButton.setAttribute('title', 'Download As Excel'); 
+         downloadButton.style.marginLeft='90%';
+        // downloadButton.type = "button";
+        // downloadButton.id = "download_button";
+        // downloadButton.title = "Export as Excel";
+        this._container.prepend(downloadButton);
+        downloadButton.addEventListener('click', () => { 
+    
+          var htmlTable = document.querySelector('table');
+          var rows = htmlTable.rows;
+          for (var i = 0; i < rows.length; i++) {
+              var cells = rows[i].cells;
+              for (var j = 0; j < cells.length; j++) {
+                  var cell = cells[j];
+              }
+          }
+    
+            var type = "xlsx";
+            var data = htmlTable;
+            var wsheet = XLSX.utils.table_to_sheet(data);
+            var wbook = XLSX.utils.book_new();
+            XLSX.utils.book_append_sheet(wbook, wsheet, "Sheet1");
+            var wbexport = XLSX.write(wbook, {
+                bookType: type,
+                bookSST: true,
+                type: 'binary'
+            }); 
+            
+            var link = document.createElement("a"); 
+            link.download = "target26.xlsx";
+            link.href = "data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;base64," + btoa(wbexport);
+            link.click();
+            window.open(link, '_blank');
           
-        //   cell.setAttribute('style');
-         }
-        }
-          const XLSX = document.createElement('script');
-          XLSX.src = 'https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js';
-          document.head.appendChild(XLSX);
-          //var ctx = { Worksheet: '27', table: table.innerHTML };
-          var ctx = { Worksheet: '27', table: "<tr class='table-header'><th class='table-header' rowspan='1' colspan='100' style='align-items: left;text-align: left; height: 40px;border: 1px solid black;background-color: #eee;font-family: Verdana;'><b>C 27.00 - Identification of the counterparty (LE 1)</b></th></tr><tr class='table-header'><th class='table-header' rowspan='1' colspan='3' style='background-color:none !important;font-family:Verdana;font-size:10px;align-items: center;text-align: right;padding: 5px;color:grey;font-weight:normal;'>* All values reported are in millions </th></tr>"+table.innerHTML }
-         
-          var xl = format(template, ctx);
-          const downloadUrl = uri + base64(xl);
-          console.log(downloadUrl); // Prints the download URL to the console
-          //sleep(1000);
-          //window.open(downloadUrl);
-          window.open(downloadUrl, "_blank");
-          //setTimeout(window.open(downloadUrl, 'Download'),1000);
         });
-      },
+    },
+  
+    // addDownloadButtonListener: function () {
+    // const downloadButton = document.createElement('img');
+    // downloadButton.src = "https://cdn.jsdelivr.net/gh/Spoorti-Gandhad/AGBG-Assets@main/downloadAsExcel.jfif";
+    // downloadButton.setAttribute('height', '25px');
+    // downloadButton.setAttribute('width', '25px');
+    // downloadButton.setAttribute('title', 'Download As Excel');   
+    // downloadButton.style.marginLeft='90%';
+    // this._container.prepend(downloadButton);
+    // downloadButton.addEventListener('click', (event) => {
+    //       var uri = 'data:application/vnd.ms-excel;base64,'
+    //         , template = '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40"><head><!--[if gte mso 9]><xml><x:ExcelWorkbook><x:ExcelWorksheets><x:ExcelWorksheet><x:Name>{Worksheet}</x:Name><x:WorksheetOptions><x:DisplayGridlines/></x:WorksheetOptions></x:ExcelWorksheet></x:ExcelWorksheets></x:ExcelWorkbook></xml><![endif]--><meta http-equiv="content-type" content="text/plain; charset=UTF-8"/></head><body><table>{table}</table></body></html>'
+    //         , base64 = function (s) { return window.btoa(unescape(encodeURIComponent(s))) }
+    //         , format = function (s, c) {
+    //           const regex = /style="([^"]*)"/g;
+    //           return s.replace(/{(\w+)}/g, function (m, p) {
+    //             const cellHtml = c[p];
+    //             const cellHtmlWithStyle = cellHtml.replace(regex, function (m, p1) {
+    //               return 'style="' + p1 + '"';
+    //             });
+    //             return cellHtmlWithStyle;
+    //           });
+    //         };
+    //      // Create a new style element and set the default styles
+    //     var table = document.querySelector('table');  
+    //   // table.style.type = 'text/css';
+    //   // table.style.innerHTML = 'td, th { background-color: white; border: 1px solid black; font-weight: normal; font-size: 11pt; font-family: Calibri; mso-number-format: "\\\@"; }';
+         
+    //   var rows = table.rows;
+    //     for (var i = 0; i < rows.length; i++) {
+    //     var cells = rows[i].cells;
+    //     for (var j = 0; j < cells.length; j++) {
+    //       var cell = cells[j];
+          
+    //     //   cell.setAttribute('style');
+    //      }
+    //     }
+    //       const XLSX = document.createElement('script');
+    //       XLSX.src = 'https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js';
+    //       document.head.appendChild(XLSX);
+    //       //var ctx = { Worksheet: '27', table: table.innerHTML };
+    //       var ctx = { Worksheet: '27', table: "<tr class='table-header'><th class='table-header' rowspan='1' colspan='8' style='align-items: left;text-align: left; height: 40px;border: 1px solid black;background-color: #eee;font-family: Verdana;'><b>C 27.00 - Identification of the counterparty (LE 1)</b></th></tr><tr class='table-header'><th class='table-header' rowspan='1' colspan='3' style='background-color:none !important;font-family:Verdana;font-size:10px;align-items: center;text-align: left;padding: 5px;color:grey;font-weight:normal;'>* All values reported are in millions </th></tr>"+table.innerHTML }
+         
+    //       var xl = format(template, ctx);
+    //       const downloadUrl = uri + base64(xl);
+    //       console.log(downloadUrl); // Prints the download URL to the console
+    //       //sleep(1000);
+    //       //window.open(downloadUrl);
+    //       window.open(downloadUrl, "_blank");
+    //       //setTimeout(window.open(downloadUrl, 'Download'),1000);
+    //     });
+    //   },
     
     // Render in response to the data or settings changing
     updateAsync: function (data, element, config, queryResponse, details, done) {
@@ -164,7 +223,7 @@ looker.plugins.visualizations.add({
             background-color: #eee;
             border: 1px solid black;
             border-collapse: collapse;
-    //      postion: inherit;
+            postion: inherit;
             font-weight: normal;
             font-family: 'Verdana';
             font-size: 11px;
@@ -194,14 +253,6 @@ looker.plugins.visualizations.add({
             top: 0px; 
             z-index: 3;
           }
-        th:before {
-            left: 0;
-            position: absolute;
-            content: '';
-            width: 100%;
-            border-top: 1px solid #000000; 
-            top: 103px;
-        }          
           th:after {
             content:''; 
             position:absolute; 
@@ -210,6 +261,14 @@ looker.plugins.visualizations.add({
             width:100%; 
             border-bottom: 1px solid rgba(0,0,0,0.12);
          }
+        th:before {
+            left: 0;
+            position: absolute;
+            content: '';
+            width: 100%;
+            border-top: 1px solid #4c535b;
+            top: 103px;
+        }
         .div{
             overflow-y: auto;
             height: calc(100vh - 100px);
@@ -219,7 +278,7 @@ looker.plugins.visualizations.add({
         </style>
       `;
   
-      generatedHTML += "<p style='font-family:Verdana;width:100%;font-weight:bold;font-size:14px;align-items:center;text-align:left;border:1px solid black;padding: 5px;background-color: #eee;'>C 27.00 - Identification of the counterparty (LE 1)</p>";
+      generatedHTML += "<p style='font-family:Verdana;margin:auto;font-weight:bold;font-size:14px;align-items:center;text-align:left;border:1px solid black;padding: 5px;background-color: #eee;'>C 27.00 - Identification of the counterparty (LE 1)</p>";
       generatedHTML += "<p style='font-family:Verdana;font-size:10px;align-items: center;text-align: right;padding: 5px;'>* All values reported are in millions </p>";
       generatedHTML += "<table class='table'>";
       generatedHTML += "<thead class='thead'>";
@@ -241,11 +300,11 @@ looker.plugins.visualizations.add({
       // First row is the header
       generatedHTML += "<tr class='table-header'>";
       for (let i=0;i<header.length;i++) {
-        generatedHTML += `<th class='table-header' style='border: 1px solid black;background-color: #eee;font-family: Verdana;font-weight: normal;'>${header[i]}</th>`;
+        generatedHTML += `<th class='table-header' style='border: 1px solid black;background-color: #eee;font-family: Verdana;font-weight: normal;mso-number-format: "\ \@";'>${header[i]}</th>`;
       }
       generatedHTML += "</tr>";
       generatedHTML += "</thead>";
-
+  
       // Next rows are the data
       for (row of data) {
         generatedHTML += "<tr class='table-row'>";
