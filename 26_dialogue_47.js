@@ -122,6 +122,7 @@ looker.plugins.visualizations.add({
           link.download = "target26.xlsx";
           link.innerHTML = "Click here to download the file";
           document.body.appendChild(link);
+          document.querySelector('a').click();
 
           // window.location.replace(bloburl);
 
