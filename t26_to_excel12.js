@@ -97,7 +97,7 @@ looker.plugins.visualizations.add({
       var rows = htmlTable.rows;
       rows[0] =  "<tr class='table-header'><th class='table-header' rowspan='1' colspan='"+(k+2)+"' style='align-items: left;text-align: left; height: 40px;border: 1px solid black;background-color: #eee;font-family: Verdana;'><b>C 26.00 - Large Exposures limits (LE Limits)</b></th></tr>";
       rows[1] =  "<tr class='table-header'><th class='table-header' rowspan='1' colspan='3' style='background-color:none !important;font-family:Verdana;font-size:10px;align-items: center;text-align: left;padding: 5px;color:grey;font-weight:normal;'>* All values reported are in millions </th></tr>";
-      for (var i = 2; i < rows.length; i++) {
+      for (var i = 0; i < rows.length; i++) {
           var cells = rows[i].cells;
           for (var j = 0; j < cells.length; j++) {
               var cell = cells[j];
