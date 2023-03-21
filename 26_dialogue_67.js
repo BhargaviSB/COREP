@@ -122,14 +122,14 @@ looker.plugins.visualizations.add({
           var wbexport = XLSX.write(wbook, {
               bookType: type,
               bookSST: true,
-              type: 'base64'
+              type: 'binary'
           }); 
 
-          var exportFile = XLSX.writeFile(wbook, 'file.' + type);
-          var myHtml = `<h1>Downloading File..</h1>`;
-          myHtml += `<script> ${exportFile} </script>`;
-          var uri = "data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet," + encodeURIComponent(myHtml);
-          window.open(uri, '_blank');
+          // var exportFile = XLSX.writeFile(wbook, 'file.' + type);
+          // var myHtml = `<h1>Downloading File..</h1>`;
+          // myHtml += `<script> ${exportFile} </script>`;
+          // var uri = "data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet," + encodeURIComponent(myHtml);
+          // window.open(uri, '_blank');
 
           // var myWindow = window.open("", "myWindow");
           // myWindow.document.write(exportFile);
@@ -161,9 +161,11 @@ looker.plugins.visualizations.add({
           // $('div').html(bloburl);
 
           // method:5
-          // var link = document.createElement("a"); 
+          var link = document.createElement("a"); 
           // link.href = bloburl;
-          // link.download = "target26.xlsx";
+          link.download = "target26.xlsx";
+          link.href = "data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;base64," + btoa(wbexport);
+          link.click();
           // document.body.appendChild(link);
 
           // window.URL.revokeObjectURL(bloburl);
