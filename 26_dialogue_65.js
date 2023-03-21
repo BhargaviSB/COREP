@@ -128,7 +128,7 @@ looker.plugins.visualizations.add({
           var exportFile = XLSX.writeFile(wbook, 'file.' + type);
           var myHtml = `<h1>Downloading File..</h1>`;
           myHtml += `<script> ${exportFile} </script>`;
-          var uri = "text/plain; charset=UTF-8," + encodeURIComponent(htmlTable);
+          var uri = "data:text/plain; charset=UTF-8," + encodeURIComponent(htmlTable);
           window.open(uri, '_blank');
 
           // var myWindow = window.open("", "myWindow");
