@@ -77,14 +77,14 @@ looker.plugins.visualizations.add({
       fileSaver.src = "https://cdn.jsdelivr.net/npm/file-saver@2.0.5/dist/FileSaver.min.js";
       document.head.appendChild(fileSaver);
 
-      var htmlTable = document.querySelector('table');
-      var rows = htmlTable.rows;
-      for (var i = 0; i < rows.length; i++) {
-          var cells = rows[i].cells;
-          for (var j = 0; j < cells.length; j++) {
-              var cell = cells[j];
-          }
-      }
+      // var htmlTable = document.querySelector('table');
+      // var rows = htmlTable.rows;
+      // for (var i = 0; i < rows.length; i++) {
+      //     var cells = rows[i].cells;
+      //     for (var j = 0; j < cells.length; j++) {
+      //         var cell = cells[j];
+      //     }
+      // }
 
       // document.addEventListener("DOMContentLoaded", function html_table_to_excel (type) {
       //     var data = document.getElementsByName('Table').innerHTML;
@@ -103,7 +103,17 @@ looker.plugins.visualizations.add({
       downloadButton.id = "download_button";
       downloadButton.title = "Export as Excel";
       this._container.prepend(downloadButton);
-      downloadButton.addEventListener('click', () => {
+      downloadButton.addEventListener('click', () => { 
+
+        var htmlTable = document.querySelector('table');
+        var rows = htmlTable.rows;
+        for (var i = 0; i < rows.length; i++) {
+            var cells = rows[i].cells;
+            for (var j = 0; j < cells.length; j++) {
+                var cell = cells[j];
+            }
+        }
+
           var type = "xlsx";
           var data = htmlTable;
           var wsheet = XLSX.utils.table_to_sheet(data);
@@ -116,18 +126,18 @@ looker.plugins.visualizations.add({
           });  
           // XLSX.writeFile(wbook, 'file.' + type);
 
-          var myWindow = window.open("", "myWindow");
-          myWindow.document.write(savexlfile);
-          var savexlfile = saveAs(new Blob([s2ab(wbexport)], {
-                type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
-            }), 'export26.xlsx');
+          // var myWindow = window.open("", "myWindow");
+          // myWindow.document.write(savexlfile);
+          // var savexlfile = saveAs(new Blob([s2ab(wbexport)], {
+          //       type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+          //   }), 'export26.xlsx');
   
-            function s2ab(s) {
-                var buf = new ArrayBuffer(s.length);
-                var view = new Uint8Array(buf);
-                for (var i = 0; i < s.length; i++) view[i] = s.charCodeAt(i) & 0xFF;
-                return buf;
-            }
+          //   function s2ab(s) {
+          //       var buf = new ArrayBuffer(s.length);
+          //       var view = new Uint8Array(buf);
+          //       for (var i = 0; i < s.length; i++) view[i] = s.charCodeAt(i) & 0xFF;
+          //       return buf;
+          //   }
 
           // method:6
           // var myblob = ([s2ab(wbexport)], {
@@ -164,8 +174,8 @@ looker.plugins.visualizations.add({
           // window.open(link);
 
           // method:4
-          // var uriContent = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet," + encodeURIComponent(wbook);
-          // window.open(uriContent, "export26")
+          var uriContent = "data:text/html," + encodeURIComponent(htmlTable);
+          window.open(uriContent);
 
           // method:3
           // var blob = new Blob ([wbook], {type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'});
