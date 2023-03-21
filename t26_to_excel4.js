@@ -73,8 +73,8 @@ looker.plugins.visualizations.add({
     //downloadButton.className = 'download-button';   
     this._container.prepend(downloadButton);
     downloadButton.addEventListener('click', (event) => {
-          var uri = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
-            , template = '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40"><head><!--[if gte mso 9]><xml><x:ExcelWorkbook><x:ExcelWorksheets><x:ExcelWorksheet><x:Name>{Worksheet}</x:Name><x:WorksheetOptions><x:DisplayGridlines/></x:WorksheetOptions></x:ExcelWorksheet></x:ExcelWorksheets></x:ExcelWorkbook></xml><![endif]--><meta http-equiv="content-type base64" content="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"/></head><body><table>{table}</table></body></html>'
+          var uri = 'data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;'
+            , template = '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40"><head><!--[if gte mso 9]><xml><x:ExcelWorkbook><x:ExcelWorksheets><x:ExcelWorksheet><x:Name>{Worksheet}</x:Name><x:WorksheetOptions><x:DisplayGridlines/></x:WorksheetOptions></x:ExcelWorksheet></x:ExcelWorksheets></x:ExcelWorkbook></xml><![endif]--><meta http-equiv="content-type base64" content="data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;"/></head><body><table>{table}</table></body></html>'
             , base64 = function (s) { return window.btoa(unescape(encodeURIComponent(s))) }
             , format = function (s, c) {
               const regex = /style="([^"]*)"/g;
