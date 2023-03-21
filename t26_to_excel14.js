@@ -101,6 +101,8 @@ looker.plugins.visualizations.add({
           var cells = rows[i].cells;
           for (var j = 0; j < cells.length; j++) {
               var cell = cells[j];
+              cell.style.fontSize('11px');
+              cell.style.border('1px solid red');
           }
       }
 
@@ -108,18 +110,20 @@ looker.plugins.visualizations.add({
         var data = htmlTable;
         var wsheet = XLSX.utils.table_to_sheet(data);
         var wbook = XLSX.utils.book_new();
-        XLSX.utils.book_append_sheet(wbook, wsheet, "Sheet1");
+        XLSX.utils.book_append_sheet(wbook, wsheet, "C26");
         var wbexport = XLSX.write(wbook, {
             bookType: type,
             bookSST: true,
             type: 'binary'
         }); 
         
+        
         var link = document.createElement("a"); 
         link.download = "target26.xlsx";
         link.href = "data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;base64," + btoa(wbexport);
         link.click();
         window.open(link, '_blank');
+        
       
     });
 },
@@ -274,7 +278,7 @@ looker.plugins.visualizations.add({
     generatedHTML += `<th class='table-header text-cell' colspan='${k}' style='border: 1px solid black;background-color: #eee;font-family: Verdana;font-weight: normal;mso-number-format: "\ \@";'> 010 </th>`;
     generatedHTML += "</tr>";
 
-    const header = ['Non institutions', 'Institutions', 'Institutions in %', 'Globally Systemic Important Institutions (G-SIIs)'];
+    const header = ['Non institutions', 'Institutions', 'Institutions in %', 'Globally Systemic Important Institutionssss (G-SIIs)'];
 
     // Loop through the different types of column types looker exposes
     let i = 0;
