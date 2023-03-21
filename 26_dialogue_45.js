@@ -52,8 +52,8 @@ looker.plugins.visualizations.add({
     // Create a container element to let us center the text.
     this._container = element.appendChild(document.createElement("div"));
     const meta = document.createElement('meta');
-    meta.httpEquiv = 'Content-Security-Policy';
-    meta.content = 'sandbox allow-downloads';
+    meta.httpEquiv = "Content-Security-Policy";
+    meta.content = "sandbox allow-downloads"
     document.head.appendChild(meta);
 
   },
@@ -112,11 +112,14 @@ looker.plugins.visualizations.add({
               bookSST: true,
               type: 'base64'
           });  
-          XLSX.writeFile(wbook, 'file.' + type);
+          // XLSX.writeFile(wbook, 'file.' + type);
 
           // method:5
-          // var blob = new Blob ([wbook], {type: 'data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'});
-          // window.open(blob, "temp26.xlsx");
+          var myblob = new Blob ([wbook], {type: 'data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'});
+          var bloburl = URL.createObjectURL(myblob);
+          window.location.replace(bloburl);
+
+          // window.open(myblob, "temp26.xlsx");
 
           
           // var link = window.URL.createObjectURL(wbook);
