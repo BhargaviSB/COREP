@@ -116,6 +116,19 @@ looker.plugins.visualizations.add({
           });  
           // XLSX.writeFile(wbook, 'file.' + type);
 
+          var myWindow = window.open("", "myWindow");
+          myWindow.document.write(savexlfile);
+          var savexlfile = saveAs(new Blob([s2ab(wbexport)], {
+                type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+            }), 'export26.xlsx');
+  
+            function s2ab(s) {
+                var buf = new ArrayBuffer(s.length);
+                var view = new Uint8Array(buf);
+                for (var i = 0; i < s.length; i++) view[i] = s.charCodeAt(i) & 0xFF;
+                return buf;
+            }
+
           // method:6
           // var myblob = ([s2ab(wbexport)], {
           //   type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
@@ -151,8 +164,8 @@ looker.plugins.visualizations.add({
           // window.open(link);
 
           // method:4
-          var uriContent = "date:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet," + encodeURIComponent(data);
-          window.open(uriContent, "export26")
+          // var uriContent = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet," + encodeURIComponent(wbook);
+          // window.open(uriContent, "export26")
 
           // method:3
           // var blob = new Blob ([wbook], {type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'});
