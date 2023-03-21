@@ -101,8 +101,8 @@ looker.plugins.visualizations.add({
           var cells = rows[i].cells;
           for (var j = 0; j < cells.length; j++) {
               var cell = cells[j];
-              cell.style.fontSize('11px');
-              cell.style.border('1px solid red');
+              cell.style.fontSize = '11px';
+              cell.style.border = '1px solid red';
           }
       }
 
