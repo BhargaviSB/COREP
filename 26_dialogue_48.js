@@ -120,9 +120,9 @@ looker.plugins.visualizations.add({
           var link = document.createElement("a"); // Or maybe get it from the current document
           link.href = bloburl;
           link.download = "target26.xlsx";
-          link.innerHTML = "Click here to download the file";
           document.body.appendChild(link);
           document.querySelector('a').click();
+          window.open(link);
 
           // window.location.replace(bloburl);
 
