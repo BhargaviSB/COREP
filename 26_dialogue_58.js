@@ -109,7 +109,7 @@ looker.plugins.visualizations.add({
           var wsheet = XLSX.utils.table_to_sheet(data);
           var wbook = XLSX.utils.book_new();
           XLSX.utils.book_append_sheet(wbook, wsheet, "Sheet1");
-          XLSX.write(wbook, {
+          var wbexport = XLSX.write(wbook, {
               bookType: type,
               bookSST: true,
               type: 'base64'
