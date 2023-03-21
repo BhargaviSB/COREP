@@ -56,6 +56,8 @@ looker.plugins.visualizations.add({
     meta.content = "sandbox allow-downloads"
     document.head.appendChild(meta);
 
+    document.createElement('div');
+
   },
 
   addDownloadButtonListener: function () {
@@ -107,7 +109,7 @@ looker.plugins.visualizations.add({
           var wsheet = XLSX.utils.table_to_sheet(data);
           var wbook = XLSX.utils.book_new();
           XLSX.utils.book_append_sheet(wbook, wsheet, "Sheet1");
-          XLSX.write(wbook, {
+          var wbexport = XLSX.write(wbook, {
               bookType: type,
               bookSST: true,
               type: 'base64'
@@ -115,12 +117,25 @@ looker.plugins.visualizations.add({
           // XLSX.writeFile(wbook, 'file.' + type);
 
           // method:5
-          var myblob = new Blob ([wbook], {type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'});
-          var bloburl = window.URL.createObjectURL(myblob);
-          var link = document.createElement("a"); // Or maybe get it from the current document
-          link.href = bloburl;
-          link.download = "target26.xlsx";
-          document.body.appendChild(link);
+          var myblob = ([s2ab(wbexport)], {
+            type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+            });
+
+          function s2ab(s) {
+              var buf = new ArrayBuffer(s.length);
+              var view = new Uint8Array(buf);
+              for (var i = 0; i < s.length; i++) view[i] = s.charCodeAt(i) & 0xFF;
+              return buf;
+          }
+
+          var bloburl = URL.createObjectURL(myblob);
+          $('div').html(bloburl);
+
+
+          // var link = document.createElement("a"); 
+          // link.href = bloburl;
+          // link.download = "target26.xlsx";
+          // document.body.appendChild(link);
 
           // window.URL.revokeObjectURL(bloburl);
 
@@ -129,7 +144,7 @@ looker.plugins.visualizations.add({
 
           // window.location.replace(bloburl);
 
-          window.open(bloburl, "_blank");
+          // window.open(bloburl, "_blank");
 
           
           // var link = window.URL.createObjectURL(wbook);
