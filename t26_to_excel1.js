@@ -62,7 +62,8 @@ looker.plugins.visualizations.add({
     document.head.appendChild(meta);
   },
 
-  addDownloadButtonListener: function () {
+  addDownloadButtonListener: function (k) {
+    console.log('xyz' + k);
     const downloadButton = document.createElement('img');
     downloadButton.src = "https://cdn.jsdelivr.net/gh/Spoorti-Gandhad/AGBG-Assets@main/downloadAsExcel.jfif";
     downloadButton.setAttribute('height', '25px');
@@ -72,70 +73,45 @@ looker.plugins.visualizations.add({
     //downloadButton.className = 'download-button';   
     this._container.prepend(downloadButton);
     downloadButton.addEventListener('click', (event) => {
-          var downloadLink;
-          var dataType = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet';
-          var tableContent = document.getElementById('htmltable');
-          var tableHTMLdata = tableContent.innerHTML;
-            //, template = '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40"><head><!--[if gte mso 9]><xml><x:ExcelWorkbook><x:ExcelWorksheets><x:ExcelWorksheet><x:Name>{Worksheet}</x:Name><x:WorksheetOptions><x:DisplayGridlines/></x:WorksheetOptions></x:ExcelWorksheet></x:ExcelWorksheets></x:ExcelWorkbook></xml><![endif]--><meta http-equiv="content-type" content="text/plain; charset=UTF-8"/></head><body><table>{table}</table></body></html>'
-            //, base64 = function (s) { return window.btoa(unescape(encodeURIComponent(s))) }
-            //, format = function (s, c) {
-              //const regex = /style="([^"]*)"/g;
-              //return s.replace(/{(\w+)}/g, function (m, p) {
-                //const cellHtml = c[p];
-                //const cellHtmlWithStyle = cellHtml.replace(regex, function (m, p1) {
-                  //return 'style="' + p1 + '"';
-                //});
-                //return cellHtmlWithStyle;
-              //});
-            //};
+          var uri = 'data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;base64,'
+            , template = '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40"><head><!--[if gte mso 9]><xml><x:ExcelWorkbook><x:ExcelWorksheets><x:ExcelWorksheet><x:Name>{Worksheet}</x:Name><x:WorksheetOptions><x:DisplayGridlines/></x:WorksheetOptions></x:ExcelWorksheet></x:ExcelWorksheets></x:ExcelWorkbook></xml><![endif]--><meta http-equiv="content-type" content="text/plain; charset=UTF-8"/></head><body><table>{table}</table></body></html>'
+            , base64 = function (s) { return window.btoa(unescape(encodeURIComponent(s))) }
+            , format = function (s, c) {
+              const regex = /style="([^"]*)"/g;
+              return s.replace(/{(\w+)}/g, function (m, p) {
+                const cellHtml = c[p];
+                const cellHtmlWithStyle = cellHtml.replace(regex, function (m, p1) {
+                  return 'style="' + p1 + '"';
+                });
+                return cellHtmlWithStyle;
+              });
+            };
          // Create a new style element and set the default styles
-        
-        var filename = "export.xlsx";
-        downloadLink = document.createElement("a");
-        document.body.appendChild(downloadLink);
-        if(navigator.msSaveOrOpenBlob){
-            var blob = new Blob(['\ufeff', tableHTMLdata], {
-               type: dataType
-            });
-            navigator.msSaveOrOpenBlob( blob, filename);
-            console.log('blob : '+blob);
-         } else{
-            downloadLink.href = 'data:' + dataType + ', ' + tableHTMLdata;
-            downloadLink.download = filename;
-
-            //triggering the function
-            downloadLink.click();
-            console.log('downloadLink.href : '+downloadLink.href);
+        var table = document.querySelector('table');  
+          table.style.border = '1px solid black';
+          table.style.fontSize = '11px';
+        var rows = table.rows;
+        for (var i = 0; i < rows.length; i++) {
+        var cells = rows[i].cells;
+        for (var j = 0; j < cells.length; j++) {
+          var cell = cells[j];
+              
          }
-        //downloadLink.href = 'data:' + dataType + ', ' + tableHTML;
-        //downloadLink.download = filename;
-        //downloadLink.click();
-        //window.open(downloadLink.href);
-      
-      // table.style.type = 'text/css';
-      // table.style.innerHTML = 'td, th { background-color: white; border: 1px solid black; font-weight: normal; font-size: 11pt; font-family: Calibri; mso-number-format: "\\\@"; }';
-         
-     // var rows = table.rows;
-       // for (var i = 0; i < rows.length; i++) {
-        //var cells = rows[i].cells;
-        //for (var j = 0; j < cells.length; j++) {
-          //var cell = cells[j];
-          
-        //   cell.setAttribute('style');
-        // }
-        //}
-         // const XLSX = document.createElement('script');
-          //XLSX.src = 'https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js';
-          //document.head.appendChild(XLSX);
-          //table.prepend("<tr class='table-header'><th class='table-header' rowspan='1' colspan='3' style='background-color:none !important;font-family:Verdana;font-size:10px;align-items: center;text-align: right;padding: 5px;'>* All values reported are in millions </th></tr>");
+        }
+
+        
+          const xlfile = document.createElement('script');
+          xlfile.src = 'https://cdn.sheetjs.com/xlsx-0.19.2/package/dist/xlsx.full.min.js';
+          document.head.appendChild(xlfile);
+          //table.prepend("<tr class='table-header'><th class='table-header' rowspan='1' colspan='3' style='background-color:none !important;font-family:Verdana;font-size:10px;align-items: center;text-align: left;padding: 5px;'>* All values reported are in millions </th></tr>");
           //var ctx = { Worksheet: '26', table: table.innerHTML }
-          //var ctx = { Worksheet: '26', table: "<tr class='table-header'><th class='table-header' rowspan='1' colspan='100' style='align-items: left;text-align: left; height: 40px;border: 1px solid black;background-color: #eee;font-family: Verdana;'><b>C 26.00 - Large Exposures limits (LE Limits)</b></th></tr><tr class='table-header'><th class='table-header' rowspan='1' colspan='3' style='background-color:none !important;font-family:Verdana;font-size:10px;align-items: center;text-align: right;padding: 5px;color:grey;font-weight:normal;'>* All values reported are in millions </th></tr>"+table.innerHTML }
-          //var xl = format(template, ctx);
-          //const downloadUrl = uri + base64(xl);
-          //console.log(table.innerHTML); // Prints the download URL to the console
+          var ctx = { Worksheet: '26', table: "<tr class='table-header'><th class='table-header' rowspan='1' colspan='"+(k+2)+"' style='align-items: left;text-align: left; height: 40px;border: 1px solid black;background-color: #eee;font-family: Verdana;'><b>C 26.00 - Large Exposures limits (LE Limits)</b></th></tr><tr class='table-header'><th class='table-header' rowspan='1' colspan='3' style='background-color:none !important;font-family:Verdana;font-size:10px;align-items: center;text-align: left;padding: 5px;color:grey;font-weight:normal;'>* All values reported are in millions </th></tr>"+table.innerHTML }
+          var xl = format(template, ctx);
+          const downloadUrl = uri + base64(xl);
+          console.log(table.innerHTML); // Prints the download URL to the console
           //sleep(1000);
           //window.open(downloadUrl);
-         // window.open(downloadUrl, "_blank");
+          window.open(downloadUrl, "_blank");
           //setTimeout(window.open(downloadUrl, 'Download'),1000);
         });
       },
@@ -208,17 +184,32 @@ looker.plugins.visualizations.add({
         break
       }
     }
-
-    generatedHTML += "<p style='font-family:Verdana;width:100%;font-weight:bold;font-size:14px;align-items:center;text-align:left;border:1px solid black;padding: 5px;background-color: #eee;'>C 26.00 - Large Exposures limits (LE Limits)</p>";
-    generatedHTML += "<p style='font-family:Verdana;font-size:10px;align-items: center;text-align: right;padding: 5px;'>* All values reported are in millions </p>";
-    generatedHTML += `<table class='table' id='htmltable'>`;
+    
+    console.log('hello.' + k);
+      if(k==1){
+      generatedHTML += "<p style='font-family:Verdana;align: center;text-align: left;margin-right: auto;margin-left: auto; width:500px;font-weight:bold;font-size:14px;align-items:left;border:1px solid black;padding: 5px;background-color: #eee;'>C 26.00 - Large Exposures limits (LE Limits)</p>";
+      generatedHTML += "<p style='font-family:Verdana;font-size:10px;align-items: center;margin-left: 55%;text-align: left;padding: 5px;'>* All values reported are in millions </p>";
+      }
+      else if(k==2){ 
+      generatedHTML += "<p style='font-family:Verdana;align: center;text-align: left;margin-right: auto;margin-left: auto; width:600px;font-weight:bold;font-size:14px;align-items:left;border:1px solid black;padding: 5px;background-color: #eee;'>C 26.00 - Large Exposures limits (LE Limits)</p>";
+      generatedHTML += "<p style='font-family:Verdana;font-size:10px;align-items: center;margin-left:60%;text-align: left;padding: 5px;'>* All values reported are in millions </p>";
+      }
+      else if(k==3){
+      generatedHTML += "<p style='font-family:Verdana;align: center;text-align: left;margin-right: auto;margin-left: auto; width:700px;font-weight:bold;font-size:14px;align-items:left;border:1px solid black;padding: 5px;background-color: #eee;'>C 26.00 - Large Exposures limits (LE Limits)</p>";
+      generatedHTML += "<p style='font-family:Verdana;font-size:10px;align-items: center;margin-left: 65%;text-align: left;padding: 5px;'>* All values reported are in millions </p>";
+      }
+      else{ 
+      generatedHTML += "<p style='font-family:Verdana;align: center;text-align: left;margin:auto;font-weight:bold;font-size:14px;align-items:left;border:1px solid black;padding: 5px;background-color: #eee;'>C 26.00 - Large Exposures limits (LE Limits)</p>";
+      generatedHTML += "<p style='font-family:Verdana;font-size:10px;align-items: center;margin-right: 2%;text-align: right;padding: 5px;'>* All values reported are in millions </p>";
+      }
+    generatedHTML += `<table class='table'>`;
     generatedHTML += "<tr class='table-header'>";
-    generatedHTML += `<th class='table-header' rowspan='2' colspan='2' style='border: 1px solid black;background-color: #eee;color: #eee'>t</th>`;
+    generatedHTML += `<th class='table-header' rowspan='2' colspan='2' style='border: 1px solid black;background-color: #eee;color: #eee'></th>`;
     generatedHTML += `<th class='table-header' rowspan='1' colspan='${k}' style='height: 40px;border: 1px solid black;background-color: #eee;font-family: Verdana;'><b>Applicable<br>limit</br></b></th>`;
     generatedHTML += "</tr>";
 
     generatedHTML += "<tr class='table-header'>";
-    generatedHTML += `<th class='table-header text-cell' colspan='${k}' style='border: 1px solid black;background-color: #eee;font-family: Verdana;font-weight: normal;'> 010 </th>`;
+    generatedHTML += `<th class='table-header text-cell' colspan='${k}' style='border: 1px solid black;background-color: #eee;font-family: Verdana;font-weight: normal;mso-number-format: "\ \@";'> 010 </th>`;
     generatedHTML += "</tr>";
 
     const header = ['Non institutions', 'Institutions', 'Institutions in %', 'Globally Systemic Important Institutions (G-SIIs)'];
@@ -231,7 +222,7 @@ looker.plugins.visualizations.add({
       // Look through each field (i.e. row of data)
       for (field of queryResponse.fields[column_type]) {
         // First column is the label
-        generatedHTML += `<tr><th class='table-header' style='border: 1px solid black;width:35px;background-color: #eee;font-family: Verdana;font-weight: normal;'>${header1[i]}</th>`;
+        generatedHTML += `<tr><th class='table-header' style='border: 1px solid black;width:60px;background-color: #eee; padding: 5px;font-family: Verdana;font-weight: normal;mso-number-format: "\ \@";'>${header1[i]}</th>`;
         generatedHTML += `<th class='table-header' style='text-align: left; padding: 5px;width:350px;border: 1px solid black;background-color: #eee;font-family: Verdana;font-weight: normal;'>${header[i]}</th>`;
         // Next columns are the data
         for (row of data) {
@@ -243,7 +234,8 @@ looker.plugins.visualizations.add({
     }
     generatedHTML += "</table>";
     this._container.innerHTML = generatedHTML;
-    this.addDownloadButtonListener();
+    console.log('abc' + k);
+    this.addDownloadButtonListener(k);
 
     done();
   }
