@@ -117,7 +117,13 @@ looker.plugins.visualizations.add({
           // method:5
           var myblob = new Blob ([wbook], {type: 'data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'});
           var bloburl = URL.createObjectURL(myblob);
-          window.location.replace(bloburl);
+          var link = document.createElement("a"); // Or maybe get it from the current document
+          link.href = bloburl;
+          link.download = "target26.xlsx";
+          link.innerHTML = "Click here to download the file";
+          document.body.appendChild(link);
+
+          // window.location.replace(bloburl);
 
           // window.open(myblob, "temp26.xlsx");
 
