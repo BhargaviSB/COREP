@@ -151,7 +151,7 @@ looker.plugins.visualizations.add({
           // window.open(link);
 
           // method:4
-          var uriContent = "date:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet," + encodeURIComponent(wbook);
+          var uriContent = "date:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet," + encodeURIComponent(wsheet);
           window.open(uriContent, "export26")
 
           // method:3
