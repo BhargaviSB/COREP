@@ -28,7 +28,7 @@ looker.plugins.visualizations.add({
             border: 1px solid black;
             border-collapse: collapse;
             font-weight: normal;
-            font-family: 'Verdana';
+            font-family: 'serif';
             font-size: 11px;
             align-items: center;
             text-align: center;
@@ -42,7 +42,7 @@ looker.plugins.visualizations.add({
             border: 1px solid black;
             border-collapse: collapse;
             font-weight: normal;
-            font-family: 'Verdana';
+            font-family: 'serif';
             font-size: 11px;
             align-items: center;
             text-align: center;
@@ -92,17 +92,15 @@ looker.plugins.visualizations.add({
     downloadButton.addEventListener('click', () => { 
 
       var htmlTable = document.querySelector('table');
-      htmlTable.style.border = '1px solid black';
-      htmlTable.style.fontSize = '11px';
+      // htmlTable.style.border = '1px solid blue';
+      // htmlTable.style.fontSize = '11px';
       var rows = htmlTable.rows;
-      rows[0].innerHTML =  "<tr class='table-header'><th class='table-header' rowspan='1' colspan='"+(k+2)+"' style='align-items: left;text-align: left; height: 40px;border: 1px solid black;background-color: #eee;font-family: Verdana;'><b>C 26.00 - Large Exposures limits (LE Limits)</b></th></tr>";
-      rows[1].innerHTML =  "<tr class='table-header'><th class='table-header' rowspan='1' colspan='3' style='background-color:none !important;font-family:Verdana;font-size:10px;align-items: center;text-align: left;padding: 5px;color:grey;font-weight:normal;'>* All values reported are in millions </th></tr>";
+      // rows[0].innerHTML =  "<tr class='table-header'><th class='table-header' rowspan='1' colspan='"+(k+2)+"' style='align-items: left;text-align: left; height: 40px;border: 1px solid black;background-color: #eee;font-family: serif;'><b>C 26.00 - Large Exposures limits (LE Limits)</b></th></tr>";
+      // rows[1].innerHTML =  "<tr class='table-header'><th class='table-header' rowspan='1' colspan='3' style='background-color:none !important;font-family:serif;font-size:10px;align-items: center;text-align: left;padding: 5px;color:grey;font-weight:normal;'>* All values reported are in millions </th></tr>";
       for (var i = 0; i < rows.length; i++) {
           var cells = rows[i].cells;
           for (var j = 0; j < cells.length; j++) {
               var cell = cells[j];
-              cell.style.fontSize = '11px';
-              cell.style.border = '1px solid red';
           }
       }
 
@@ -170,9 +168,9 @@ looker.plugins.visualizations.add({
   //         const XLSX = document.createElement('script');
   //         XLSX.src = 'https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js';
   //         document.head.appendChild(XLSX);
-  //         //table.prepend("<tr class='table-header'><th class='table-header' rowspan='1' colspan='3' style='background-color:none !important;font-family:Verdana;font-size:10px;align-items: center;text-align: left;padding: 5px;'>* All values reported are in millions </th></tr>");
+  //         //table.prepend("<tr class='table-header'><th class='table-header' rowspan='1' colspan='3' style='background-color:none !important;font-family:serif;font-size:10px;align-items: center;text-align: left;padding: 5px;'>* All values reported are in millions </th></tr>");
   //         //var ctx = { Worksheet: '26', table: table.innerHTML }
-  //         var ctx = { Worksheet: '26', table: "<tr class='table-header'><th class='table-header' rowspan='1' colspan='"+(k+2)+"' style='align-items: left;text-align: left; height: 40px;border: 1px solid black;background-color: #eee;font-family: Verdana;'><b>C 26.00 - Large Exposures limits (LE Limits)</b></th></tr><tr class='table-header'><th class='table-header' rowspan='1' colspan='3' style='background-color:none !important;font-family:Verdana;font-size:10px;align-items: center;text-align: left;padding: 5px;color:grey;font-weight:normal;'>* All values reported are in millions </th></tr>"+table.innerHTML }
+  //         var ctx = { Worksheet: '26', table: "<tr class='table-header'><th class='table-header' rowspan='1' colspan='"+(k+2)+"' style='align-items: left;text-align: left; height: 40px;border: 1px solid black;background-color: #eee;font-family: serif;'><b>C 26.00 - Large Exposures limits (LE Limits)</b></th></tr><tr class='table-header'><th class='table-header' rowspan='1' colspan='3' style='background-color:none !important;font-family:serif;font-size:10px;align-items: center;text-align: left;padding: 5px;color:grey;font-weight:normal;'>* All values reported are in millions </th></tr>"+table.innerHTML }
   //         var xl = format(template, ctx);
   //         const downloadUrl = uri + base64(xl);
   //         console.log(table.innerHTML); // Prints the download URL to the console
@@ -212,7 +210,7 @@ looker.plugins.visualizations.add({
           border: 1px solid black;
           border-collapse: collapse;
           font-weight: normal;
-          font-family: 'Verdana';
+          font-family: 'serif';
           font-size: 11px;
           align-items: center;
           text-align: center;
@@ -223,10 +221,10 @@ looker.plugins.visualizations.add({
         .table-cell {
           padding: 5px;
           border-bottom: 1px solid #ccc;
-          border: 1px solid black;
+          border: 1px solid blue;
           border-collapse: collapse;
           font-weight: normal;
-          font-family: 'Verdana';
+          font-family: 'serif';
           font-size: 11px;
           align-items: center;
           text-align: center;
@@ -254,29 +252,29 @@ looker.plugins.visualizations.add({
     
     console.log('hello.' + k);
       if(k==1){
-      generatedHTML += "<p style='font-family:Verdana;align: center;text-align: left;margin-right: auto;margin-left: auto; width:500px;font-weight:bold;font-size:14px;align-items:left;border:1px solid black;padding: 5px;background-color: #eee;'>C 26.00 - Large Exposures limits (LE Limits)</p>";
-      generatedHTML += "<p style='font-family:Verdana;font-size:10px;align-items: center;margin-left: 55%;text-align: left;padding: 5px;'>* All values reported are in millions </p>";
+      generatedHTML += "<p style='font-family:serif;align: center;text-align: left;margin-right: auto;margin-left: auto; width:500px;font-weight:bold;font-size:14px;align-items:left;border:1px solid black;padding: 5px;background-color: #eee;'>C 26.00 - Large Exposures limits (LE Limits)</p>";
+      generatedHTML += "<p style='font-family:serif;font-size:10px;align-items: center;margin-left: 55%;text-align: left;padding: 5px;'>* All values reported are in millions </p>";
       }
       else if(k==2){ 
-      generatedHTML += "<p style='font-family:Verdana;align: center;text-align: left;margin-right: auto;margin-left: auto; width:600px;font-weight:bold;font-size:14px;align-items:left;border:1px solid black;padding: 5px;background-color: #eee;'>C 26.00 - Large Exposures limits (LE Limits)</p>";
-      generatedHTML += "<p style='font-family:Verdana;font-size:10px;align-items: center;margin-left:60%;text-align: left;padding: 5px;'>* All values reported are in millions </p>";
+      generatedHTML += "<p style='font-family:serif;align: center;text-align: left;margin-right: auto;margin-left: auto; width:600px;font-weight:bold;font-size:14px;align-items:left;border:1px solid black;padding: 5px;background-color: #eee;'>C 26.00 - Large Exposures limits (LE Limits)</p>";
+      generatedHTML += "<p style='font-family:serif;font-size:10px;align-items: center;margin-left:60%;text-align: left;padding: 5px;'>* All values reported are in millions </p>";
       }
       else if(k==3){
-      generatedHTML += "<p style='font-family:Verdana;align: center;text-align: left;margin-right: auto;margin-left: auto; width:700px;font-weight:bold;font-size:14px;align-items:left;border:1px solid black;padding: 5px;background-color: #eee;'>C 26.00 - Large Exposures limits (LE Limits)</p>";
-      generatedHTML += "<p style='font-family:Verdana;font-size:10px;align-items: center;margin-left: 65%;text-align: left;padding: 5px;'>* All values reported are in millions </p>";
+      generatedHTML += "<p style='font-family:serif;align: center;text-align: left;margin-right: auto;margin-left: auto; width:700px;font-weight:bold;font-size:14px;align-items:left;border:1px solid black;padding: 5px;background-color: #eee;'>C 26.00 - Large Exposures limits (LE Limits)</p>";
+      generatedHTML += "<p style='font-family:serif;font-size:10px;align-items: center;margin-left: 65%;text-align: left;padding: 5px;'>* All values reported are in millions </p>";
       }
       else{ 
-      generatedHTML += "<p style='font-family:Verdana;align: center;text-align: left;margin:auto;font-weight:bold;font-size:14px;align-items:left;border:1px solid black;padding: 5px;background-color: #eee;'>C 26.00 - Large Exposures limits (LE Limits)</p>";
-      generatedHTML += "<p style='font-family:Verdana;font-size:10px;align-items: center;margin-right: 2%;text-align: right;padding: 5px;'>* All values reported are in millions </p>";
+      generatedHTML += "<p style='font-family:serif;align: center;text-align: left;margin:auto;font-weight:bold;font-size:14px;align-items:left;border:1px solid blue;padding: 5px;background-color: #eee;'>C 26.00 - Large Exposures limits (LE Limits)</p>";
+      generatedHTML += "<p style='font-family:serif;font-size:10px;align-items: center;margin-right: 2%;text-align: right;padding: 5px;'>* All values reported are in millions </p>";
       }
     generatedHTML += `<table class='table'>`;
     generatedHTML += "<tr class='table-header'>";
     generatedHTML += `<th class='table-header' rowspan='2' colspan='2' style='border: 1px solid black;background-color: #eee;color: #eee'></th>`;
-    generatedHTML += `<th class='table-header' rowspan='1' colspan='${k}' style='height: 40px;border: 1px solid black;background-color: #eee;font-family: Verdana;'><b>Applicable<br>limit</br></b></th>`;
+    generatedHTML += `<th class='table-header' rowspan='1' colspan='${k}' style='height: 40px;border: 1px solid black;background-color: #eee;font-family: serif;'><b>Applicable<br>limit</br></b></th>`;
     generatedHTML += "</tr>";
 
     generatedHTML += "<tr class='table-header'>";
-    generatedHTML += `<th class='table-header text-cell' colspan='${k}' style='border: 1px solid black;background-color: #eee;font-family: Verdana;font-weight: normal;mso-number-format: "\ \@";'> 010 </th>`;
+    generatedHTML += `<th class='table-header text-cell' colspan='${k}' style='border: 1px solid black;background-color: #eee;font-family: serif;font-weight: normal;mso-number-format: "\ \@";'> 010 </th>`;
     generatedHTML += "</tr>";
 
     const header = ['Non institutions', 'Institutions', 'Institutions in %', 'Globally Systemic Important Institutionssss (G-SIIs)'];
@@ -289,11 +287,11 @@ looker.plugins.visualizations.add({
       // Look through each field (i.e. row of data)
       for (field of queryResponse.fields[column_type]) {
         // First column is the label
-        generatedHTML += `<tr><th class='table-header' style='border: 1px solid black;width:60px;background-color: #eee; padding: 5px;font-family: Verdana;font-weight: normal;mso-number-format: "\ \@";'>${header1[i]}</th>`;
-        generatedHTML += `<th class='table-header' style='text-align: left; padding: 5px;width:350px;border: 1px solid black;background-color: #eee;font-family: Verdana;font-weight: normal;'>${header[i]}</th>`;
+        generatedHTML += `<tr><th class='table-header' style='border: 1px solid black;width:60px;background-color: #eee; padding: 5px;font-family: serif;font-weight: normal;mso-number-format: "\ \@";'>${header1[i]}</th>`;
+        generatedHTML += `<th class='table-header' style='text-align: left; padding: 5px;width:350px;border: 1px solid black;background-color: #eee;font-family: serif;font-weight: normal;'>${header[i]}</th>`;
         // Next columns are the data
         for (row of data) {
-          generatedHTML += `<td class='table-cell' style='border: 1px solid black;'>${LookerCharts.Utils.htmlForCell(row[field.name])}</td>`
+          generatedHTML += `<td class='table-cell' style='border: 1px solid blue;'>${LookerCharts.Utils.htmlForCell(row[field.name])}</td>`
         }
         generatedHTML += '</tr>';
         i++;
