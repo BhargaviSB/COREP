@@ -39,7 +39,7 @@ looker.plugins.visualizations.add({
           .table-cell {
             padding: 5px;
             border-bottom: 1px solid #ccc;
-            border: 1px solid black;
+            border: 1px solid blue;
             border-collapse: collapse;
             font-weight: normal;
             font-family: 'serif';
@@ -92,7 +92,7 @@ looker.plugins.visualizations.add({
     downloadButton.addEventListener('click', () => { 
 
       var htmlTable = document.querySelector('table');
-      // htmlTable.style.border = '1px solid blue';
+      // htmlTable.style.border = '1px solid black';
       // htmlTable.style.fontSize = '11px';
       var rows = htmlTable.rows;
       // rows[0].innerHTML =  "<tr class='table-header'><th class='table-header' rowspan='1' colspan='"+(k+2)+"' style='align-items: left;text-align: left; height: 40px;border: 1px solid black;background-color: #eee;font-family: serif;'><b>C 26.00 - Large Exposures limits (LE Limits)</b></th></tr>";
@@ -221,7 +221,7 @@ looker.plugins.visualizations.add({
         .table-cell {
           padding: 5px;
           border-bottom: 1px solid #ccc;
-          border: 1px solid blue;
+          border: 1px solid black;
           border-collapse: collapse;
           font-weight: normal;
           font-family: 'serif';
@@ -264,7 +264,7 @@ looker.plugins.visualizations.add({
       generatedHTML += "<p style='font-family:serif;font-size:10px;align-items: center;margin-left: 65%;text-align: left;padding: 5px;'>* All values reported are in millions </p>";
       }
       else{ 
-      generatedHTML += "<p style='font-family:serif;align: center;text-align: left;margin:auto;font-weight:bold;font-size:14px;align-items:left;border:1px solid blue;padding: 5px;background-color: #eee;'>C 26.00 - Large Exposures limits (LE Limits)</p>";
+      generatedHTML += "<p style='font-family:serif;align: center;text-align: left;margin:auto;font-weight:bold;font-size:14px;align-items:left;border:1px solid black;padding: 5px;background-color: #eee;'>C 26.00 - Large Exposures limits (LE Limits)</p>";
       generatedHTML += "<p style='font-family:serif;font-size:10px;align-items: center;margin-right: 2%;text-align: right;padding: 5px;'>* All values reported are in millions </p>";
       }
     generatedHTML += `<table class='table'>`;
@@ -291,7 +291,7 @@ looker.plugins.visualizations.add({
         generatedHTML += `<th class='table-header' style='text-align: left; padding: 5px;width:350px;border: 1px solid black;background-color: #eee;font-family: serif;font-weight: normal;'>${header[i]}</th>`;
         // Next columns are the data
         for (row of data) {
-          generatedHTML += `<td class='table-cell' style='border: 1px solid blue;'>${LookerCharts.Utils.htmlForCell(row[field.name])}</td>`
+          generatedHTML += `<td class='table-cell' style='border: 1px solid black;'>${LookerCharts.Utils.htmlForCell(row[field.name])}</td>`
         }
         generatedHTML += '</tr>';
         i++;
