@@ -95,9 +95,9 @@ looker.plugins.visualizations.add({
       // htmlTable.style.border = '1px solid black';
       // htmlTable.style.fontSize = '11px';
       var rows = htmlTable.rows;
-      rows[0].innerHTML =  "<tr class='table-header'><th class='table-header' rowspan='1' colspan='"+(k+2)+"' style='align-items: left;text-align: left; height: 40px;border: 1px solid black;background-color: #eee;font-family: verdana;'><b>C 26.00 - Large Exposures limits (LE Limits)</b></th></tr>";
-      rows[1].innerHTML =  "<tr class='table-header'><th class='table-header' rowspan='1' colspan='3' style='background-color:none !important;font-family:verdana;font-size:10px;align-items: center;text-align: left;padding: 5px;color:grey;font-weight:normal;'>* All values reported are in millions </th></tr>";
-      for (var i = 2; i < rows.length+2; i++) {
+      // rows[0].innerHTML =  "<tr class='table-header'><th class='table-header' rowspan='1' colspan='"+(k+2)+"' style='align-items: left;text-align: left; height: 40px;border: 1px solid black;background-color: #eee;font-family: verdana;'><b>C 26.00 - Large Exposures limits (LE Limits)</b></th></tr>";
+      // rows[1].innerHTML =  "<tr class='table-header'><th class='table-header' rowspan='1' colspan='3' style='background-color:none !important;font-family:verdana;font-size:10px;align-items: center;text-align: left;padding: 5px;color:grey;font-weight:normal;'>* All values reported are in millions </th></tr>";
+      for (var i = 0; i < rows.length; i++) {
           var cells = rows[i].cells;
           for (var j = 0; j < cells.length; j++) {
               var cell = cells[j];
@@ -105,7 +105,9 @@ looker.plugins.visualizations.add({
       }
 
         var type = "xlsx";
-        var data = htmlTable;
+        var ctx = { Worksheet: 'C26', table: htmlTable.in };
+        var ctx = { Worksheet: 'C26', table: "<tr class='table-header'><th class='table-header' rowspan='1' colspan='100' style='align-items: left;text-align: left; height: 40px;border: 1px solid black;background-color: #eee;font-family: Verdana;'><b>C 29.00 - Detail of the exposures to individual clients within groups of connected clients (LE 3)</b></th></tr><tr class='table-header'><th class='table-header' rowspan='1' colspan='3' style='background-color:none !important;font-family:Verdana;font-size:10px;align-items: center;text-align: right;padding: 5px;color:grey;font-weight:normal;'>* All values reported are in millions </th></tr>" + htmlTable.innerHTML };
+        var data = ctx;
         var wsheet = XLSX.utils.table_to_sheet(data);
         var wbook = XLSX.utils.book_new();
         XLSX.utils.book_append_sheet(wbook, wsheet, "C26");
