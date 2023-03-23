@@ -95,9 +95,9 @@ looker.plugins.visualizations.add({
       // htmlTable.style.border = '1px solid black';
       // htmlTable.style.fontSize = '11px';
       var rows = htmlTable.rows;
-      // rows[0].innerHTML =  "<tr class='table-header'><th class='table-header' rowspan='1' colspan='"+(k+2)+"' style='align-items: left;text-align: left; height: 40px;border: 1px solid black;background-color: #eee;font-family: verdana;'><b>C 26.00 - Large Exposures limits (LE Limits)</b></th></tr>";
-      // rows[1].innerHTML =  "<tr class='table-header'><th class='table-header' rowspan='1' colspan='3' style='background-color:none !important;font-family:verdana;font-size:10px;align-items: center;text-align: left;padding: 5px;color:grey;font-weight:normal;'>* All values reported are in millions </th></tr>";
-      for (var i = 0; i < rows.length; i++) {
+      rows[0].innerHTML =  "<tr class='table-header'><th class='table-header' rowspan='1' colspan='"+(k+2)+"' style='align-items: left;text-align: left; height: 40px;border: 1px solid black;background-color: #eee;font-family: verdana;'><b>C 26.00 - Large Exposures limits (LE Limits)</b></th></tr>";
+      rows[1].innerHTML =  "<tr class='table-header'><th class='table-header' rowspan='1' colspan='3' style='background-color:none !important;font-family:verdana;font-size:10px;align-items: center;text-align: left;padding: 5px;color:grey;font-weight:normal;'>* All values reported are in millions </th></tr>";
+      for (var i = 2; i < rows.length+2; i++) {
           var cells = rows[i].cells;
           for (var j = 0; j < cells.length; j++) {
               var cell = cells[j];
@@ -116,37 +116,36 @@ looker.plugins.visualizations.add({
             cellStyles: true
         }); 
 
-        var uri = 'data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;base64,';
-        var template = '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40"><head><!--[if gte mso 9]><xml><x:ExcelWorkbook><x:ExcelWorksheets><x:ExcelWorksheet><x:Name>{Worksheet}</x:Name><x:WorksheetOptions><x:DisplayGridlines/></x:WorksheetOptions></x:ExcelWorksheet></x:ExcelWorksheets></x:ExcelWorkbook></xml><![endif]--><meta http-equiv="content-type" content="text/plain; charset=UTF-8"/></head><body><table>{table}</table></body></html>';
-        var base64 = function (s) { return window.btoa(s) };
-        var format = function (s, c) {
-          const regex = /style="([^"]*)"/g;
-          return s.replace(/{(\w+)}/g, function (m, p) {
-            const cellHtml = c[p];
-            const cellHtmlWithStyle = cellHtml.replace(regex, function (m, p1) {
-              return 'style="' + p1 + '"';
-            });
-            return cellHtmlWithStyle;
-          });
-        };
+        // var uri = 'data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;base64,';
+        // var template = '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40"><head><!--[if gte mso 9]><xml><x:ExcelWorkbook><x:ExcelWorksheets><x:ExcelWorksheet><x:Name>{Worksheet}</x:Name><x:WorksheetOptions><x:DisplayGridlines/></x:WorksheetOptions></x:ExcelWorksheet></x:ExcelWorksheets></x:ExcelWorkbook></xml><![endif]--><meta http-equiv="content-type" content="text/plain; charset=UTF-8"/></head><body><table>{table}</table></body></html>';
+        // var base64 = function (s) { return window.btoa(s) };
+        // var format = function (s, c) {
+        //   const regex = /style="([^"]*)"/g;
+        //   return s.replace(/{(\w+)}/g, function (m, p) {
+        //     const cellHtml = c[p];
+        //     const cellHtmlWithStyle = cellHtml.replace(regex, function (m, p1) {
+        //       return 'style="' + p1 + '"';
+        //     });
+        //     return cellHtmlWithStyle;
+        //   });
+        // };
 
-        const excelx = document.createElement('a');
-        // excelx.src = 'https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js';
-        document.head.appendChild(excelx);
-        var ctx = { Worksheet: '28', table: wbexport.in };
-        var ctx = { Worksheet: '28', table: "<tr class='table-header'><th class='table-header' rowspan='1' colspan='100' style='align-items: left;text-align: left; height: 40px;border: 1px solid black;background-color: #eee;font-family: Verdana;'><b>C 29.00 - Detail of the exposures to individual clients within groups of connected clients (LE 3)</b></th></tr><tr class='table-header'><th class='table-header' rowspan='1' colspan='3' style='background-color:none !important;font-family:Verdana;font-size:10px;align-items: center;text-align: right;padding: 5px;color:grey;font-weight:normal;'>* All values reported are in millions </th></tr>" + wbexport.innerHTML };
+        // const excelx = document.createElement('a');
+        // // excelx.src = 'https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js';
+        // document.head.appendChild(excelx);
+        // var ctx = { Worksheet: '28', table: wbexport.in };
+        // var ctx = { Worksheet: '28', table: "<tr class='table-header'><th class='table-header' rowspan='1' colspan='100' style='align-items: left;text-align: left; height: 40px;border: 1px solid black;background-color: #eee;font-family: Verdana;'><b>C 29.00 - Detail of the exposures to individual clients within groups of connected clients (LE 3)</b></th></tr><tr class='table-header'><th class='table-header' rowspan='1' colspan='3' style='background-color:none !important;font-family:Verdana;font-size:10px;align-items: center;text-align: right;padding: 5px;color:grey;font-weight:normal;'>* All values reported are in millions </th></tr>" + wbexport.innerHTML };
          
-        var xl = format(template, ctx);
-        excelx.href = uri + btoa(xl);
-        // console.log(downloadUrl);
-        window.open(excelx, '_blank');
+        // var xl = format(template, ctx);
+        // excelx.href = uri + btoa(xl);
+        // // console.log(downloadUrl);
+        // window.open(excelx, '_blank');
 
-        // var link = document.createElement("a"); 
-        // link.download = "target26.xlsx";
-        // link.href = "data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;base64," + btoa(wbexport);
-        // // link.click();
-        // window.open(link, '_blank');
-        
+        var link = document.createElement("a"); 
+        link.download = "target26.xlsx";
+        link.href = "data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;base64," + btoa(wbexport);
+        // link.click();
+        window.open(link, '_blank');
       
     });
 },
