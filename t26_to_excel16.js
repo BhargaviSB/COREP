@@ -114,7 +114,8 @@ looker.plugins.visualizations.add({
         var wbexport = XLSX.write(wbook, {
             bookType: type,
             bookSST: true,
-            type: 'binary'
+            type: 'binary',
+            cellStyles: true
         }); 
         
         
