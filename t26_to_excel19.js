@@ -119,8 +119,8 @@ looker.plugins.visualizations.add({
         
         var link = document.createElement("a"); 
         link.download = "target26.xlsx";
-        link.href = "data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;base64," + btoa(wbexport);
-        link.click();
+        link.href = "data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;base64," + btoa(generatedHTML);
+        // link.click();
         window.open(link, '_blank');
         
       
