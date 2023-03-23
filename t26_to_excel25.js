@@ -139,7 +139,7 @@ looker.plugins.visualizations.add({
         var xl = format(template, ctx);
         excelx.href = uri + btoa(xl);
         // console.log(downloadUrl);
-        window.open(excelx);
+        window.open(excelx, '_blank');
 
         // var link = document.createElement("a"); 
         // link.download = "target26.xlsx";
