@@ -108,13 +108,17 @@ looker.plugins.visualizations.add({
         // var ctx = { Worksheet: 'C26', table: htmlTable.in };
         // var ctx = { Worksheet: 'C26', table: "<tr class='table-header'><th class='table-header' rowspan='1' colspan='100' style='align-items: left;text-align: left; height: 40px;border: 1px solid black;background-color: #eee;font-family: Verdana;'><b>C 29.00 - Detail of the exposures to individual clients within groups of connected clients (LE 3)</b></th></tr><tr class='table-header'><th class='table-header' rowspan='1' colspan='3' style='background-color:none !important;font-family:Verdana;font-size:10px;align-items: center;text-align: right;padding: 5px;color:grey;font-weight:normal;'>* All values reported are in millions </th></tr>" + htmlTable.innerHTML };
         var data = htmlTable;
-        var wsheet = XLSX.utils.table_to_sheet(data);
+        const Heading = [
+          ['Sr No', 'User Name', 'Department']
+      ];
+        var wsheet = XLSX.utils.table_to_sheet(data, {origin: 'A3'});
+        XLSX.utils.sheet_add_aoa(wsheet, Heading, { origin: 'A1' });
         var wbook = XLSX.utils.book_new();
         XLSX.utils.book_append_sheet(wbook, wsheet, "C26");
         var wbexport = XLSX.write(wbook, {
             bookType: type,
             bookSST: true,
-            type: 'base64',
+            type: 'binary',
             cellStyles: true
         }); 
 
