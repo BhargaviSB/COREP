@@ -337,7 +337,7 @@ looker.plugins.visualizations.add({
         generatedHTML += `<th class='table-header' style='text-align: left; padding: 5px;width:350px;border: 1px solid black;background-color: #eee;font-family: verdana;font-weight: normal;'>${header[i]}</th>`;
         // Next columns are the data
         for (row of data) {
-          generatedHTML += `<td class='table-cell' style='border: 1px solid black;'>${LookerCharts.Utils.htmlForCell(row[field.name])}</td>`
+          generatedHTML += `<td class='table-cell' style='border: 1px solid black; fontFamily: Verdana, Geneva, sans-serif; fontSize: 11pt'>${LookerCharts.Utils.htmlForCell(row[field.name])}</td>`
         }
         generatedHTML += '</tr>';
         i++;
