@@ -79,6 +79,10 @@ looker.plugins.visualizations.add({
     fileSaver.src = "https://cdn.jsdelivr.net/npm/file-saver@2.0.5/dist/FileSaver.min.js";
     document.head.appendChild(fileSaver);
 
+    const xlsxstyle = document.createElement('script');
+    xlsxstyle.src = "https://cdn.jsdelivr.net/npm/xlsx-style@0.8.13/dist/xlsx.full.min.js";
+    document.head.appendChild(xlsxstyle);
+
     const downloadButton = document.createElement('img');
     downloadButton.src = "https://cdn.jsdelivr.net/gh/Spoorti-Gandhad/AGBG-Assets@main/downloadAsExcel.jfif";
     downloadButton.setAttribute('height', '25px');
