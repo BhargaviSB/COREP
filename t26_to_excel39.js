@@ -114,16 +114,18 @@ looker.plugins.visualizations.add({
         var data = htmlTable;
         var header = document.createElement('span');
         header.style.fontWeight = "bold";
-        header.style.fontFamily = "Verdana", "Geneva", "sans-serif";
+        header.style.fontFamily = "verdana";
         header.style.fontSize = "14pt";
-        header = [["C 26.00 - Large Exposures limits (LE Limits)"]];
+        document.getElementsByName(header).innerHTML += "C 26.00 - Large Exposures limits (LE Limits)";
+        // header = [["C 26.00 - Large Exposures limits (LE Limits)"]];
         // header[0].style.font = "bold 14pt verdana";
         // document.write("<span style='font-family:verdana; text-align: left; font-weight:bold; font-size:14px; align-items:left; border:1px solid black; background-color: #eee;'>"+header+"</span>");
         var note = document.createElement('span');
         note.style.fontWeight = "bold";
         note.style.fontFamily = "Verdana", "Geneva", "sans-serif";
         note.style.fontSize = "14pt";
-        note = [["* All values reported are in millions"]];
+        document.getElementsByName(note).innerHTML += "* All values reported are in millions";
+        // note = [["* All values reported are in millions"]];
         // var note = [["* All values reported are in millions"]];
         // document.write("<span style='font-family:serif; text-align: left; font-weight:normal; font-size:10px; align-items:left; border:1px solid black; background-color: #eee;'>"+note+"</span>");
         // note[0].style.font = "10pt serif";
@@ -337,7 +339,7 @@ looker.plugins.visualizations.add({
         generatedHTML += `<th class='table-header' style='text-align: left; padding: 5px;width:350px;border: 1px solid black;background-color: #eee;font-family: verdana;font-weight: normal;'>${header[i]}</th>`;
         // Next columns are the data
         for (row of data) {
-          generatedHTML += `<td class='table-cell' style='border: 1px solid black; fontFamily: Verdana, Geneva, sans-serif; fontSize: 11pt'>${LookerCharts.Utils.htmlForCell(row[field.name])}</td>`
+          generatedHTML += `<td class='table-cell' style='border: 1px solid black;'>${LookerCharts.Utils.htmlForCell(row[field.name])}</td>`
         }
         generatedHTML += '</tr>';
         i++;
