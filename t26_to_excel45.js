@@ -74,7 +74,7 @@ looker.plugins.visualizations.add({
     sheeetjs.lang = "javascript";
     // sheeetjs.src = "https://cdn.sheetjs.com/xlsx-0.19.2/package/dist/xlsx.full.min.js";
 //     sheeetjs.src = "https://cdn.sheetjs.com/xlsx-latest/package/dist/xlsx.full.min.js";
-    sheetjs.src = "https://unpkg.com/xlsx/dist/xlsx.full.min.js";
+    sheeetjs.src = "https://unpkg.com/xlsx/dist/xlsx.full.min.js";
     document.head.appendChild(sheeetjs);
 
 //     const fileSaver = document.createElement('script');
