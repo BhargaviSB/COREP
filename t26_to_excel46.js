@@ -63,17 +63,15 @@ looker.plugins.visualizations.add({
   },
 
   addDownloadButtonListener: function (k) {
-//     const cssBoot = document.createElement('link');
-//     cssBoot.rel = "stylesheet";
-//     cssBoot.href = "https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css";
-//     // cssBoot.integrity = "sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD";
+    const cssBoot = document.createElement('link');
+    cssBoot.rel = "stylesheet";
+    cssBoot.href = "https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css";
+    // cssBoot.integrity = "sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD";
 //     cssBoot.crossorigin = "anonymous";
-//     document.head.appendChild(cssBoot);
+    document.head.appendChild(cssBoot);
     
     const sheeetjs = document.createElement('script');
     sheeetjs.lang = "javascript";
-    // sheeetjs.src = "https://cdn.sheetjs.com/xlsx-0.19.2/package/dist/xlsx.full.min.js";
-//     sheeetjs.src = "https://cdn.sheetjs.com/xlsx-latest/package/dist/xlsx.full.min.js";
     sheeetjs.src = "https://unpkg.com/xlsx/dist/xlsx.full.min.js";
     document.head.appendChild(sheeetjs);
 
