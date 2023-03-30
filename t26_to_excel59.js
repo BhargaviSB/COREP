@@ -81,7 +81,8 @@ looker.plugins.visualizations.add({
     // document.head.appendChild(fileSaver);
 
     const xlsxstyle = document.createElement('script');
-    xlsxstyle.src = "https://cdn.jsdelivr.net/npm/xlsx-style@0.8.13/dist/xlsx.full.min.js";
+    xlsxstyle.lang = "javascript";
+    xlsxstyle.src = "https://cdn.jsdelivr.net/npm/xlsx-style@0.8.13/dist/xlsx.core.min.js";
     document.head.appendChild(xlsxstyle);
 
     const xlsxjsstyle = document.createElement('script');
@@ -150,7 +151,7 @@ looker.plugins.visualizations.add({
         var tabledata = [
           {v: data, t: "s", s: {font: {name: "Verdana", sz: 11}}}
         ];
-        var wsheet = XLSX.utils.table_to_sheet([tabledata], {origin: 'A3'});
+        var wsheet = XLSX.utils.table_to_sheet(tabledata, {origin: 'A3'});
         XLSX.utils.sheet_add_aoa(wsheet, [header], { origin: 'A1' });
         XLSX.utils.sheet_add_aoa(wsheet, [note], { origin: 'A2' });
         var wbook = XLSX.utils.book_new();
