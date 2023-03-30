@@ -80,9 +80,9 @@ looker.plugins.visualizations.add({
     // fileSaver.src = "https://cdn.jsdelivr.net/npm/file-saver@2.0.5/dist/FileSaver.min.js";
     // document.head.appendChild(fileSaver);
 
-    // const xlsxstyle = document.createElement('script');
-    // xlsxstyle.src = "https://cdn.jsdelivr.net/npm/xlsx-style@0.8.13/dist/xlsx.full.min.js";
-    // document.head.appendChild(xlsxstyle);
+    const xlsxstyle = document.createElement('script');
+    xlsxstyle.src = "https://cdn.jsdelivr.net/npm/xlsx-style@0.8.13/dist/xlsx.full.min.js";
+    document.head.appendChild(xlsxstyle);
 
     const downloadButton = document.createElement('img');
     downloadButton.src = "https://cdn.jsdelivr.net/gh/Spoorti-Gandhad/AGBG-Assets@main/downloadAsExcel.jfif";
@@ -131,12 +131,14 @@ looker.plugins.visualizations.add({
         // document.write("<span style='font-family:serif; text-align: left; font-weight:normal; font-size:10px; align-items:left; border:1px solid black; background-color: #eee;'>"+note+"</span>");
         // note[0].style.font = "10pt serif";
         var header = [
-          {v: "C 26.00 - Large Exposures limits (LE Limits)", t: "s", s: {font: {name: "Verdana", sz: 14, bold: true}}},
+          {v: "C 26.00 - Large Exposures limits (LE Limits)", t: "s", s: {font: {name: "Verdana", sz: 14, bold: true}}}
+        ];
+        var note = [
           {v: "* All values reported are in millions", t: "s", s: {font: {name: "Verdana", sz: 10}}}
         ];
         var wsheet = XLSX.utils.table_to_sheet(data, {origin: 'A3'});
         XLSX.utils.sheet_add_aoa(wsheet, [header], { origin: 'A1' });
-        // XLSX.utils.sheet_add_aoa(wsheet, note, { origin: 'A2' });
+        XLSX.utils.sheet_add_aoa(wsheet, [note], { origin: 'A2' });
         var wbook = XLSX.utils.book_new();
         XLSX.utils.book_append_sheet(wbook, wsheet, "C26");
         var wbexport = XLSX.write(wbook, {
