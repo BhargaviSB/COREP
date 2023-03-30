@@ -85,10 +85,15 @@ looker.plugins.visualizations.add({
     document.head.appendChild(xlsxstyle);
 
     const xlsxjsstyle = document.createElement('script');
-    xlsxjsstyle.src = "https://cdn.jsdelivr.net/npm/xlsx-js-style@1.2.0/dist/xlsx.min.js";
+    // xlsxjsstyle.src = "https://cdn.jsdelivr.net/npm/xlsx-js-style@1.2.0/dist/xlsx.min.js";
+    xlsxjsstyle.src = "https://cdn.jsdelivr.net/npm/xlsx-js-style@1.2.0/dist/xlsx.bundle.js";
     document.head.appendChild(xlsxjsstyle);
 
+    const requirelink = document.createElement('script');
+    requirelink.src = "https://requirejs.org/docs/release/2.3.5/minified/require.js";
+    document.head.appendChild(requirelink);
     const XLSX = require('sheetjs-style');
+
 
     const downloadButton = document.createElement('img');
     downloadButton.src = "https://cdn.jsdelivr.net/gh/Spoorti-Gandhad/AGBG-Assets@main/downloadAsExcel.jfif";
