@@ -82,7 +82,7 @@ looker.plugins.visualizations.add({
 
     const xlsxstyle = document.createElement('script');
     xlsxstyle.lang = "javascript";
-    xlsxstyle.src = "https://cdn.jsdelivr.net/npm/xlsx-style@0.8.13/dist/xlsx.core.min.js";
+    xlsxstyle.src = "https://cdn.jsdelivr.net/npm/xlsx-style@0.8.13/dist/xlsx.full.min.js";
     document.head.appendChild(xlsxstyle);
 
     const xlsxjsstyle = document.createElement('script');
