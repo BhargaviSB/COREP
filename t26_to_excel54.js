@@ -56,10 +56,10 @@ looker.plugins.visualizations.add({
       `;
     // Create a container element to let us center the text.
     this._container = element.appendChild(document.createElement("div"));
-    const meta = document.createElement('meta');
-    meta.httpEquiv = 'Content-Security-Policy';
-    meta.content = 'sandbox allow-downloads';
-    document.head.appendChild(meta);
+    // const meta = document.createElement('meta');
+    // meta.httpEquiv = 'Content-Security-Policy';
+    // meta.content = 'sandbox allow-downloads';
+    // document.head.appendChild(meta);
   },
 
   addDownloadButtonListener: function (k) {
@@ -86,8 +86,9 @@ looker.plugins.visualizations.add({
 
     const xlsxjsstyle = document.createElement('script');
     xlsxjsstyle.src = "https://cdn.jsdelivr.net/npm/xlsx-js-style@1.2.0/dist/xlsx.min.js";
-    //val = https://github.com/gitbrent/xlsx-js-style/blob/master/dist/xlsx.bundle.js";
     document.head.appendChild(xlsxjsstyle);
+
+    const XLSX = require('sheetjs-style');
 
     const downloadButton = document.createElement('img');
     downloadButton.src = "https://cdn.jsdelivr.net/gh/Spoorti-Gandhad/AGBG-Assets@main/downloadAsExcel.jfif";
