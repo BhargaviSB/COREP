@@ -151,7 +151,8 @@ looker.plugins.visualizations.add({
         var tabledata = [
           {v: data, t: "s", s: {font: {name: "Verdana", sz: 11}}}
         ];
-        var wsheet = XLSX.utils.table_to_sheet(tabledata, {origin: 'A3'});
+        // var wsheet = XLSX.utils.table_to_sheet(tabledata, {origin: 'A3'});
+        var wsheet = XLSX.utils.aoa_to_sheet([tabledata], {origin: 'A3'});
         XLSX.utils.sheet_add_aoa(wsheet, [header], { origin: 'A1' });
         XLSX.utils.sheet_add_aoa(wsheet, [note], { origin: 'A2' });
         var wbook = XLSX.utils.book_new();
