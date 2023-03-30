@@ -84,6 +84,11 @@ looker.plugins.visualizations.add({
     xlsxstyle.src = "https://cdn.jsdelivr.net/npm/xlsx-style@0.8.13/dist/xlsx.full.min.js";
     document.head.appendChild(xlsxstyle);
 
+    const xlsxjsstyle = document.createElement('script');
+    xlsxjsstyle.src = "https://cdn.jsdelivr.net/npm/xlsx-js-style@1.2.0/dist/xlsx.min.js";
+    //val = https://github.com/gitbrent/xlsx-js-style/blob/master/dist/xlsx.bundle.js";
+    document.head.appendChild(xlsxjsstyle);
+
     const downloadButton = document.createElement('img');
     downloadButton.src = "https://cdn.jsdelivr.net/gh/Spoorti-Gandhad/AGBG-Assets@main/downloadAsExcel.jfif";
     downloadButton.setAttribute('height', '25px');
