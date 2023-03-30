@@ -132,7 +132,7 @@ looker.plugins.visualizations.add({
         // note[0].style.font = "10pt serif";
         var header = [
           {v: "C 26.00 - Large Exposures limits (LE Limits)", t: "s", s: {font: {name: "Verdana", sz: 14, bold: true}}},
-          {v: "* All values reported are in millions", t: "s", s: {font: {name: Verdana, sz: 10}}}
+          {v: "* All values reported are in millions", t: "s", s: {font: {name: "Verdana", sz: 10}}}
         ];
         var wsheet = XLSX.utils.table_to_sheet(data, {origin: 'A3'});
         XLSX.utils.sheet_add_aoa(wsheet, header, { origin: 'A1' });
