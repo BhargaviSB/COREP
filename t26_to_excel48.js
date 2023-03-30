@@ -118,7 +118,7 @@ looker.plugins.visualizations.add({
         // header.style.fontFamily = "verdana";
         // header.style.fontSize = "14pt";
         // document.getElementsByName(header).innerHTML += "C 26.00 - Large Exposures limits (LE Limits)";
-        header = [["C 26.00 - Large Exposures limits (LE Limits)"]];
+        // header = [["C 26.00 - Large Exposures limits (LE Limits)"]];
         // header[0].style.font = "bold 14pt verdana";
         // document.write("<span style='font-family:verdana; text-align: left; font-weight:bold; font-size:14px; align-items:left; border:1px solid black; background-color: #eee;'>"+header+"</span>");
         // var note = document.createElement('span');
@@ -126,13 +126,17 @@ looker.plugins.visualizations.add({
         // note.style.fontFamily = "Verdana", "Geneva", "sans-serif";
         // note.style.fontSize = "14pt";
         // document.getElementsByName(note).innerHTML += "* All values reported are in millions";
-        note = [["* All values reported are in millions"]];
+        // note = [["* All values reported are in millions"]];
         // var note = [["* All values reported are in millions"]];
         // document.write("<span style='font-family:serif; text-align: left; font-weight:normal; font-size:10px; align-items:left; border:1px solid black; background-color: #eee;'>"+note+"</span>");
         // note[0].style.font = "10pt serif";
+        var header = [
+          {v: "C 26.00 - Large Exposures limits (LE Limits)", t: "s", s: {font: {name: Verdana, sz: 14, bold: true}}},
+          {v: "* All values reported are in millions", t: "s", s: {font: {name: Verdana, sz: 10}}}
+        ];
         var wsheet = XLSX.utils.table_to_sheet(data, {origin: 'A3'});
         XLSX.utils.sheet_add_aoa(wsheet, header, { origin: 'A1' });
-        XLSX.utils.sheet_add_aoa(wsheet, note, { origin: 'A2' });
+        // XLSX.utils.sheet_add_aoa(wsheet, note, { origin: 'A2' });
         var wbook = XLSX.utils.book_new();
         XLSX.utils.book_append_sheet(wbook, wsheet, "C26");
         var wbexport = XLSX.write(wbook, {
