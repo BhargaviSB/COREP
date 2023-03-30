@@ -135,7 +135,7 @@ looker.plugins.visualizations.add({
           {v: "* All values reported are in millions", t: "s", s: {font: {name: "Verdana", sz: 10}}}
         ];
         var wsheet = XLSX.utils.table_to_sheet(data, {origin: 'A3'});
-        XLSX.utils.sheet_add_aoa(wsheet, header, { origin: 'A1' });
+        XLSX.utils.sheet_add_aoa(wsheet, [header], { origin: 'A1' });
         // XLSX.utils.sheet_add_aoa(wsheet, note, { origin: 'A2' });
         var wbook = XLSX.utils.book_new();
         XLSX.utils.book_append_sheet(wbook, wsheet, "C26");
