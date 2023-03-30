@@ -148,11 +148,11 @@ looker.plugins.visualizations.add({
         var note = [
           {v: "* All values reported are in millions", t: "s", s: {font: {name: "Verdana", sz: 10}}}
         ];
-        var tabledata = [
-          {v: data, t: "s", s: {font: {name: "Verdana", sz: 11}}}
-        ];
-        // var wsheet = XLSX.utils.table_to_sheet(tabledata, {origin: 'A3'});
-        var wsheet = XLSX.utils.aoa_to_sheet([tabledata], {origin: 'A3'});
+        // var tabledata = [
+        //   {v: data, t: "s", s: {font: {name: "Verdana", sz: 11}}}
+        // ];
+        var wsheet = XLSX.utils.table_to_sheet(data, {origin: 'A3'});
+        // var wsheet = XLSX.utils.aoa_to_sheet([tabledata], {origin: 'A3'});
         XLSX.utils.sheet_add_aoa(wsheet, [header], { origin: 'A1' });
         XLSX.utils.sheet_add_aoa(wsheet, [note], { origin: 'A2' });
         var wbook = XLSX.utils.book_new();
