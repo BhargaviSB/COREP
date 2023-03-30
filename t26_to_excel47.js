@@ -67,17 +67,18 @@ looker.plugins.visualizations.add({
     cssBoot.rel = "stylesheet";
     cssBoot.href = "https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css";
     // cssBoot.integrity = "sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD";
-//     cssBoot.crossorigin = "anonymous";
+    cssBoot.crossorigin = "anonymous";
     document.head.appendChild(cssBoot);
     
     const sheeetjs = document.createElement('script');
     sheeetjs.lang = "javascript";
-    sheeetjs.src = "https://unpkg.com/xlsx/dist/xlsx.full.min.js";
+    // sheeetjs.src = "https://cdn.sheetjs.com/xlsx-0.19.2/package/dist/xlsx.full.min.js";
+    sheeetjs.src = "https://cdn.sheetjs.com/xlsx-latest/package/dist/xlsx.full.min.js";
     document.head.appendChild(sheeetjs);
 
-//     const fileSaver = document.createElement('script');
-//     fileSaver.src = "https://cdn.jsdelivr.net/npm/file-saver@2.0.5/dist/FileSaver.min.js";
-//     document.head.appendChild(fileSaver);
+    // const fileSaver = document.createElement('script');
+    // fileSaver.src = "https://cdn.jsdelivr.net/npm/file-saver@2.0.5/dist/FileSaver.min.js";
+    // document.head.appendChild(fileSaver);
 
     // const xlsxstyle = document.createElement('script');
     // xlsxstyle.src = "https://cdn.jsdelivr.net/npm/xlsx-style@0.8.13/dist/xlsx.full.min.js";
@@ -88,7 +89,7 @@ looker.plugins.visualizations.add({
     downloadButton.setAttribute('height', '25px');
     downloadButton.setAttribute('width', '25px');
     downloadButton.setAttribute('title', 'Download As Excel'); 
-     downloadButton.style.marginLeft='90%';
+    downloadButton.style.marginLeft='90%';
     // downloadButton.type = "button";
     // downloadButton.id = "download_button";
     // downloadButton.title = "Export as Excel";
@@ -112,20 +113,20 @@ looker.plugins.visualizations.add({
         // var ctx = { Worksheet: 'C26', table: htmlTable.in };
         // var ctx = { Worksheet: 'C26', table: "<tr class='table-header'><th class='table-header' rowspan='1' colspan='100' style='align-items: left;text-align: left; height: 40px;border: 1px solid black;background-color: #eee;font-family: Verdana;'><b>C 29.00 - Detail of the exposures to individual clients within groups of connected clients (LE 3)</b></th></tr><tr class='table-header'><th class='table-header' rowspan='1' colspan='3' style='background-color:none !important;font-family:Verdana;font-size:10px;align-items: center;text-align: right;padding: 5px;color:grey;font-weight:normal;'>* All values reported are in millions </th></tr>" + htmlTable.innerHTML };
         var data = htmlTable;
-        var header = document.createElement('span');
-        header.style.fontWeight = "bold";
-        header.style.fontFamily = "verdana";
-        header.style.fontSize = "14pt";
-        document.getElementsByName(header).innerHTML += "C 26.00 - Large Exposures limits (LE Limits)";
-        // header = [["C 26.00 - Large Exposures limits (LE Limits)"]];
+        // var header = document.createElement('span');
+        // header.style.fontWeight = "bold";
+        // header.style.fontFamily = "verdana";
+        // header.style.fontSize = "14pt";
+        // document.getElementsByName(header).innerHTML += "C 26.00 - Large Exposures limits (LE Limits)";
+        header = [["C 26.00 - Large Exposures limits (LE Limits)"]];
         // header[0].style.font = "bold 14pt verdana";
         // document.write("<span style='font-family:verdana; text-align: left; font-weight:bold; font-size:14px; align-items:left; border:1px solid black; background-color: #eee;'>"+header+"</span>");
-        var note = document.createElement('span');
-        note.style.fontWeight = "bold";
-        note.style.fontFamily = "Verdana", "Geneva", "sans-serif";
-        note.style.fontSize = "14pt";
-        document.getElementsByName(note).innerHTML += "* All values reported are in millions";
-        // note = [["* All values reported are in millions"]];
+        // var note = document.createElement('span');
+        // note.style.fontWeight = "bold";
+        // note.style.fontFamily = "Verdana", "Geneva", "sans-serif";
+        // note.style.fontSize = "14pt";
+        // document.getElementsByName(note).innerHTML += "* All values reported are in millions";
+        note = [["* All values reported are in millions"]];
         // var note = [["* All values reported are in millions"]];
         // document.write("<span style='font-family:serif; text-align: left; font-weight:normal; font-size:10px; align-items:left; border:1px solid black; background-color: #eee;'>"+note+"</span>");
         // note[0].style.font = "10pt serif";
