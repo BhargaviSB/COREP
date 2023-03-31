@@ -174,7 +174,7 @@ looker.plugins.visualizations.add({
         // document.write("<span style='font-family:serif; text-align: left; font-weight:normal; font-size:10px; align-items:left; border:1px solid black; background-color: #eee;'>"+note+"</span>");
         // note[0].style.font = "10pt serif";
         var header = [
-          {v: "C 26.00 - Large Exposures limits (LE Limits)", t: "s", s: {font: {name: "Calibri", sz: 16, bold: true}, fill: {bgColor: {theme: 1, tint: 0.6}}}}
+          {v: "C 26.00 - Large Exposures limits (LE Limits)", t: "s", s: {font: {name: "Calibri", sz: 16, bold: true}}}
         ];
         var note = [
           {v: "* All values reported are in millions", t: "s", s: {font: {name: "Calibri", sz: 10}}}
@@ -185,8 +185,8 @@ looker.plugins.visualizations.add({
         var wsheet = XLSX.utils.table_to_sheet(data, {origin: 'A4'});
         // var wsheet = XLSX.utils.aoa_to_sheet([tabledata], {origin: 'A3'});
         // const max_width = data.reduce((w, r) => Math.max(w, r.name.length), 10);
-        XLSX.utils.sheet_add_aoa(wsheet, [header], { origin: {r:0, c: 10} });
-        XLSX.utils.sheet_add_aoa(wsheet, [note], { origin: {r:1, c:10} });
+        XLSX.utils.sheet_add_aoa(wsheet, [header], { origin: 'A1' });
+        XLSX.utils.sheet_add_aoa(wsheet, [note], { origin: 'A2' });
         var wbook = XLSX.utils.book_new();
         XLSX.utils.book_append_sheet(wbook, wsheet, "C26");
         // wsheet["!merges"] = [{s:{c:0, r:0}, e:{c:10, r:0}}, {s:{c:0, r:1}, e:{c:10, r:1}}, {s:{c:0, r:3}, e:{c:1, r:4}}, {s:{c:2, r:3}, e:{c:(k+1), r:3}}, {s:{c:2, r:4}, e:{c:(k+1), r:4}}];
