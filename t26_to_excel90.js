@@ -185,12 +185,13 @@ looker.plugins.visualizations.add({
         // var tabledata = [
         //   {v: data, t: "s", s: {font: {name: "Verdana", sz: 11}}}
         // ];
-        var wsheet = XLSX.utils.sheet_add_dom(telement, {origin: 'A4'});
         // var wsheet = XLSX.utils.table_to_sheet(data, {origin: 'A4'});
         // var wsheet = XLSX.utils.aoa_to_sheet([tabledata], {origin: 'A3'});
         // const max_width = data.reduce((w, r) => Math.max(w, r.name.length), 10);
-        XLSX.utils.sheet_add_aoa(wsheet, [header], { origin: 'A1' });
+        var wsheet = XLSX.utils.aoa_to_sheet([header], {origin: 'A1'});
+        // XLSX.utils.sheet_add_aoa(wsheet, [header], { origin: 'A1' });
         XLSX.utils.sheet_add_aoa(wsheet, [note], { origin: 'A2' });
+        XLSX.utils.sheet_add_dom(wsheet, telement, {origin: 'A4'});
         var wbook = XLSX.utils.book_new();
         XLSX.utils.book_append_sheet(wbook, wsheet, "C26");
         wsheet["!merges"] = [{s:{c:0, r:0}, e:{c:10, r:0}}, {s:{c:0, r:1}, e:{c:10, r:1}}, {s:{c:0, r:3}, e:{c:1, r:4}}, {s:{c:2, r:3}, e:{c:(k+1), r:3}}, {s:{c:2, r:4}, e:{c:(k+1), r:4}}];
