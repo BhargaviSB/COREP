@@ -81,7 +81,6 @@ looker.plugins.visualizations.add({
     // document.head.appendChild(fileSaver);
 
     const xlsxstyle = document.createElement('script');
-    // xlsxstyle.lang = "javascript";
     xlsxstyle.src = "https://cdn.jsdelivr.net/npm/xlsx-style@0.8.13/dist/xlsx.full.min.js";
     document.head.appendChild(xlsxstyle);
 
@@ -116,6 +115,15 @@ looker.plugins.visualizations.add({
       // rows[1].innerHTML =  "<tr class='table-header'><th class='table-header' rowspan='1' colspan='3' style='background-color:none !important;font-family:verdana;font-size:10px;align-items: center;text-align: left;padding: 5px;color:grey;font-weight:normal;'>* All values reported are in millions </th></tr>";
       for (var i = 0; i < rows.length; i++) {
           var cells = rows[i].cells;
+          if(rows[i] == 1){
+            rows[i].cells.style.fontFamily = "Verdana";
+            rows[i].cells.style.fontSize = 11;
+            rows[i].cells.style.fontWeight = "bold";
+          }
+          else{
+            rows[i].cells.style.fontFamily = "Verdana";
+            rows[i].cells.style.fontSize = 11;
+          }
           for (var j = 0; j < cells.length; j++) {
               var cell = cells[j];
           }
