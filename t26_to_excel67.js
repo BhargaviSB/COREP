@@ -115,17 +115,18 @@ looker.plugins.visualizations.add({
       // rows[1].innerHTML =  "<tr class='table-header'><th class='table-header' rowspan='1' colspan='3' style='background-color:none !important;font-family:verdana;font-size:10px;align-items: center;text-align: left;padding: 5px;color:grey;font-weight:normal;'>* All values reported are in millions </th></tr>";
       for (var i = 0; i < rows.length; i++) {
           var cells = rows[i].cells;
-          if(i == 0){
-            cells[i].style.fontFamily = "Verdana";
-            cells[i].style.fontSize = 11;
-            cells[i].style.fontWeight = "bold";
-          }
-          else{
-            cells[i].style.fontFamily = "Verdana";
-            cells[i].style.fontSize = 11;
-          }
+          var r = i;
           for (var j = 0; j < cells.length; j++) {
               var cell = cells[j];
+              if(r == 0){
+                cell[r].style.fontFamily = "Verdana";
+                cell[r].style.fontSize = 11;
+                cell[r].style.fontWeight = "bold";
+              }
+              else{
+                cell[r].style.fontFamily = "Verdana";
+                cell[r].style.fontSize = 11;
+              }
           }
       }
 
