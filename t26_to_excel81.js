@@ -189,7 +189,7 @@ looker.plugins.visualizations.add({
         XLSX.utils.sheet_add_aoa(wsheet, [note], { origin: 'A2' });
         var wbook = XLSX.utils.book_new();
         XLSX.utils.book_append_sheet(wbook, wsheet, "C26");
-        wsheet["!merges"] = [{s:{c:0, r:0}, e:{c:9, r:0}}, {s:{c:0, r:0}, e:{c:10, r:0}}, {s:{c:1, r:1}, e:{c:10, r:1}}, {s:{c:0, r:3}, e:{c:1, r:4}}];
+        wsheet["!merges"] = [{s:{c:0, r:0}, e:{c:10, r:0}}, {s:{c:0, r:1}, e:{c:10, r:1}}, {s:{c:0, r:3}, e:{c:1, r:4}}, {s:{c:2, r:3}, e:{c:k, r:4}}];
         var wbexport = XLSX.write(wbook, {
             bookType: type,
             bookSST: true,
