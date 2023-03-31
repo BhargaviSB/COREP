@@ -107,28 +107,50 @@ looker.plugins.visualizations.add({
     this._container.prepend(downloadButton);
     downloadButton.addEventListener('click', () => { 
 
-      var htmlTable = document.querySelector('table');
-      // htmlTable.style.border = '1px solid black';
-      // htmlTable.style.fontSize = '11px';
-      var rows = htmlTable.rows;
-      // rows[0].innerHTML =  "<tr class='table-header'><th class='table-header' rowspan='1' colspan='"+(k+2)+"' style='align-items: left;text-align: left; height: 40px;border: 1px solid black;background-color: #eee;font-family: verdana;'><b>C 26.00 - Large Exposures limits (LE Limits)</b></th></tr>";
-      // rows[1].innerHTML =  "<tr class='table-header'><th class='table-header' rowspan='1' colspan='3' style='background-color:none !important;font-family:verdana;font-size:10px;align-items: center;text-align: left;padding: 5px;color:grey;font-weight:normal;'>* All values reported are in millions </th></tr>";
-      for (var i = 0; i < rows.length; i++) {
-          var cells = rows[i].cells;
-          var r = i;
-          for (var j = 0; j < cells.length; j++) {
-              var cell = cells[j];
-              if(r == 0){
-                cell[r].style.fontFamily = "Verdana";
-                cell[r].style.fontSize = 11;
-                cell[r].style.fontWeight = "bold";
-              }
-              else{
-                cell[r].style.fontFamily = "Verdana";
-                cell[r].style.fontSize = 11;
-              }
+      // var htmlTable = document.querySelector('table');
+      // // htmlTable.style.border = '1px solid black';
+      // // htmlTable.style.fontSize = '11px';
+      // var rows = htmlTable.rows;
+      // // rows[0].innerHTML =  "<tr class='table-header'><th class='table-header' rowspan='1' colspan='"+(k+2)+"' style='align-items: left;text-align: left; height: 40px;border: 1px solid black;background-color: #eee;font-family: verdana;'><b>C 26.00 - Large Exposures limits (LE Limits)</b></th></tr>";
+      // // rows[1].innerHTML =  "<tr class='table-header'><th class='table-header' rowspan='1' colspan='3' style='background-color:none !important;font-family:verdana;font-size:10px;align-items: center;text-align: left;padding: 5px;color:grey;font-weight:normal;'>* All values reported are in millions </th></tr>";
+      // for (var i = 0; i < rows.length; i++) {
+      //     var cells = rows[i].cells;
+      //     var r = i;
+      //     for (var j = 0; j < cells.length; j++) {
+      //         var cell = cells[j];
+      //         if(r == 0){
+      //           cell[r].style.fontFamily = "Verdana";
+      //           cell[r].style.fontSize = 11;
+      //           cell[r].style.fontWeight = "bold";
+      //         }
+      //         else{
+      //           cell[r].style.fontFamily = "Verdana";
+      //           cell[r].style.fontSize = 11;
+      //         }
+      //     }
+      // }
+
+        var htmlTable = document.querySelectorAll("table").forEach(table => {
+          let tr = table.getElementsByTagName("tr")[0];
+        let tds = tr.getElementsByTagName("td");
+        let selectorStr ="tbody tr:nth-child(1)"
+      
+        let maxRowspan = 1;
+      
+        for (let i = 0; i < tds.length; i++) {
+          if(maxRowspan < tds[i].rowSpan)
+          {
+              maxRowspan = tds[i].rowSpan
+            selectorStr += " , tbody tr:nth-child(" + maxRowspan + ")"
           }
-      }
+        }
+      
+        var nodes = table.querySelectorAll(selectorStr)
+      
+        for (let i = 0; i < nodes.length; i++) {
+          nodes[i].style.background = "#1DA600";
+        }
+      });
 
         var type = "xlsx";
         // var ctx = { Worksheet: 'C26', table: htmlTable.in };
