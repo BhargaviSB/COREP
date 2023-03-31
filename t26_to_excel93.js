@@ -176,22 +176,22 @@ looker.plugins.visualizations.add({
         // var note = [["* All values reported are in millions"]];
         // document.write("<span style='font-family:serif; text-align: left; font-weight:normal; font-size:10px; align-items:left; border:1px solid black; background-color: #eee;'>"+note+"</span>");
         // note[0].style.font = "10pt serif";
-        const header = [
+        var header = [
           {v: "C 26.00 - Large Exposures limits (LE Limits)", t: "s", s: {font: {name: "Calibri", sz: 16, bold: true}}}
         ];
-        const note = [
+        var note = [
           {v: "* All values reported are in millions", t: "s", s: {font: {name: "Calibri", sz: 10}}}
         ];
         // var tabledata = [
         //   {v: data, t: "s", s: {font: {name: "Verdana", sz: 11}}}
         // ];
-        // var wsheet = XLSX.utils.table_to_sheet(data, {origin: 'A4'});
+        var wsheet = XLSX.utils.table_to_sheet(data, {origin: 'A4'});
         // var wsheet = XLSX.utils.aoa_to_sheet([tabledata], {origin: 'A3'});
         // const max_width = data.reduce((w, r) => Math.max(w, r.name.length), 10);
         var wsheet = XLSX.utils.aoa_to_sheet([header], {origin: 'A1'});
         // XLSX.utils.sheet_add_aoa(wsheet, [header], { origin: 'A1' });
         XLSX.utils.sheet_add_aoa(wsheet, [note], { origin: 'A2' });
-        XLSX.utils.sheet_add_dom(wsheet, data, {origin: 'A4'});
+        // XLSX.utils.sheet_add_dom(wsheet, data, {origin: 'A4'});
         // document.body.removeChild(telement);
         var wbook = XLSX.utils.book_new();
         XLSX.utils.book_append_sheet(wbook, wsheet, "C26");
