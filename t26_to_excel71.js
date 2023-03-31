@@ -184,8 +184,8 @@ looker.plugins.visualizations.add({
         // ];
         var wsheet = XLSX.utils.table_to_sheet(data, {origin: 'A3'});
         // var wsheet = XLSX.utils.aoa_to_sheet([tabledata], {origin: 'A3'});
-        const max_width = rows.reduce((w, r) => Math.max(w, r.name.length), 10);
-        wsheet["!cols"] = [{wch: max_width}];
+        // const max_width = data.reduce((w, r) => Math.max(w, r.name.length), 10);
+        wsheet["!cols"] = [{wch: 15}];
         XLSX.utils.sheet_add_aoa(wsheet, [header], { origin: 'A1' });
         XLSX.utils.sheet_add_aoa(wsheet, [note], { origin: 'A2' });
         var wbook = XLSX.utils.book_new();
