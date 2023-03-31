@@ -116,13 +116,13 @@ looker.plugins.visualizations.add({
       for (var i = 0; i < rows.length; i++) {
           var cells = rows[i].cells;
           if(i == 0){
-            cells.style.fontFamily = "Verdana";
-            cells.style.fontSize = 11;
-            cells.style.fontWeight = "bold";
+            cells[i].style.fontFamily = "Verdana";
+            cells[i].style.fontSize = 11;
+            cells[i].style.fontWeight = "bold";
           }
           else{
-            cells.style.fontFamily = "Verdana";
-            cells.style.fontSize = 11;
+            cells[i].style.fontFamily = "Verdana";
+            cells[i].style.fontSize = 11;
           }
           for (var j = 0; j < cells.length; j++) {
               var cell = cells[j];
