@@ -134,10 +134,10 @@ looker.plugins.visualizations.add({
     
             var type = "xlsx";
             var tdata = htmlTable;
-            var sheader = [{v: "C 26.00 - Large Exposures limits (LE Limits)", t: "s", s: {font: {name: "Calibri", sz: 16, bold: true}, fill: {patternType: "solid", fgColor: {rgb: "FFFFFF"}, bgColor: {rgb: "A9AAAB"}}, border: {bottom: {style: "medium"}, right: {style: "medium"}}}}];
-            var note = [{v: "* All values reported are in millions", t: "s", s: {font: {name: "Calibri", sz: 10}}}];
             var wsheet = XLSX.utils.table_to_sheet(tdata, {origin: 'A4'});
             wsheet["!merges"] = [{s:{c:0, r:0}, e:{c:7, r:0}}, {s:{c:0, r:1}, e:{c:7, r:1}}, {s:{c:0, r:3}, e:{c:7, r:3}}];
+            var sheader = [{v: "C 26.00 - Large Exposures limits (LE Limits)", t: "s", s: {font: {name: "Calibri", sz: 16, bold: true}, fill: {patternType: "solid", fgColor: {rgb: "FFFFFF"}, bgColor: {rgb: "A9AAAB"}}, border: {bottom: {style: "medium"}, right: {style: "medium"}}}}];
+            var note = [{v: "* All values reported are in millions", t: "s", s: {font: {name: "Calibri", sz: 10}}}];
             XLSX.utils.sheet_add_aoa(wsheet, [sheader], { origin: 'A1' });
             XLSX.utils.sheet_add_aoa(wsheet, [note], { origin: 'A2' });
             var wbook = XLSX.utils.book_new();
