@@ -155,7 +155,7 @@ looker.plugins.visualizations.add({
           var type = "xlsx";
           // var ctx = { Worksheet: 'C26', table: htmlTable.in };
           // var ctx = { Worksheet: 'C26', table: "<tr class='table-header'><th class='table-header' rowspan='1' colspan='100' style='align-items: left;text-align: left; height: 40px;border: 1px solid black;background-color: #eee;font-family: Verdana;'><b>C 29.00 - Detail of the exposures to individual clients within groups of connected clients (LE 3)</b></th></tr><tr class='table-header'><th class='table-header' rowspan='1' colspan='3' style='background-color:none !important;font-family:Verdana;font-size:10px;align-items: center;text-align: right;padding: 5px;color:grey;font-weight:normal;'>* All values reported are in millions </th></tr>" + htmlTable.innerHTML };
-          var tdata = htmlTable;
+          var tdata = "<tr class='table-header'><th class='table-header' rowspan='1' colspan='100' style='align-items: left;text-align: left; height: 40px;border: 1px solid black;background-color: #eee;font-family: Verdana;'><b>C 29.00 - Detail of the exposures to individual clients within groups of connected clients (LE 3)</b></th></tr><tr class='table-header'><th class='table-header' rowspan='1' colspan='3' style='background-color:none !important;font-family:Verdana;font-size:10px;align-items: center;text-align: right;padding: 5px;color:grey;font-weight:normal;'>* All values reported are in millions </th></tr>" + htmlTable;
           // var telement = document.createElement('div');
           // telement.innerHTML = htmlTable;
           // document.body.appendChild(telement);
@@ -190,8 +190,8 @@ looker.plugins.visualizations.add({
           // var wsheet = XLSX.utils.aoa_to_sheet([tabledata], {origin: 'A3'});
           // const max_width = data.reduce((w, r) => Math.max(w, r.name.length), 10);
         //   XLSX.utils.aoa_to_sheet(wsheet, [header], {origin: 'A1'});
-          XLSX.utils.sheet_add_aoa(wsheet, [header], { origin: 'A1' });
-          XLSX.utils.sheet_add_aoa(wsheet, [note], { origin: 'A2' });
+        //--   XLSX.utils.sheet_add_aoa(wsheet, [header], { origin: 'A1' });
+        //--   XLSX.utils.sheet_add_aoa(wsheet, [note], { origin: 'A2' });
           // XLSX.utils.sheet_add_dom(wsheet, data, {origin: 'A4'});
           // document.body.removeChild(telement);
           var wbook = XLSX.utils.book_new();
