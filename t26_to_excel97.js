@@ -176,10 +176,10 @@ looker.plugins.visualizations.add({
           // var note = [["* All values reported are in millions"]];
           // document.write("<span style='font-family:serif; text-align: left; font-weight:normal; font-size:10px; align-items:left; border:1px solid black; background-color: #eee;'>"+note+"</span>");
           // note[0].style.font = "10pt serif";
-          var header = [
+          const header = [
             {v: "C 26.00 - Large Exposures limits (LE Limits)", t: "s", s: {font: {name: "Calibri", sz: 16, bold: true}}}
           ];
-          var note = [
+          const note = [
             {v: "* All values reported are in millions", t: "s", s: {font: {name: "Calibri", sz: 10}}}
           ];
           // var tabledata = [
@@ -398,10 +398,10 @@ looker.plugins.visualizations.add({
         for (field of queryResponse.fields[column_type]) {
           // First column is the label
           generatedHTML += `<tr><th class='table-header' style='border: 1px solid black;width:60px;background-color: #eee; padding: 5px;font-family: verdana;font-weight: normal;mso-number-format: "\ \@";'>${header1[i]}</th>`;
-          generatedHTML += `<th class='table-header' style='text-align: left; padding: 5px;width:350px;border: 1px solid blue;background-color: #eee;font-family: verdana;font-weight: normal;'>${header[i]}</th>`;
+          generatedHTML += `<th class='table-header' style='text-align: left; padding: 5px;width:350px;border: 1px solid black;background-color: #eee;font-family: verdana;font-weight: normal;'>${header[i]}</th>`;
           // Next columns are the data
           for (row of data) {
-            generatedHTML += `<td class='table-cell' style='border: 1px solid blue;'>${LookerCharts.Utils.htmlForCell(row[field.name])}</td>`
+            generatedHTML += `<td class='table-cell' style='border: 1px solid black;'>${LookerCharts.Utils.htmlForCell(row[field.name])}</td>`
           }
           generatedHTML += '</tr>';
           i++;
