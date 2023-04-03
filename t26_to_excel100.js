@@ -177,10 +177,10 @@ looker.plugins.visualizations.add({
           // document.write("<span style='font-family:serif; text-align: left; font-weight:normal; font-size:10px; align-items:left; border:1px solid black; background-color: #eee;'>"+note+"</span>");
           // note[0].style.font = "10pt serif";
           const header = [
-            {v: "C 26.00 - Large Exposures limits (LE Limits)", t: "s", s: {font: {name: "Calibri", sz: 16, bold: true}}},
+            {v: "C 26.00 - Large Exposures limits (LE Limits)", t: "s", s: {font: {name: "Calibri", sz: 16, bold: true}, fill: {bgColor: {rgb: "a9aaab"}}, border: {bottom: {style: "medium"}}}}
           ];
           const note = [
-            {v: "* All values reported are in millions", t: "s", s: {font: {name: "Calibri", sz: 10}}},
+            {v: "* All values reported are in millions", t: "s", s: {font: {name: "Calibri", sz: 10}}}
           ];
           // var tabledata = [
           //   {v: data, t: "s", s: {font: {name: "Verdana", sz: 11}}}
