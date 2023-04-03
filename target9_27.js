@@ -86,12 +86,12 @@ looker.plugins.visualizations.add({
     },
 
     addDownloadButtonListener: function () {
-        // const cssBoot = document.createElement('link');
-        // cssBoot.rel = "stylesheet";
-        // cssBoot.href = "https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css";
-        // // cssBoot.integrity = "sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD";
-        // cssBoot.crossorigin = "anonymous";
-        // document.head.appendChild(cssBoot);
+        const cssBoot = document.createElement('link');
+        cssBoot.rel = "stylesheet";
+        cssBoot.href = "https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css";
+        // cssBoot.integrity = "sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD";
+        cssBoot.crossorigin = "anonymous";
+        document.head.appendChild(cssBoot);
         
         const sheetjs = document.createElement('script');
         sheetjs.lang = "javascript";
@@ -101,6 +101,15 @@ looker.plugins.visualizations.add({
         // const fileSaver = document.createElement('script');
         // fileSaver.src = "https://cdn.jsdelivr.net/npm/file-saver@2.0.5/dist/FileSaver.min.js";
         // document.head.appendChild(fileSaver);
+
+        const xlsxstyle = document.createElement('script');
+        xlsxstyle.src = "https://cdn.jsdelivr.net/npm/xlsx-style@0.8.13/dist/xlsx.full.min.js";
+        document.head.appendChild(xlsxstyle);
+    
+        const xlsxjsstyle = document.createElement('script');
+        // xlsxjsstyle.src = "https://cdn.jsdelivr.net/npm/xlsx-js-style@1.2.0/dist/xlsx.min.js";
+        xlsxjsstyle.src = "https://cdn.jsdelivr.net/npm/xlsx-js-style@1.2.0/dist/xlsx.bundle.js";
+        document.head.appendChild(xlsxjsstyle);
     
         const downloadButton = document.createElement('img');
         downloadButton.src = "https://cdn.jsdelivr.net/gh/Spoorti-Gandhad/AGBG-Assets@main/downloadAsExcel.jfif";
@@ -124,12 +133,12 @@ looker.plugins.visualizations.add({
           }
     
             var type = "xlsx";
-            var data = htmlTable;
-            var header = [["C 26.00 - Large Exposures limits (LE Limits)"]];
-            var wsheet = XLSX.utils.table_to_sheet(data, {origin: 'A3'});
+            var tdata = htmlTable;
+            var header = [{v: "C 26.00 - Large Exposures limits (LE Limits)", t: "s", s: {font: {name: "Calibri", sz: 16, bold: true}, fill: {patternType: "solid", bgColor: {rgb: "A9AAAB"}}, border: {bottom: {style: "medium"}}}}];
+            var wsheet = XLSX.utils.table_to_sheet(tdata, {origin: 'A3'});
             XLSX.utils.sheet_add_aoa(wsheet, header, { origin: 'A1' });
             var wbook = XLSX.utils.book_new();
-            XLSX.utils.book_append_sheet(wbook, wsheet, "Sheet1");
+            XLSX.utils.book_append_sheet(wbook, wsheet, "C27");
             var wbexport = XLSX.write(wbook, {
                 bookType: type,
                 bookSST: true,
