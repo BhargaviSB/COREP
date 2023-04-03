@@ -129,10 +129,12 @@ looker.plugins.visualizations.add({
     
           var htmlTable = document.querySelector('table');
           var rows = htmlTable.rows;
-          for (var i = 0; i < rows.length; i++) {
+          var l = rows.length;
+          for (var i = 0; i < l; i++) {
               var cells = rows[i].cells;
               for (var j = 0; j < cells.length; j++) {
-                  var cell = cells[j];
+                //   var cell = cells[j];
+                  cells[j] = {t: "s", s: {border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}}};
               }
           }
     
@@ -148,16 +150,16 @@ looker.plugins.visualizations.add({
             wsheet.F1 = {v: "C 26.00 - Large Exposures limits (LE Limits)", t: "s"};
             wsheet.G1 = {v: "C 26.00 - Large Exposures limits (LE Limits)", t: "s"};
             wsheet.H1 = {v: "C 26.00 - Large Exposures limits (LE Limits)", t: "s"};
-            wsheet["A1"].s = {font: {name: "Calibri", sz: 16, bold: true}, border: {bottom: {style: "medium"}, right: {style: "medium"}}};
-            wsheet["B1"].s = {font: {name: "Calibri", sz: 16, bold: true}, border: {bottom: {style: "medium"}, right: {style: "medium"}}};
-            wsheet["C1"].s = {font: {name: "Calibri", sz: 16, bold: true}, border: {bottom: {style: "medium"}, right: {style: "medium"}}};
-            wsheet["D1"].s = {font: {name: "Calibri", sz: 16, bold: true}, border: {bottom: {style: "medium"}, right: {style: "medium"}}};
-            wsheet["E1"].s = {font: {name: "Calibri", sz: 16, bold: true}, border: {bottom: {style: "medium"}, right: {style: "medium"}}};
-            wsheet["F1"].s = {font: {name: "Calibri", sz: 16, bold: true}, border: {bottom: {style: "medium"}, right: {style: "medium"}}};
-            wsheet["G1"].s = {font: {name: "Calibri", sz: 16, bold: true}, border: {bottom: {style: "medium"}, right: {style: "medium"}}};
-            wsheet["H1"].s = {font: {name: "Calibri", sz: 16, bold: true}, border: {bottom: {style: "medium"}, right: {style: "medium"}}};
+            wsheet["A1"].s = {font: {name: "Calibri", sz: 16, bold: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
+            wsheet["B1"].s = {font: {name: "Calibri", sz: 16, bold: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
+            wsheet["C1"].s = {font: {name: "Calibri", sz: 16, bold: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
+            wsheet["D1"].s = {font: {name: "Calibri", sz: 16, bold: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
+            wsheet["E1"].s = {font: {name: "Calibri", sz: 16, bold: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
+            wsheet["F1"].s = {font: {name: "Calibri", sz: 16, bold: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
+            wsheet["G1"].s = {font: {name: "Calibri", sz: 16, bold: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
+            wsheet["H1"].s = {font: {name: "Calibri", sz: 16, bold: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
             wsheet["!merges"] = [XLSX.utils.decode_range("A1:H1"), XLSX.utils.decode_range("A2:H2"), XLSX.utils.decode_range("A4:H4")];
-            var sheader = [{v: "C 26.00 - Large Exposures limits (LE Limits)", t: "s", s: {font: {name: "Calibri", sz: 16, bold: true}, border: {bottom: {style: "medium"}, right: {style: "medium"}}}}];
+            // var sheader = [{v: "C 26.00 - Large Exposures limits (LE Limits)", t: "s", s: {font: {name: "Calibri", sz: 16, bold: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}}}];
             var note = [{v: "* All values reported are in millions", t: "s", s: {font: {name: "Calibri", sz: 10}}}];
             // var range = XLSX.utils.decode_range("A1:I1");
             // range.s = {fill: {patternType: "solid", fgColor: {rgb: "FFFFFF"}, bgColor: {rgb: "A9AAAB"}}};
