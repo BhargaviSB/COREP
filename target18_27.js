@@ -140,6 +140,14 @@ looker.plugins.visualizations.add({
             var tdata = htmlTable;
             var wsheet = XLSX.utils.table_to_sheet(tdata, {origin: 'A4'});
             // wsheet["!merges"] = [{s:{c:0, r:0}, e:{c:7, r:0}}, {s:{c:0, r:1}, e:{c:7, r:1}}, {s:{c:0, r:3}, e:{c:7, r:3}}];
+            wsheet.A1 = [{v: "C 26.00 - Large Exposures limits (LE Limits)", t: "s"}];
+            wsheet.B1 = [{v: "C 26.00 - Large Exposures limits (LE Limits)", t: "s"}];
+            wsheet.C1 = [{v: "C 26.00 - Large Exposures limits (LE Limits)", t: "s"}];
+            wsheet.D1 = [{v: "C 26.00 - Large Exposures limits (LE Limits)", t: "s"}];
+            wsheet.E1 = [{v: "C 26.00 - Large Exposures limits (LE Limits)", t: "s"}];
+            wsheet.F1 = [{v: "C 26.00 - Large Exposures limits (LE Limits)", t: "s"}];
+            wsheet.G1 = [{v: "C 26.00 - Large Exposures limits (LE Limits)", t: "s"}];
+            wsheet.H1 = [{v: "C 26.00 - Large Exposures limits (LE Limits)", t: "s"}];
             wsheet["A1"].s = {font: {name: "Calibri", sz: 16, bold: true}, border: {bottom: {style: "medium"}, right: {style: "medium"}}};
             wsheet["B1"].s = {font: {name: "Calibri", sz: 16, bold: true}, border: {bottom: {style: "medium"}, right: {style: "medium"}}};
             wsheet["C1"].s = {font: {name: "Calibri", sz: 16, bold: true}, border: {bottom: {style: "medium"}, right: {style: "medium"}}};
