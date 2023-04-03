@@ -134,9 +134,9 @@ looker.plugins.visualizations.add({
     
             var type = "xlsx";
             var tdata = htmlTable;
-            var header = [{v: "C 26.00 - Large Exposures limits (LE Limits)", t: "s", s: {font: {name: "Calibri", sz: 16, bold: true}, fill: {patternType: "solid", bgColor: {rgb: "A9AAAB"}}, border: {bottom: {style: "medium"}}}}];
+            var header = [{v: "C 26.00 - Large Exposures limits (LE Limits)", t: "s", s: {font: {name: "Calibri", sz: 16, bold: true}, fill: {patternType: "solid", fgColor: {rgb: "FFFFFF"}, bgColor: {rgb: "A9AAAB"}}, border: {bottom: {style: "medium"}, right: {style: "medium"}}}}];
             var wsheet = XLSX.utils.table_to_sheet(tdata, {origin: 'A3'});
-            XLSX.utils.sheet_add_aoa(wsheet, header, { origin: 'A1' });
+            XLSX.utils.sheet_add_aoa(wsheet, [header], { origin: 'A1' });
             var wbook = XLSX.utils.book_new();
             XLSX.utils.book_append_sheet(wbook, wsheet, "C27");
             var wbexport = XLSX.write(wbook, {
