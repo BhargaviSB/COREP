@@ -188,8 +188,8 @@ looker.plugins.visualizations.add({
           var wsheet = XLSX.utils.table_to_sheet(data, {origin: 'A4'});
           // var wsheet = XLSX.utils.aoa_to_sheet([tabledata], {origin: 'A3'});
           // const max_width = data.reduce((w, r) => Math.max(w, r.name.length), 10);
-          XLSX.utils.aoa_to_sheet(wsheet, [header], {origin: 'A1'});
-          // XLSX.utils.sheet_add_aoa(wsheet, [header], { origin: 'A1' });
+        //   XLSX.utils.aoa_to_sheet(wsheet, [header], {origin: 'A1'});
+          XLSX.utils.sheet_add_aoa(wsheet, [header], { origin: 'A1' });
           XLSX.utils.sheet_add_aoa(wsheet, [note], { origin: 'A2' });
           // XLSX.utils.sheet_add_dom(wsheet, data, {origin: 'A4'});
           // document.body.removeChild(telement);
