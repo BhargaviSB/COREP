@@ -177,10 +177,10 @@ looker.plugins.visualizations.add({
           // document.write("<span style='font-family:serif; text-align: left; font-weight:normal; font-size:10px; align-items:left; border:1px solid black; background-color: #eee;'>"+note+"</span>");
           // note[0].style.font = "10pt serif";
           const header = [
-            {v: "C 26.00 - Large Exposures limits (LE Limits)", t: "s", s: {font: {name: "Calibri", sz: 16, bold: true}}}
+            {v: "C 26.00 - Large Exposures limits (LE Limits)", t: "s", s: {font: {name: "Calibri", sz: 16, bold: true}}},
           ];
           const note = [
-            {v: "* All values reported are in millions", t: "s", s: {font: {name: "Calibri", sz: 10}}}
+            {v: "* All values reported are in millions", t: "s", s: {font: {name: "Calibri", sz: 10}}},
           ];
           // var tabledata = [
           //   {v: data, t: "s", s: {font: {name: "Verdana", sz: 11}}}
@@ -195,7 +195,7 @@ looker.plugins.visualizations.add({
           // document.body.removeChild(telement);
           var wbook = XLSX.utils.book_new();
           XLSX.utils.book_append_sheet(wbook, wsheet, "C26");
-          // wsheet["!merges"] = [{s:{c:0, r:0}, e:{c:10, r:0}}, {s:{c:0, r:1}, e:{c:10, r:1}}, {s:{c:0, r:3}, e:{c:1, r:4}}, {s:{c:2, r:3}, e:{c:(k+1), r:3}}, {s:{c:2, r:4}, e:{c:(k+1), r:4}}];
+          wsheet["!merges"] = [{s:{c:0, r:0}, e:{c:10, r:0}}, {s:{c:0, r:1}, e:{c:10, r:1}}, {s:{c:0, r:3}, e:{c:1, r:4}}, {s:{c:2, r:3}, e:{c:(k+1), r:3}}, {s:{c:2, r:4}, e:{c:(k+1), r:4}}];
           var wbexport = XLSX.write(wbook, {
               bookType: type,
               bookSST: true,
