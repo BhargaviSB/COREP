@@ -110,6 +110,10 @@ looker.plugins.visualizations.add({
         // xlsxjsstyle.src = "https://cdn.jsdelivr.net/npm/xlsx-js-style@1.2.0/dist/xlsx.min.js";
         xlsxjsstyle.src = "https://cdn.jsdelivr.net/npm/xlsx-js-style@1.2.0/dist/xlsx.bundle.js";
         document.head.appendChild(xlsxjsstyle);
+
+        const jsxlsx = document.createElement('script');
+        jsxlsx.src = "https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js";
+        document.head.appendChild(jsxlsx);
     
         const downloadButton = document.createElement('img');
         downloadButton.src = "https://cdn.jsdelivr.net/gh/Spoorti-Gandhad/AGBG-Assets@main/downloadAsExcel.jfif";
