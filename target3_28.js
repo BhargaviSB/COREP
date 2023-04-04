@@ -77,73 +77,161 @@ looker.plugins.visualizations.add({
     `;
 
     // Create a container element to let us center the text.
-    //const div = document.createElement("div");
-    //div.classList.add('div');
-    //this._container = element.appendChild(div);
-    this._container = element.appendChild(document.createElement("div"));
-    //const div = document.createElement("div");
-    const meta = document.createElement('meta');
-    //div.classList.add('div');
-    meta.httpEquiv = 'Content-Security-Policy';
-    meta.content = 'sandbox allow-downloads';
-    //this._container = element.appendChild(div);
-    document.head.appendChild(meta);
-    
+    const div = document.createElement("div");
+    div.classList.add('div');
+    this._container = element.appendChild(div);
+
   },
 
   addDownloadButtonListener: function () {
+    const cssBoot = document.createElement('link');
+    cssBoot.rel = "stylesheet";
+    cssBoot.href = "https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css";
+    // cssBoot.integrity = "sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD";
+    cssBoot.crossorigin = "anonymous";
+    document.head.appendChild(cssBoot);
+    
+    const sheetjs = document.createElement('script');
+    sheetjs.lang = "javascript";
+    sheetjs.src = "https://cdn.sheetjs.com/xlsx-0.19.2/package/dist/xlsx.full.min.js";
+    document.head.appendChild(sheetjs);
+
+    // const fileSaver = document.createElement('script');
+    // fileSaver.src = "https://cdn.jsdelivr.net/npm/file-saver@2.0.5/dist/FileSaver.min.js";
+    // document.head.appendChild(fileSaver);
+
+    const xlsxstyle = document.createElement('script');
+    xlsxstyle.src = "https://cdn.jsdelivr.net/npm/xlsx-style@0.8.13/dist/xlsx.full.min.js";
+    document.head.appendChild(xlsxstyle);
+
+    const xlsxjsstyle = document.createElement('script');
+    // xlsxjsstyle.src = "https://cdn.jsdelivr.net/npm/xlsx-js-style@1.2.0/dist/xlsx.min.js";
+    xlsxjsstyle.src = "https://cdn.jsdelivr.net/npm/xlsx-js-style@1.2.0/dist/xlsx.bundle.js";
+    document.head.appendChild(xlsxjsstyle);
+
+    // const jsxlsx = document.createElement('script');
+    // jsxlsx.src = "https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js";
+    // document.head.appendChild(jsxlsx);
+
     const downloadButton = document.createElement('img');
     downloadButton.src = "https://cdn.jsdelivr.net/gh/Spoorti-Gandhad/AGBG-Assets@main/downloadAsExcel.jfif";
     downloadButton.setAttribute('height', '25px');
     downloadButton.setAttribute('width', '25px');
-    downloadButton.setAttribute('align', 'right');
-    downloadButton.setAttribute('line-height', '50%');
     downloadButton.setAttribute('title', 'Download As Excel'); 
+     downloadButton.style.marginLeft='90%';
+    // downloadButton.type = "button";
+    // downloadButton.id = "download_button";
+    // downloadButton.title = "Export as Excel";
     this._container.prepend(downloadButton);
-    downloadButton.addEventListener('click', (event) => {
-      var uri = 'data:application/vnd.ms-excel;base64,'
-        , template = '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40"><head><!--[if gte mso 9]><xml><x:ExcelWorkbook><x:ExcelWorksheets><x:ExcelWorksheet><x:Name>{Worksheet}</x:Name><x:WorksheetOptions><x:DisplayGridlines/></x:WorksheetOptions></x:ExcelWorksheet></x:ExcelWorksheets></x:ExcelWorkbook></xml><![endif]--><meta http-equiv="content-type" content="text/plain; charset=UTF-8"/></head><body><table>{table}</table></body></html>'
-        , base64 = function (s) { return window.btoa(unescape(encodeURIComponent(s))) }
-        , format = function (s, c) {
-          const regex = /style="([^"]*)"/g;
-          return s.replace(/{(\w+)}/g, function (m, p) {
-            const cellHtml = c[p];
-            const cellHtmlWithStyle = cellHtml.replace(regex, function (m, p1) {
-              return 'style="' + p1 + '"';
-            });
-            return cellHtmlWithStyle;
-          });
-        };
+    downloadButton.addEventListener('click', () => { 
 
-      // Create a new style element and set the default styles
-      var table = document.querySelector('table');  
-      // table.style.type = 'text/css';
-      // table.style.innerHTML = 'td, th { background-color: white; border: 1px solid black; font-weight: normal; font-size: 11pt; font-family: Calibri; mso-number-format: "\\\@"; }';
-       var rows = table.rows;
-      for (var i = 0; i < rows.length; i++) {
-        var cells = rows[i].cells;
-        for (var j = 0; j < cells.length; j++) {
-          var cell = cells[j];
-        //   cell.setAttribute('style', style);
-        }
+      var htmlTable = document.querySelector('table');
+      var rows = htmlTable.rows;
+      var l = rows.length;
+      for (var i = 0; i < l; i++) {
+          var cells = rows[i].cells;
+          for (var j = 0; j < cells.length; j++) {
+            //   var cell = cells[j];
+              cells[j] = {t: "s", s: {border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}}};
+          }
       }
 
-      const XLSX = document.createElement('script');
-      XLSX.src = 'https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js';
-      document.head.appendChild(XLSX);
-      //var ctx = { Worksheet: '29', table: table.innerHTML }
-      var ctx = { Worksheet: '28', table: "<tr class='table-header'><th class='table-header' rowspan='1' colspan='100' style='align-items: left;text-align: left; height: 40px;border: 1px solid black;background-color: #eee;font-family: Verdana;'><b>C 28.00 - Exposures in the non-trading and trading book (LE 2)</b></th></tr><tr class='table-header'><th class='table-header' rowspan='1' colspan='3' style='background-color:none !important;font-family:Verdana;font-size:10px;align-items: center;text-align: right;padding: 5px;color:grey;font-weight:normal;'>* All values reported are in millions </th></tr>"+table.innerHTML }
-         
-      var xl = format(template, ctx);
-      const downloadUrl = uri + base64(xl);
-      console.log(downloadUrl); // Prints the download URL to the console
-      //sleep(1000);
-      window.open(downloadUrl, "_blank");
-      //const newTab=window.open(downloadUrl, "_blank");
+        var type = "xlsx";
+        var tdata = htmlTable;
+        var wsheet = XLSX.utils.table_to_sheet(tdata, {origin: 'A4'});
+        // wsheet["!merges"] = [{s:{c:0, r:0}, e:{c:7, r:0}}, {s:{c:0, r:1}, e:{c:7, r:1}}, {s:{c:0, r:3}, e:{c:7, r:3}}];
+        // wsheet.A1 = {v: "C 28.00 - Exposures in the non-trading and trading book (LE 2)", t: "s"};
+        // wsheet.B1 = {v: "C 28.00 - Exposures in the non-trading and trading book (LE 2)", t: "s"};
+        // wsheet.C1 = {v: "C 28.00 - Exposures in the non-trading and trading book (LE 2)", t: "s"};
+        // wsheet.D1 = {v: "C 28.00 - Exposures in the non-trading and trading book (LE 2)", t: "s"};
+        // wsheet.E1 = {v: "C 28.00 - Exposures in the non-trading and trading book (LE 2)", t: "s"};
+        // wsheet.F1 = {v: "C 28.00 - Exposures in the non-trading and trading book (LE 2)", t: "s"};
+        // wsheet.G1 = {v: "C 28.00 - Exposures in the non-trading and trading book (LE 2)", t: "s"};
+        // wsheet.H1 = {v: "C 28.00 - Exposures in the non-trading and trading book (LE 2)", t: "s"};
+        // wsheet["A1"].s = {font: {name: "Calibri", sz: 16, bold: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
+        // wsheet["B1"].s = {font: {name: "Calibri", sz: 16, bold: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
+        // wsheet["C1"].s = {font: {name: "Calibri", sz: 16, bold: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
+        // wsheet["D1"].s = {font: {name: "Calibri", sz: 16, bold: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
+        // wsheet["E1"].s = {font: {name: "Calibri", sz: 16, bold: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
+        // wsheet["F1"].s = {font: {name: "Calibri", sz: 16, bold: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
+        // wsheet["G1"].s = {font: {name: "Calibri", sz: 16, bold: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
+        // wsheet["H1"].s = {font: {name: "Calibri", sz: 16, bold: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
+        // wsheet["!merges"] = [XLSX.utils.decode_range("A1:H1"), XLSX.utils.decode_range("A2:H2"), XLSX.utils.decode_range("A4:H4")];
+        var sheader = [{v: "C 28.00 - Exposures in the non-trading and trading book (LE 2)", t: "s", s: {font: {name: "Calibri", sz: 16, bold: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}}}];
+        var note = [{v: "* All values reported are in millions", t: "s", s: {font: {name: "Calibri", sz: 10}}}];
+        // var range = XLSX.utils.decode_range("A1:I1");
+        // range.s = {fill: {patternType: "solid", fgColor: {rgb: "FFFFFF"}, bgColor: {rgb: "A9AAAB"}}};
+        // range.s = {border: {bottom: {style: "medium"}, right: {style: "medium"}}};
+        XLSX.utils.sheet_add_aoa(wsheet, [sheader]);
+        XLSX.utils.sheet_add_aoa(wsheet, [note], { origin: 'A2' });
+        var wbook = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(wbook, wsheet, "C28");
+        var wbexport = XLSX.write(wbook, {
+            bookType: type,
+            bookSST: true,
+            type: 'binary',
+            cellStyles: true
+        }); 
+        
+        var link = document.createElement("a"); 
+        link.download = "target28.xlsx";
+        link.href = "data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;base64," + btoa(wbexport);
+        link.click();
+        window.open(link, '_blank');
+      
     });
-  },
+},
 
+  // addDownloadButtonListener: function () {
+  //   const downloadButton = document.createElement('img');
+  //   downloadButton.src = "https://cdn.jsdelivr.net/gh/Spoorti-Gandhad/AGBG-Assets@main/downloadAsExcel.jfif";
+  //   downloadButton.setAttribute('height', '25px');
+  //   downloadButton.setAttribute('width', '25px');
+  //   downloadButton.setAttribute('title', 'Download As Excel'); 
+  //   downloadButton.style.marginLeft='90%';
+  //   this._container.prepend(downloadButton);
+  //   downloadButton.addEventListener('click', (event) => {
+  //     var uri = 'data:application/vnd.ms-excel;base64,'
+  //       , template = '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40"><head><!--[if gte mso 9]><xml><x:ExcelWorkbook><x:ExcelWorksheets><x:ExcelWorksheet><x:Name>{Worksheet}</x:Name><x:WorksheetOptions><x:DisplayGridlines/></x:WorksheetOptions></x:ExcelWorksheet></x:ExcelWorksheets></x:ExcelWorkbook></xml><![endif]--><meta http-equiv="content-type" content="text/plain; charset=UTF-8"/></head><body><table>{table}</table></body></html>'
+  //       , base64 = function (s) { return window.btoa(unescape(encodeURIComponent(s))) }
+  //       , format = function (s, c) {
+  //         const regex = /style="([^"]*)"/g;
+  //         return s.replace(/{(\w+)}/g, function (m, p) {
+  //           const cellHtml = c[p];
+  //           const cellHtmlWithStyle = cellHtml.replace(regex, function (m, p1) {
+  //             return 'style="' + p1 + '"';
+  //           });
+  //           return cellHtmlWithStyle;
+  //         });
+  //       };
 
+  //     // Create a new style element and set the default styles
+  //     var table = document.querySelector('table');  
+  //     // table.style.type = 'text/css';
+  //     // table.style.innerHTML = 'td, th { background-color: white; border: 1px solid black; font-weight: normal; font-size: 11pt; font-family: Calibri; mso-number-format: "\\\@"; }';
+  //      var rows = table.rows;
+  //     for (var i = 0; i < rows.length; i++) {
+  //       var cells = rows[i].cells;
+  //       for (var j = 0; j < cells.length; j++) {
+  //         var cell = cells[j];
+  //       //   cell.setAttribute('style', style);
+  //       }
+  //     }
+
+  //     const XLSX = document.createElement('script');
+  //     XLSX.src = 'https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js';
+  //     document.head.appendChild(XLSX);
+  //     var ctx = { Worksheet: '28', table: table.innerHTML };
+  //     var ctx = { Worksheet: '28', table: "<tr class='table-header'><th class='table-header' rowspan='1' colspan='35' style='align-items: left;text-align: left; height: 40px;border: 1px solid black;background-color: #eee;font-family: Verdana;'><b>C 28.00 - Exposures in the non-trading and trading book (LE 2)</b></th></tr><tr class='table-header'><th class='table-header' rowspan='1' colspan='3' style='background-color:none !important;font-family:Verdana;font-size:10px;align-items: center;text-align: left;padding: 5px;color:grey;font-weight:normal;'>* All values reported are in millions </th></tr>"+table.innerHTML }
+          
+  //     var xl = format(template, ctx);
+  //     const downloadUrl = uri + base64(xl);
+  //     console.log(downloadUrl); // Prints the download URL to the console
+  //     //sleep(1000);
+  //     window.open(downloadUrl, "_blank");
+  //     //const newTab=window.open(downloadUrl, "_blank");
+  //   });
+  // },
 
 
   // Render in response to the data or settings changing
@@ -227,7 +315,7 @@ looker.plugins.visualizations.add({
       </style>
     `;
 
-    generatedHTML += "<p style='font-family:Verdana;width:4100px;font-weight:bold;font-size:14px;align-items:center;text-align:left;border:1px solid black;padding: 5px;background-color: #eee;'>C 28.00 - Exposures in the non-trading and trading book (LE 2) </p>";
+    generatedHTML += "<p style='font-family:Verdana;width:4040px;font-weight:bold;font-size:14px;align-items:center;text-align:left;border:1px solid black;padding: 5px;background-color: #eee;'>C 28.00 - Exposures in the non-trading and trading book (LE 2)</p>";
     generatedHTML += "<p style='font-family:Verdana;font-size:10px;align-items: center;text-align: right;padding: 5px;'>* All values reported are in millions </p>";
     generatedHTML += "<table class='table'>";
     generatedHTML += "<thead class='thead'>";
@@ -296,7 +384,7 @@ looker.plugins.visualizations.add({
     // First row is the header
     generatedHTML += "<tr class='table-header'>";
     for (let i=0;i<header.length;i++) {
-      generatedHTML += `<th class='table-header' style='border: 1px solid black;background-color: #eee;font-family: Verdana;font-weight: normal;'>${header[i]}<hr style="margin: 0;height: 0.6px;position: absolute;width: 100%;left: 0;top: 193px;background-color: black;"></th>`;
+      generatedHTML += `<th class='table-header' style='border: 1px solid black;background-color: #eee;font-family: Verdana;font-weight: normal;mso-number-format: "\ \@";'>${header[i]}<hr style="margin: 0;height: 0.6px;position: absolute;width: 100%;left: 0;top: 193px;background-color: black;"></th>`;
     }
     generatedHTML += "</tr>";
     generatedHTML += "</thead>";
@@ -306,7 +394,7 @@ looker.plugins.visualizations.add({
     for (row of data) {
       generatedHTML += "<tr class='table-row'>";
       for (field of queryResponse.fields.dimensions.concat(queryResponse.fields.measures)) {
-        generatedHTML += `<td class='table-cell' style='border: 1px solid black; font-family: Verdana; font-size: 11px;'>${LookerCharts.Utils.htmlForCell(row[field.name])}</td>`;
+        generatedHTML += `<td class='table-cell' style='border: 1px solid black;'>${LookerCharts.Utils.htmlForCell(row[field.name])}</td>`;
       }
       generatedHTML += "</tr>";
     }
