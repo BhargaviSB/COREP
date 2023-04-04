@@ -234,7 +234,7 @@ looker.plugins.visualizations.add({
         // range.s = {fill: {patternType: "solid", fgColor: {rgb: "FFFFFF"}, bgColor: {rgb: "A9AAAB"}}};
         // range.s = {border: {bottom: {style: "medium"}, right: {style: "medium"}}};
         XLSX.utils.sheet_add_aoa(wsheet, [sheader]);
-        XLSX.utils.sheet_add_aoa(wsheet, [note], { origin: A2});
+        XLSX.utils.sheet_add_aoa(wsheet, [note], { origin: "A2"});
         // range["!merges"] = [XLSX.utils.decode_range("A2:AI2")];
         var wbook = XLSX.utils.book_new();
         XLSX.utils.book_append_sheet(wbook, wsheet, "C28");
