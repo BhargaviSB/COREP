@@ -165,11 +165,12 @@ looker.plugins.visualizations.add({
         // wsheet["!merges"] = [XLSX.utils.decode_range("A1:AI1"), XLSX.utils.decode_range("A2:AI2")];
         var sheader = [{v: "C 28.00 - Exposures in the non-trading and trading book (LE 2)", t: "s", s: {font: {name: "Calibri", sz: 16, bold: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}}}];
         var note = [{v: "* All values reported are in millions", t: "s", s: {font: {name: "Calibri", sz: 9}}}];
-        // var range = XLSX.utils.decode_range("A1:I1");
+        var range = XLSX.utils.decode_range("A2:AI2");
         // range.s = {fill: {patternType: "solid", fgColor: {rgb: "FFFFFF"}, bgColor: {rgb: "A9AAAB"}}};
         // range.s = {border: {bottom: {style: "medium"}, right: {style: "medium"}}};
         XLSX.utils.sheet_add_aoa(wsheet, [sheader]);
-        XLSX.utils.sheet_add_aoa(wsheet, [note], { origin: XLSX.utils.decode_range("A2:AI2")});
+        XLSX.utils.sheet_add_aoa(wsheet, [note], { origin: range});
+        range["!merges"] = [XLSX.utils.decode_range("A1:AI1")];
         var wbook = XLSX.utils.book_new();
         XLSX.utils.book_append_sheet(wbook, wsheet, "C28");
         var wbexport = XLSX.write(wbook, {
