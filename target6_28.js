@@ -137,14 +137,14 @@ looker.plugins.visualizations.add({
       }
 
       // var theader = "<tr class='table-header'><th class='table-header' rowspan='1' colspan='100' style='align-items: left;text-align: left; height: 40px;border: 1px solid black;background-color: #eee;font-family: Verdana;'><b>C 29.00 - Detail of the exposures to individual clients within groups of connected clients (LE 3)</b></th></tr><tr class='table-header'><th class='table-header' rowspan='1' colspan='3' style='background-color:none !important;font-family:Verdana;font-size:10px;align-items: center;text-align: right;padding: 5px;color:grey;font-weight:normal;'>* All values reported are in millions </th></tr>";
-      var theader = document.createElement('h1');
-      var htext = document.createTextNode("C 28.00 - Exposures in the non-trading and trading book (LE 2)");
-      theader.appendChild(htext);
+      // var theader = document.createElement('h1');
+      // var htext = document.createTextNode("C 28.00 - Exposures in the non-trading and trading book (LE 2)");
+      // theader.appendChild(htext);
 
         var type = "xlsx";
         var tdata = htmlTable;
         var wsheet = XLSX.utils.table_to_sheet(tdata, {origin: 'A4'});
-        XLSX.utils.sheet_add_dom(wsheet, theader, {origin: 'A1'});
+        // XLSX.utils.sheet_add_dom(wsheet, theader, {origin: 'A1'});
         // wsheet["!merges"] = [{s:{c:0, r:0}, e:{c:7, r:0}}, {s:{c:0, r:1}, e:{c:7, r:1}}, {s:{c:0, r:3}, e:{c:7, r:3}}];
         // wsheet.A1 = {v: "C 28.00 - Exposures in the non-trading and trading book (LE 2)", t: "s"};
         // wsheet.B1 = {v: "C 28.00 - Exposures in the non-trading and trading book (LE 2)", t: "s"};
@@ -162,14 +162,14 @@ looker.plugins.visualizations.add({
         // wsheet["F1"].s = {font: {name: "Calibri", sz: 16, bold: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
         // wsheet["G1"].s = {font: {name: "Calibri", sz: 16, bold: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
         // wsheet["H1"].s = {font: {name: "Calibri", sz: 16, bold: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
-        // wsheet["!merges"] = [XLSX.utils.decode_range("A1:H1"), XLSX.utils.decode_range("A2:H2"), XLSX.utils.decode_range("A4:H4")];
-        // var sheader = [{v: "C 28.00 - Exposures in the non-trading and trading book (LE 2)", t: "s", s: {font: {name: "Calibri", sz: 16, bold: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}}}];
-        // var note = [{v: "* All values reported are in millions", t: "s", s: {font: {name: "Calibri", sz: 9}}}];
+        wsheet["!merges"] = [XLSX.utils.decode_range("A1:AI1"), XLSX.utils.decode_range("A2:AI2")];
+        var sheader = [{v: "C 28.00 - Exposures in the non-trading and trading book (LE 2)", t: "s", s: {font: {name: "Calibri", sz: 16, bold: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}}}];
+        var note = [{v: "* All values reported are in millions", t: "s", s: {font: {name: "Calibri", sz: 9}}}];
         // var range = XLSX.utils.decode_range("A1:I1");
         // range.s = {fill: {patternType: "solid", fgColor: {rgb: "FFFFFF"}, bgColor: {rgb: "A9AAAB"}}};
         // range.s = {border: {bottom: {style: "medium"}, right: {style: "medium"}}};
-        // XLSX.utils.sheet_add_aoa(wsheet, [sheader]);
-        // XLSX.utils.sheet_add_aoa(wsheet, [note], { origin: 'A2' });
+        XLSX.utils.sheet_add_aoa(wsheet, [sheader]);
+        XLSX.utils.sheet_add_aoa(wsheet, [note], { origin: 'A2' });
         var wbook = XLSX.utils.book_new();
         XLSX.utils.book_append_sheet(wbook, wsheet, "C28");
         var wbexport = XLSX.write(wbook, {
