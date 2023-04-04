@@ -226,7 +226,7 @@ looker.plugins.visualizations.add({
         // wsheet["F1"].s = {font: {name: "Calibri", sz: 16, bold: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
         // wsheet["G1"].s = {font: {name: "Calibri", sz: 16, bold: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
         // wsheet["H1"].s = {font: {name: "Calibri", sz: 16, bold: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
-        if(!wsheet["!merges"]) worksheet["!merges"] = [];
+        if(!wsheet["!merges"]) wsheet["!merges"] = [];
         wsheet["!merges"].push(XLSX.utils.decode_range("A1:AI1"), XLSX.utils.decode_range("A2:AI2"));
         var sheader = [{v: "C 28.00 - Exposures in the non-trading and trading book (LE 2)", t: "s", s: {font: {name: "Calibri", sz: 16, bold: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}}}];
         var note = [{v: "* All values reported are in millions", t: "s", s: {font: {name: "Calibri", sz: 9}}}];
