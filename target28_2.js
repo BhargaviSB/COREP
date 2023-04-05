@@ -139,6 +139,8 @@ looker.plugins.visualizations.add({
               // cells[j].innerHTML = {t: "s", s: {border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}}};
           }
       }
+      
+      document.querySelector('th').style.border = "2px solid black";
 
       // var theader = "<tr class='table-header'><th class='table-header' rowspan='1' colspan='100' style='align-items: left;text-align: left; height: 40px;border: 1px solid black;background-color: #eee;font-family: Verdana;'><b>C 29.00 - Detail of the exposures to individual clients within groups of connected clients (LE 3)</b></th></tr><tr class='table-header'><th class='table-header' rowspan='1' colspan='3' style='background-color:none !important;font-family:Verdana;font-size:10px;align-items: center;text-align: right;padding: 5px;color:grey;font-weight:normal;'>* All values reported are in millions </th></tr>";
       // var theader = document.createElement('h1');
