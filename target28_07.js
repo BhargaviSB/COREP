@@ -270,7 +270,7 @@ looker.plugins.visualizations.add({
         var range = XLSX.utils.decode_range("A9:AI9");
         range.s = {border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
         
-        wsheet["A9:AI9"].s = {border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
+        wsheet[XLSX.utils.decode_range("A9:AI9")].s = {border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
         
         // XLSX.utils.decode_range("A9:AI9").s = {border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
 
