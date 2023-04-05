@@ -268,8 +268,13 @@ looker.plugins.visualizations.add({
         wsheet["AI7"].s = {border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
         
         var range = XLSX.utils.decode_range(wsheet["!ref"]);
-        range.s = {border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
-        
+        for(var R = range.s.r; R <= range.e.r; ++R){
+          for(var C = range.s.c; C <= range.e.c; ++C){
+            var cellref = XLSX.utils.encode_cell({c:C, r:R});
+            var cell = wsheet[cellref];
+            cell.s = {border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
+          }
+        }
 
         // var range = XLSX.utils.decode_range("A9:AI9");
         // range.s = {border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
