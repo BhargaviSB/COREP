@@ -323,13 +323,12 @@ looker.plugins.visualizations.add({
       const downloadUrl = uri + base64(xl);
 
       var BOM = "\uFEFF";
-    var htmltabel = table;
-    var html = htmltabel.outerHTML;
-    window.open('data:application/vnd.ms-excel,'+ encodeURI(BOM + html));
+    var htmltabel = table.innerHTML;
+    window.open('data:application/vnd.ms-excel,'+ encodeURI(BOM + htmltabel));
 
       // console.log(downloadUrl); // Prints the download URL to the console
       //sleep(1000);
-      window.open(downloadUrl, "_blank");
+      // window.open(downloadUrl, "_blank");
       //const newTab=window.open(downloadUrl, "_blank");
     });
   },
