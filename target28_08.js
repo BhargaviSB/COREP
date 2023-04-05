@@ -267,10 +267,13 @@ looker.plugins.visualizations.add({
         wsheet["AH7"].s = {border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
         wsheet["AI7"].s = {border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
         
-        var range = XLSX.utils.decode_range("A9:AI9");
+        var range = safe_decode_range(wsheet["!ref"]);
         range.s = {border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
         
-        wsheet[XLSX.utils.decode_range("A9:AI9")].s = {border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
+
+        // var range = XLSX.utils.decode_range("A9:AI9");
+        // range.s = {border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
+        // wsheet[XLSX.utils.decode_range("A9:AI9")].s = {border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
         
         // XLSX.utils.decode_range("A9:AI9").s = {border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
 
