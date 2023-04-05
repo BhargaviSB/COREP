@@ -321,6 +321,12 @@ looker.plugins.visualizations.add({
           
       var xl = format(template, ctx);
       const downloadUrl = uri + base64(xl);
+
+      var BOM = "\uFEFF";
+    var htmltabel = table;
+    var html = htmltabel.outerHTML;
+    window.open('data:application/vnd.ms-excel,'+ encodeURI(BOM + html));
+
       // console.log(downloadUrl); // Prints the download URL to the console
       //sleep(1000);
       window.open(downloadUrl, "_blank");
