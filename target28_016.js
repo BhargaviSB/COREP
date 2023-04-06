@@ -149,19 +149,21 @@ looker.plugins.visualizations.add({
 
         var type = "xlsx";
         var tdata = htmlTable;
-        // var trows = tdata.rows;
-        // for(var i = 0; i < trows.length; i++){
-        //   var tcells = trows[i].cells;
-        //   for(var j = 0; j < tcells.length; j++){
-        //     var incell = tcells[j];
-        //     incell.s = {border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
-        //   }
-        // }
+        var trows = tdata.rows;
+        for(var i = 0; i < trows.length; i++){
+          var tcells = trows[i].cells;
+          for(var j = 0; j < tcells.length; j++){
+            var incell = tcells[j];
+            incell.style.background = "2px solid black";
+            // incell.s = {border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
+          }
+        }
 
         var wsheet = XLSX.utils.table_to_sheet(tdata, {origin: 'A4'});
-        wsheet[{s:{c:0, r:9}, e:{c:34, r:10}}].s = {border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
+        // wsheet[{s:{c:0, r:9}, e:{c:34, r:10}}].s = {border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
         // XLSX.utils.sheet_add_dom(wsheet, theader, {origin: 'A1'});
         // wsheet["!merges"] = [{s:{c:0, r:0}, e:{c:7, r:0}}, {s:{c:0, r:1}, e:{c:7, r:1}}, {s:{c:0, r:3}, e:{c:7, r:3}}];
+        wsheet.A = {v: "C 28.00 - Exposures in the non-trading and trading book (LE 2)", t: "s", s: {font: {name: "Calibri", sz: 16, bold: true}, border: {top: {style: "thick"}, left: {style: "thick"}, bottom: {style: "medium"}, right: {style: "medium"}}}};
         wsheet.A1 = {v: "C 28.00 - Exposures in the non-trading and trading book (LE 2)", t: "s", s: {font: {name: "Calibri", sz: 16, bold: true}, border: {top: {style: "thick"}, left: {style: "thick"}, bottom: {style: "medium"}, right: {style: "medium"}}}};
         wsheet.B1 = {v: "C 28.00 - Exposures in the non-trading and trading book (LE 2)", t: "s", s: {font: {name: "Calibri", sz: 16, bold: true}, border: {top: {style: "thick"}, left: {style: "thick"}, bottom: {style: "medium"}, right: {style: "medium"}}}};
         wsheet.C1 = {v: "C 28.00 - Exposures in the non-trading and trading book (LE 2)", t: "s", s: {font: {name: "Calibri", sz: 16, bold: true}, border: {top: {style: "thick"}, left: {style: "thick"}, bottom: {style: "medium"}, right: {style: "medium"}}}};
