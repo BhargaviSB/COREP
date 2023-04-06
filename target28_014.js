@@ -153,7 +153,7 @@ looker.plugins.visualizations.add({
         for(var i = 0; i < trows.length; i++){
           var tcells = trows[i].cells;
           for(var j = 0; j < tcells.length; j++){
-            var incell = tcells[j].innerHTML;
+            var incell = tcells[j];
             incell.s = {border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
           }
         }
