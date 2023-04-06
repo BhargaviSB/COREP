@@ -151,9 +151,10 @@ looker.plugins.visualizations.add({
         var tdata = htmlTable;
         var trows = tdata.rows;
         for(var i = 0; i < trows.length; i++){
-          var tcells = trows[i].cells;
+          // var tcells = trows[i].cells;
           for(var j = 0; j < tcells.length; j++){
-            var incell = tcells[j];
+            var tcells = trows[i].cells[j];
+            tcells.s = {border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
             // incell.style.background = "green";  -- applies to dashboard only
             // incell.style.border = "2px solid black";
             // incell.s = {border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
@@ -164,10 +165,8 @@ looker.plugins.visualizations.add({
         // wsheet[{s:{c:0, r:9}, e:{c:34, r:10}}].s = {border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
         // XLSX.utils.sheet_add_dom(wsheet, theader, {origin: 'A1'});
         // wsheet["!merges"] = [{s:{c:0, r:0}, e:{c:7, r:0}}, {s:{c:0, r:1}, e:{c:7, r:1}}, {s:{c:0, r:3}, e:{c:7, r:3}}];
-        wsheet.A = {v: "C 28.00 - Exposures in the non-trading and trading book (LE 2)", t: "s", s: {font: {name: "Calibri", sz: 16, bold: true}, border: {top: {style: "thick"}, left: {style: "thick"}, bottom: {style: "medium"}, right: {style: "medium"}}}};
-        wsheet.B = {v: "C 28.00 - Exposures in the non-trading and trading book (LE 2)", t: "s", s: {font: {name: "Calibri", sz: 16, bold: true}, border: {top: {style: "thick"}, left: {style: "thick"}, bottom: {style: "medium"}, right: {style: "medium"}}}};
-        // wsheet.A1 = {v: "C 28.00 - Exposures in the non-trading and trading book (LE 2)", t: "s", s: {font: {name: "Calibri", sz: 16, bold: true}, border: {top: {style: "thick"}, left: {style: "thick"}, bottom: {style: "medium"}, right: {style: "medium"}}}};
-        // wsheet.B1 = {v: "C 28.00 - Exposures in the non-trading and trading book (LE 2)", t: "s", s: {font: {name: "Calibri", sz: 16, bold: true}, border: {top: {style: "thick"}, left: {style: "thick"}, bottom: {style: "medium"}, right: {style: "medium"}}}};
+        wsheet.A1 = {v: "C 28.00 - Exposures in the non-trading and trading book (LE 2)", t: "s", s: {font: {name: "Calibri", sz: 16, bold: true}, border: {top: {style: "thick"}, left: {style: "thick"}, bottom: {style: "medium"}, right: {style: "medium"}}}};
+        wsheet.B1 = {v: "C 28.00 - Exposures in the non-trading and trading book (LE 2)", t: "s", s: {font: {name: "Calibri", sz: 16, bold: true}, border: {top: {style: "thick"}, left: {style: "thick"}, bottom: {style: "medium"}, right: {style: "medium"}}}};
         wsheet.C1 = {v: "C 28.00 - Exposures in the non-trading and trading book (LE 2)", t: "s", s: {font: {name: "Calibri", sz: 16, bold: true}, border: {top: {style: "thick"}, left: {style: "thick"}, bottom: {style: "medium"}, right: {style: "medium"}}}};
         wsheet.D1 = {v: "C 28.00 - Exposures in the non-trading and trading book (LE 2)", t: "s", s: {font: {name: "Calibri", sz: 16, bold: true}, border: {top: {style: "thick"}, left: {style: "thick"}, bottom: {style: "medium"}, right: {style: "medium"}}}};
         wsheet.E1 = {v: "C 28.00 - Exposures in the non-trading and trading book (LE 2)", t: "s", s: {font: {name: "Calibri", sz: 16, bold: true}, border: {top: {style: "thick"}, left: {style: "thick"}, bottom: {style: "medium"}, right: {style: "medium"}}}};
@@ -281,6 +280,27 @@ looker.plugins.visualizations.add({
         wsheet["AH7"].s = {border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
         wsheet["AI7"].s = {border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
         
+        // wsheet["B4"].s = {border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
+        // wsheet["C4"].s = {border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
+        // wsheet["G7"].s = {border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
+        // wsheet["H7"].s = {border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
+        // wsheet["I7"].s = {border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
+        // wsheet["L7"].s = {border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
+        // wsheet["M7"].s = {border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
+        // wsheet["N7"].s = {border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
+        // wsheet["O7"].s = {border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
+        // wsheet["U7"].s = {border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
+        // wsheet["V7"].s = {border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
+        // wsheet["W7"].s = {border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
+        // wsheet["X7"].s = {border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
+        // wsheet["Y7"].s = {border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
+        // wsheet["Z7"].s = {border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
+        // wsheet["AA7"].s = {border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
+        // wsheet["AG7"].s = {border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
+        // wsheet["AH7"].s = {border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
+        // wsheet["AI7"].s = {border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
+        
+
         // var range = XLSX.utils.decode_range(wsheet["!ref"]);
         // for(var R = range.s.r; R <= range.e.r; ++R){
         //   for(var C = range.s.c; C <= range.e.c; ++C){
@@ -415,13 +435,13 @@ looker.plugins.visualizations.add({
       <style>
         .table {
           font-size: ${config.font_size}px;
-          border: 2px solid black;
+          border: 1px solid black;
           border-collapse: collapse;
           margin: auto;
         }
         .table-header {
           background-color: #eee;
-          border: 2px solid black;
+          border: 1px solid black;
           border-collapse: collapse;
           font-weight: normal;
           font-family: 'Verdana';
@@ -434,7 +454,7 @@ looker.plugins.visualizations.add({
         .table-cell {
           padding: 5px;
           border-bottom: 1px solid #ccc;
-          border: 2px solid black;
+          border: 1px solid black;
           border-collapse: collapse;
           font-family: 'Verdana';
           font-size: 11px;
@@ -444,7 +464,7 @@ looker.plugins.visualizations.add({
           width: 90px;
         }
          .table-row {
-          border: 2px solid black;
+          border: 1px solid black;
           border-collapse: collapse;
         }
         .thead{
@@ -456,7 +476,7 @@ looker.plugins.visualizations.add({
           content: '';
           top: 0;
           left: 0;
-          border-top: 2px solid black;
+          border-top: 1px solid black;
           position: absolute;
           width: 100%;
       }
@@ -466,7 +486,7 @@ looker.plugins.visualizations.add({
         left: 0; 
         bottom: 0; 
         width:100%; 
-        border-bottom: 2px solid rgba(0,0,0,0.12);
+        border-bottom: 1px solid rgba(0,0,0,0.12);
       }
       .div{
         overflow-y: auto;
