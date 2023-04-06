@@ -284,8 +284,7 @@ looker.plugins.visualizations.add({
           for (j = 0; j < 35; j++){
             var colname = XLSX.utils.encode_cell({r:i, c:j});
             console.log(colname);
-            wsheet["\""+colname+"\""].s = {border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
-            
+            wsheet[colname].s = {border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
           }
         }
 
