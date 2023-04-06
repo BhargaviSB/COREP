@@ -154,8 +154,8 @@ looker.plugins.visualizations.add({
           var tcells = trows[i].cells;
           for(var j = 0; j < tcells.length; j++){
             var incell = tcells[j];
-            incell.style.background = "green";
-            incell.style.border = "2px solid black";
+            // incell.style.background = "green";  -- applies to dashboard only
+            // incell.style.border = "2px solid black";
             // incell.s = {border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
           }
         }
@@ -414,13 +414,13 @@ looker.plugins.visualizations.add({
       <style>
         .table {
           font-size: ${config.font_size}px;
-          border: 1px solid black;
+          border: 2px solid black;
           border-collapse: collapse;
           margin: auto;
         }
         .table-header {
           background-color: #eee;
-          border: 1px solid black;
+          border: 2px solid black;
           border-collapse: collapse;
           font-weight: normal;
           font-family: 'Verdana';
@@ -433,7 +433,7 @@ looker.plugins.visualizations.add({
         .table-cell {
           padding: 5px;
           border-bottom: 1px solid #ccc;
-          border: 1px solid black;
+          border: 2px solid black;
           border-collapse: collapse;
           font-family: 'Verdana';
           font-size: 11px;
@@ -443,7 +443,7 @@ looker.plugins.visualizations.add({
           width: 90px;
         }
          .table-row {
-          border: 1px solid black;
+          border: 2px solid black;
           border-collapse: collapse;
         }
         .thead{
@@ -455,7 +455,7 @@ looker.plugins.visualizations.add({
           content: '';
           top: 0;
           left: 0;
-          border-top: 1px solid black;
+          border-top: 2px solid black;
           position: absolute;
           width: 100%;
       }
@@ -465,7 +465,7 @@ looker.plugins.visualizations.add({
         left: 0; 
         bottom: 0; 
         width:100%; 
-        border-bottom: 1px solid rgba(0,0,0,0.12);
+        border-bottom: 2px solid rgba(0,0,0,0.12);
       }
       .div{
         overflow-y: auto;
