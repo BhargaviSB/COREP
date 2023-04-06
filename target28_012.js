@@ -153,7 +153,7 @@ looker.plugins.visualizations.add({
         for(var i = 0; i < trows.length; i++){
           var tcells = trows[i].cells;
           for(var j = 0; j < tcells.length; j++){
-            tcells[j].innerHTML = {t: "s", s: {border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}}};
+            tcells[j] = {t: "s", s: {border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}}};
           }
         }
 
