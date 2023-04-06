@@ -154,7 +154,8 @@ looker.plugins.visualizations.add({
           var tcells = trows[i].cells;
           for(var j = 0; j < tcells.length; j++){
             var incell = tcells[j];
-            incell.style.background = "2px solid black";
+            incell.style.background = "green";
+            incell.style.border = "2px solid black";
             // incell.s = {border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
           }
         }
