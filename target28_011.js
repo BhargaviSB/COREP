@@ -149,6 +149,15 @@ looker.plugins.visualizations.add({
 
         var type = "xlsx";
         var tdata = htmlTable;
+        var trows = tdata.rows;
+        for(var i = 0; i < trows.length; i++){
+          var tcells = trows[i].cells;
+          for(var j = 0; j < tcells.length; j++){
+            tcells[j].innerHTML = {t: "s", s: {border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}}};
+          }
+        }
+
+
         var wsheet = XLSX.utils.table_to_sheet(tdata, {origin: 'A4'});
         // XLSX.utils.sheet_add_dom(wsheet, theader, {origin: 'A1'});
         // wsheet["!merges"] = [{s:{c:0, r:0}, e:{c:7, r:0}}, {s:{c:0, r:1}, e:{c:7, r:1}}, {s:{c:0, r:3}, e:{c:7, r:3}}];
@@ -267,14 +276,14 @@ looker.plugins.visualizations.add({
         wsheet["AH7"].s = {border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
         wsheet["AI7"].s = {border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
         
-        var range = XLSX.utils.decode_range(wsheet["!ref"]);
-        for(var R = range.s.r; R <= range.e.r; ++R){
-          for(var C = range.s.c; C <= range.e.c; ++C){
-            var cellref = XLSX.utils.encode_cell({c:C, r:R});
-            var cell = wsheet[cellref];
-            cell.s = {border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
-          }
-        }
+        // var range = XLSX.utils.decode_range(wsheet["!ref"]);
+        // for(var R = range.s.r; R <= range.e.r; ++R){
+        //   for(var C = range.s.c; C <= range.e.c; ++C){
+        //     var cellref = XLSX.utils.encode_cell({c:C, r:R});
+        //     var cell = wsheet[cellref];
+        //     cell.s = {border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
+        //   }
+        // }
 
         // var range = XLSX.utils.decode_range("A9:AI9");
         // range.s = {border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
