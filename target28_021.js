@@ -151,10 +151,10 @@ looker.plugins.visualizations.add({
         var tdata = htmlTable;
         var trows = tdata.rows;
         for(var i = 0; i < trows.length; i++){
-          // var tcells = trows[i].cells;
+          var tcells = trows[i].cells;
           for(var j = 0; j < tcells.length; j++){
-            var tcells = trows[i].cells[j];
-            tcells.s = {border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
+            var icells = trows[i].cells[j];
+            icells.s = {border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
             // incell.style.background = "green";  -- applies to dashboard only
             // incell.style.border = "2px solid black";
             // incell.s = {border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
