@@ -281,9 +281,9 @@ looker.plugins.visualizations.add({
         wsheet["AI7"].s = {border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
         
         var t = "F17";
-        var cqas = "\""+t+"\"";
-        console.log(cqas);
-        wsheet.cqas = {s: {border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}}};
+        var CQAS = "\""+t+"\"";
+        console.log(CQAS);
+        wsheet.CQAS = {s: {border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}}};
         
 
         // for (i = 0; i < trows.length; i++){
