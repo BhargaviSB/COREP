@@ -286,13 +286,13 @@ looker.plugins.visualizations.add({
         wsheet[tmp].s = {border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
         
 
-        // for (i = 0; i < trows.length; i++){
-        //   for (j = 0; j < 35; j++){
-        //     var colname = XLSX.utils.encode_cell({r:i, c:j});
-        //     // console.log(colname);
-        //     wsheet[colname].s = {border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
-        //   }
-        // }
+        for (i = 0; i < trows.length; i++){
+          for (j = 0; j < 35; j++){
+            var colname = XLSX.utils.encode_cell({r:i, c:j});
+            // console.log(colname);
+            wsheet[colname].s = {border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
+          }
+        }
 
 
         // var range = XLSX.utils.decode_range(wsheet["!ref"]);
