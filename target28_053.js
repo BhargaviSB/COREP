@@ -292,8 +292,8 @@ looker.plugins.visualizations.add({
         // console.log(yy);
         // wsheet[yy].s = {border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
 
-
-        for (var x = 3; x < (rows.length + 3); x++){
+        var ex = trows.length+3;
+        for (var x = 3; x < ex; x++){
           for (var y = 0; y < 35; y++){
             const colnamee = XLSX.utils.encode_cell({r:x, c:y});
             const celllval = colnamee;
