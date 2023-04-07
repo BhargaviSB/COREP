@@ -286,16 +286,16 @@ looker.plugins.visualizations.add({
         // console.log(tmp);
         // wsheet[tmp].s = {border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
         
-//         var xx = XLSX.utils.encode_cell({r:2, c:0});
-//         var yy = xx;
-        // var addr = XLSX.utils.decode_cell(xx);
-//         console.log(yy);
-//         wsheet[yy].s = {border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
+        // var xx = XLSX.utils.encode_cell({r:2, c:0});
+        // var yy = xx;
+        // // var addr = XLSX.utils.decode_cell(xx);
+        // console.log(yy);
+        // wsheet[yy].s = {border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
 
 
-        for (var x = 9; x < trows.length; x++){
+        for (var x = 9; x < rows.length; x++){
           for (var y = 0; y < 35; y++){
-            const colnamee = XLSX.utils.encode_cell({r:i, c:j});
+            const colnamee = XLSX.utils.encode_cell({r:x, c:y});
             const celllval = colnamee;
             // console.log("typeOf" + typeof celllval)
             // console.log(colnamee);
