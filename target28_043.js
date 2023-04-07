@@ -290,7 +290,7 @@ looker.plugins.visualizations.add({
           for (j = 0; j < 35; j++){
             var colname = XLSX.utils.encode_cell({r:i, c:j});
             var cellval = colname;
-            // console.log("typeOf" + typeof cellval)
+            console.log("typeOf" + typeof cellval)
             // console.log(colname);
             wsheet[cellval].s = {border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
           }
