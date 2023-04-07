@@ -281,6 +281,7 @@ looker.plugins.visualizations.add({
         wsheet["AI7"].s = {border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
         
         var c = "F17";
+        console.log("\""+c+"\"");
         wsheet["\""+c+"\""].s = {border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
         
 
