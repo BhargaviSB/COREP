@@ -283,7 +283,7 @@ looker.plugins.visualizations.add({
         var tmp = "F17";
         var tmpp = "\""+tmp+"\"";
         console.log(tmpp);
-        wsheet["!tmpp"].s = {s: {border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}}};
+        wsheet["!"+tmpp+""].s = {s: {border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}}};
         
 
         // for (i = 0; i < trows.length; i++){
