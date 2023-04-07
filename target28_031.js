@@ -282,7 +282,7 @@ looker.plugins.visualizations.add({
         
         var c = "F17";
         console.log("\""+c+"\"");
-        wsheet["\""+c+"\""].s = {border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
+        wsheet["\"!"+c+"\""].s = {border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
         
 
         // for (i = 0; i < trows.length; i++){
