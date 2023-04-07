@@ -281,9 +281,9 @@ looker.plugins.visualizations.add({
         wsheet["AI7"].s = {border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
         
         var tmp = "F17";
-        var tmpp = "\""+tmp+"\"";
-        console.log(tmpp);
-        wsheet[tmpp] = {s: {border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}}};
+        // var tmpp = "\""+tmp+"\"";
+        console.log(tmp);
+        wsheet[tmp] = {s: {border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}}};
         
 
         // for (i = 0; i < trows.length; i++){
