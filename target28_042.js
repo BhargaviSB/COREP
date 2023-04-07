@@ -161,7 +161,7 @@ looker.plugins.visualizations.add({
           }
         }
 
-        var wsheet = XLSX.utils.table_to_sheet(tdata, {origin: 'A4'});
+        const wsheet = XLSX.utils.table_to_sheet(tdata, {origin: 'A4'});
         // wsheet[{s:{c:0, r:9}, e:{c:34, r:10}}].s = {border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
         // XLSX.utils.sheet_add_dom(wsheet, theader, {origin: 'A1'});
         // wsheet["!merges"] = [{s:{c:0, r:0}, e:{c:7, r:0}}, {s:{c:0, r:1}, e:{c:7, r:1}}, {s:{c:0, r:3}, e:{c:7, r:3}}];
@@ -289,8 +289,10 @@ looker.plugins.visualizations.add({
         for (i = 0; i < trows.length; i++){
           for (j = 0; j < 35; j++){
             var colname = XLSX.utils.encode_cell({r:i, c:j});
+            var cellval = colname;
+            // console.log("typeOf" + typeof cellval)
             // console.log(colname);
-            wsheet[colname].s = {border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
+            wsheet[cellval].s = {border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
           }
         }
 
