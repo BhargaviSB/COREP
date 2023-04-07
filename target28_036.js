@@ -280,10 +280,10 @@ looker.plugins.visualizations.add({
         wsheet["AH7"].s = {border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
         wsheet["AI7"].s = {border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
         
-        var t = "F17";
-        var CQAS = "\""+t+"\"";
-        console.log(CQAS);
-        wsheet.CQAS = {s: {border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}}};
+        var tmp = "F17";
+        var tmpp = "\""+tmp+"\"";
+        console.log(tmpp);
+        wsheet["!tmpp"].s = {s: {border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}}};
         
 
         // for (i = 0; i < trows.length; i++){
