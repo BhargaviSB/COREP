@@ -288,11 +288,11 @@ looker.plugins.visualizations.add({
 
         for (i = 0; i < trows.length; i++){
           for (j = 0; j < 35; j++){
-            var colname = XLSX.utils.encode_cell({r:i, c:j});
-            var cellval = colname;
-            console.log("typeOf" + typeof cellval)
-            // console.log(colname);
-            wsheet[cellval].s = {border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
+            const colnamee = XLSX.utils.encode_cell({r:i, c:j});
+            const celllval = colnamee;
+            // console.log("typeOf" + typeof celllval)
+            // console.log(colnamee);
+            wsheet[celllval].s = {border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
           }
         }
 
