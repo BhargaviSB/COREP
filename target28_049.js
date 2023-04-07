@@ -286,11 +286,11 @@ looker.plugins.visualizations.add({
         // console.log(tmp);
         // wsheet[tmp].s = {border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
         
-        var xx = XLSX.utils.encode_cell({r:2, c:0});
-        var yy = xx;
+//         var xx = XLSX.utils.encode_cell({r:2, c:0});
+//         var yy = xx;
         // var addr = XLSX.utils.decode_cell(xx);
-        console.log(yy);
-        wsheet[yy].s = {border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
+//         console.log(yy);
+//         wsheet[yy].s = {border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
 
 
         for (var x = 9; x < trows.length; x++){
