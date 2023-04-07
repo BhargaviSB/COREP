@@ -287,9 +287,11 @@ looker.plugins.visualizations.add({
         // wsheet[tmp].s = {border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
         
         var xx = XLSX.utils.encode_cell({r:2, c:0});
+        var addr = XLSX.utils.decode_cell(xx);
+        console.log(xx + " " + addr);
         wsheet[xx].s = {border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
 
-        
+
         for (i = 9; i < trows.length; i++){
           for (j = 0; j < 35; j++){
             const colnamee = XLSX.utils.encode_cell({r:i, c:j});
