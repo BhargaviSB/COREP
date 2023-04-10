@@ -82,12 +82,16 @@ looker.plugins.visualizations.add({
     this._container = element.appendChild(div);
     const meta = document.createElement('meta');
     meta.httpEquiv = 'cache-control';
-    meta.content = 'no-cache';
+    meta.content = 'no-cache, no-store, must-revalidate';
     document.head.appendChild(meta);
     const meta2 = document.createElement('meta');
     meta2.httpEquiv = 'expires';
     meta2.content = '0';
     document.head.appendChild(meta2);
+    const meta3 = document.createElement('meta');
+    meta3.httpEquiv = 'pragma';
+    meta3.content = 'no-cache';
+    document.head.appendChild(meta3);
 
   },
 
@@ -171,12 +175,12 @@ looker.plugins.visualizations.add({
 
         const wsheet = XLSX.utils.table_to_sheet(tdata, {origin: 'A4'});
 
-//         if(!wsheet["!cols"]) wsheet["!cols"] = [];
-//         var wscols = [];
-//         for(a = 0; a < 34; a++){
-//           wscols.push({width: 11});
-//         }
-//         wsheet['!cols'] = wscols;
+        // if(!wsheet["!cols"]) wsheet["!cols"] = [];
+        // var wscols = [];
+        // for(a = 0; a < 34; a++){
+        //   wscols.push({width: 11});
+        // }
+        // wsheet['!cols'] = wscols;
 
         // wsheet[{s:{c:0, r:9}, e:{c:34, r:10}}].s = {border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
         // XLSX.utils.sheet_add_dom(wsheet, theader, {origin: 'A1'});
@@ -517,7 +521,7 @@ looker.plugins.visualizations.add({
             const celllval = colnamee;
             // console.log("typeOf" + typeof celllval)
             // console.log(colnamee);
-            wsheet[celllval].s = {alignment: {vertical: "center", horizontal: "center", wrapText: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
+            wsheet[celllval].s = {alignment: {vertical: "center", horizontal: "center", wrapText: false}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
             
           }
         }
