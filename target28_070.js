@@ -171,6 +171,7 @@ looker.plugins.visualizations.add({
 
         const wsheet = XLSX.utils.table_to_sheet(tdata, {origin: 'A4'});
 
+        if(!wsheet["!cols"]) wsheet["!cols"] = [];
         var wscols = [];
         for(a = 0; a < 34; a++){
           wscols.push({width: 11});
