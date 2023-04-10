@@ -246,11 +246,12 @@ looker.plugins.visualizations.add({
         wsheet.AH2 = {v: "* All values reported are in millions", t: "s", s: {font: {name: "Calibri", sz: 9}}};
         wsheet.AI2 = {v: "* All values reported are in millions", t: "s", s: {font: {name: "Calibri", sz: 9}}};
 
-        wsheet["A4"].s = {font: {bold: true}, alignment: {vertical: "center", horizontal: "center", wrapText: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
-        wsheet.B3 = {s: {border: {bottom: {style: "medium"}}}};
-        wsheet.C3 = {s: {border: {bottom: {style: "medium"}}}};
-        wsheet.B4 = {s: {font: {bold: true}, alignment: {vertical: "center", horizontal: "center", wrapText: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}}};
-        wsheet.C4 = {s: {font: {bold: true}, alignment: {vertical: "center", horizontal: "center", wrapText: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}}};
+        wsheet.A4 = {v: "COUNTERPARTY", t: "s", s: {s: {font: {bold: true}, alignment: {vertical: "center", horizontal: "center", wrapText: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}}}};
+        wsheet.B4 = {v: "COUNTERPARTY", t: "s", s: {s: {font: {bold: true}, alignment: {vertical: "center", horizontal: "center", wrapText: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}}}};
+        wsheet.C4 = {v: "COUNTERPARTY", t: "s", s: {s: {font: {bold: true}, alignment: {vertical: "center", horizontal: "center", wrapText: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}}}};
+        
+        // wsheet.B4 = {s: {font: {bold: true}, alignment: {vertical: "center", horizontal: "center", wrapText: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}}};
+        // wsheet.C4 = {s: {font: {bold: true}, alignment: {vertical: "center", horizontal: "center", wrapText: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}}};
         
         // wsheet["B4"].s = {font: {bold: true}, alignment: {vertical: "center", horizontal: "center", wrapText: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
         // wsheet["C4"].s = {font: {bold: true}, alignment: {vertical: "center", horizontal: "center", wrapText: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
