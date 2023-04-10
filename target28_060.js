@@ -28,7 +28,7 @@ looker.plugins.visualizations.add({
           border: 1px solid black;
           border-collapse: collapse;
           font-weight: normal;
-          font-family: 'Verdana';
+          font-family: 'Calibri';
           font-size: 11px;
           align-items: center;
           text-align: center;
@@ -40,7 +40,7 @@ looker.plugins.visualizations.add({
           border-bottom: 1px solid #ccc;
           border: 1px solid black;
           border-collapse: collapse;
-          font-family: 'Verdana';
+          font-family: 'Calibri';
           font-size: 11px;
           align-items: center;
           text-align: center;
@@ -150,7 +150,7 @@ looker.plugins.visualizations.add({
 
       // document.querySelector('th').style.border = "2px solid black";
 
-      // var theader = "<tr class='table-header'><th class='table-header' rowspan='1' colspan='100' style='align-items: left;text-align: left; height: 40px;border: 1px solid black;background-color: #eee;font-family: Verdana;'><b>C 29.00 - Detail of the exposures to individual clients within groups of connected clients (LE 3)</b></th></tr><tr class='table-header'><th class='table-header' rowspan='1' colspan='3' style='background-color:none !important;font-family:Verdana;font-size:10px;align-items: center;text-align: right;padding: 5px;color:grey;font-weight:normal;'>* All values reported are in millions </th></tr>";
+      // var theader = "<tr class='table-header'><th class='table-header' rowspan='1' colspan='100' style='align-items: left;text-align: left; height: 40px;border: 1px solid black;background-color: #eee;font-family: Calibri;'><b>C 29.00 - Detail of the exposures to individual clients within groups of connected clients (LE 3)</b></th></tr><tr class='table-header'><th class='table-header' rowspan='1' colspan='3' style='background-color:none !important;font-family:Calibri;font-size:10px;align-items: center;text-align: right;padding: 5px;color:grey;font-weight:normal;'>* All values reported are in millions </th></tr>";
       // var theader = document.createElement('h1');
       // var htext = document.createTextNode("C 28.00 - Exposures in the non-trading and trading book (LE 2)");
       // theader.appendChild(htext);
@@ -246,6 +246,7 @@ looker.plugins.visualizations.add({
         wsheet.AH2 = {v: "* All values reported are in millions", t: "s", s: {font: {name: "Calibri", sz: 9}}};
         wsheet.AI2 = {v: "* All values reported are in millions", t: "s", s: {font: {name: "Calibri", sz: 9}}};
 
+        wsheet.B4 = {s: {font: {bold: true}, alignment: {vertical: "center", horizontal: "center", wrapText: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}}};
         wsheet["A4"].s = {font: {bold: true}, alignment: {vertical: "center", horizontal: "center", wrapText: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
         wsheet["B4"].s = {font: {bold: true}, alignment: {vertical: "center", horizontal: "center", wrapText: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
         wsheet["C4"].s = {font: {bold: true}, alignment: {vertical: "center", horizontal: "center", wrapText: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
@@ -442,7 +443,7 @@ looker.plugins.visualizations.add({
   //     // XLSX.src = 'https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js';
   //     // document.head.appendChild(XLSX);
   //     var ctx = { Worksheet: '28', table: table.innerHTML };
-  //     var ctx = { Worksheet: '28', table: "<tr class='table-header'><th class='table-header' rowspan='1' colspan='35' style='align-items: left;text-align: left; height: 40px;border: 1px solid black;background-color: #eee;font-family: Verdana;'><b>C 28.00 - Exposures in the non-trading and trading book (LE 2)</b></th></tr><tr class='table-header'><th class='table-header' rowspan='1' colspan='3' style='background-color:none !important;font-family:Verdana;font-size:10px;align-items: center;text-align: left;padding: 5px;color:grey;font-weight:normal;'>* All values reported are in millions </th></tr>"+table.innerHTML }
+  //     var ctx = { Worksheet: '28', table: "<tr class='table-header'><th class='table-header' rowspan='1' colspan='35' style='align-items: left;text-align: left; height: 40px;border: 1px solid black;background-color: #eee;font-family: Calibri;'><b>C 28.00 - Exposures in the non-trading and trading book (LE 2)</b></th></tr><tr class='table-header'><th class='table-header' rowspan='1' colspan='3' style='background-color:none !important;font-family:Calibri;font-size:10px;align-items: center;text-align: left;padding: 5px;color:grey;font-weight:normal;'>* All values reported are in millions </th></tr>"+table.innerHTML }
           
   //     var xl = format(template, ctx);
   //     const downloadUrl = uri + base64(xl);
@@ -484,7 +485,7 @@ looker.plugins.visualizations.add({
           border: 1px solid black;
           border-collapse: collapse;
           font-weight: normal;
-          font-family: 'Verdana';
+          font-family: 'Calibri';
           font-size: 11px;
           align-items: center;
           text-align: center;
@@ -496,7 +497,7 @@ looker.plugins.visualizations.add({
           border-bottom: 1px solid #ccc;
           border: 1px solid black;
           border-collapse: collapse;
-          font-family: 'Verdana';
+          font-family: 'Calibri';
           font-size: 11px;
           align-items: center;
           text-align: center;
@@ -536,67 +537,67 @@ looker.plugins.visualizations.add({
       </style>
     `;
 
-    generatedHTML += "<p style='font-family:Verdana;width:4040px;font-weight:bold;font-size:14px;align-items:center;text-align:left;border:1px solid black;padding: 5px;background-color: #eee;'>C 28.00 - Exposures in the non-trading and trading book (LE 2)</p>";
-    generatedHTML += "<p style='font-family:Verdana;font-size:10px;align-items: center;text-align: right;padding: 5px;'>* All values reported are in millions </p>";
+    generatedHTML += "<p style='font-family:Calibri;width:4040px;font-weight:bold;font-size:14px;align-items:center;text-align:left;border:1px solid black;padding: 5px;background-color: #eee;'>C 28.00 - Exposures in the non-trading and trading book (LE 2)</p>";
+    generatedHTML += "<p style='font-family:Calibri;font-size:10px;align-items: center;text-align: right;padding: 5px;'>* All values reported are in millions </p>";
     generatedHTML += "<table class='table'>";
     generatedHTML += "<thead class='thead'>";
     generatedHTML += "<tr class='table-header' >";
-    generatedHTML += `<th class='table-header' colspan='3' style='border: 1px solid black;background-color: #eee;font-family: Verdana;'><b>COUNTERPARTY</b><hr style="margin: 0;width: 48.78%;height: 0.6px;top: 27px;position: absolute;left: 0;background-color: black;"></th>`;
-    generatedHTML += `<th class='table-header' colspan='15' style='height:25px;border: 1px solid black;background-color: #eee;font-family: Verdana;' ><b>ORIGINAL EXPOSURES</b></th>`;
-    generatedHTML += `<th class='table-header' rowspan='5' style='border: 1px solid black;background-color: #eee;font-family: Verdana;font-weight: normal;'>(-) Value adjustments and provisions</th>`;
-    generatedHTML += `<th class='table-header' rowspan='5' style='border: 1px solid black;background-color: #eee;font-family: Verdana;font-weight: normal;'>(-) Exposures deducted from CET 1 or Additional Tier 1 items</th>`;
-    generatedHTML += `<th class='table-header' rowspan='3' colspan='3' style='border: 1px solid black;background-color: #eee;font-family: Verdana;'><b>Exposure value before application of exemptions and CRM </b><hr style="margin: 0;position: absolute;width: 25.37%;top: 82px;left: 2260px;background-color: black;height: 0.6px;"></th>`;
-    generatedHTML += `<th class='table-header' colspan='8' style='border: 1px solid black;background-color: #eee;font-family: Verdana;'><b>ELIGIBLE CREDIT RISK MITIGATION (CRM) TECHNIQUES</b><hr style="height: 0.6px;top: 27px;position: absolute;left: 2603px;width: 23.85%;margin: 0;background-color: black;"></th>`;
-    generatedHTML += `<th class='table-header' rowspan='5' style='border: 1px solid black;background-color: #eee;font-family: Verdana;font-weight: normal;'>(-) Amounts exempted</th>`;
-    generatedHTML += `<th class='table-header' rowspan='3' colspan='3' style='border: 1px solid black;background-color: #eee;font-family: Verdana;'><b>Exposure value after application of exemptions and CRM</b><hr style="margin: 0;height: 0.6px;top: 82px;position: absolute;width: 8.4%;left: 3711.5px;background-color: black;"></th>`;
+    generatedHTML += `<th class='table-header' colspan='3' style='border: 1px solid black;background-color: #eee;font-family: Calibri;'><b>COUNTERPARTY</b><hr style="margin: 0;width: 48.78%;height: 0.6px;top: 27px;position: absolute;left: 0;background-color: black;"></th>`;
+    generatedHTML += `<th class='table-header' colspan='15' style='height:25px;border: 1px solid black;background-color: #eee;font-family: Calibri;' ><b>ORIGINAL EXPOSURES</b></th>`;
+    generatedHTML += `<th class='table-header' rowspan='5' style='border: 1px solid black;background-color: #eee;font-family: Calibri;font-weight: normal;'>(-) Value adjustments and provisions</th>`;
+    generatedHTML += `<th class='table-header' rowspan='5' style='border: 1px solid black;background-color: #eee;font-family: Calibri;font-weight: normal;'>(-) Exposures deducted from CET 1 or Additional Tier 1 items</th>`;
+    generatedHTML += `<th class='table-header' rowspan='3' colspan='3' style='border: 1px solid black;background-color: #eee;font-family: Calibri;'><b>Exposure value before application of exemptions and CRM </b><hr style="margin: 0;position: absolute;width: 25.37%;top: 82px;left: 2260px;background-color: black;height: 0.6px;"></th>`;
+    generatedHTML += `<th class='table-header' colspan='8' style='border: 1px solid black;background-color: #eee;font-family: Calibri;'><b>ELIGIBLE CREDIT RISK MITIGATION (CRM) TECHNIQUES</b><hr style="height: 0.6px;top: 27px;position: absolute;left: 2603px;width: 23.85%;margin: 0;background-color: black;"></th>`;
+    generatedHTML += `<th class='table-header' rowspan='5' style='border: 1px solid black;background-color: #eee;font-family: Calibri;font-weight: normal;'>(-) Amounts exempted</th>`;
+    generatedHTML += `<th class='table-header' rowspan='3' colspan='3' style='border: 1px solid black;background-color: #eee;font-family: Calibri;'><b>Exposure value after application of exemptions and CRM</b><hr style="margin: 0;height: 0.6px;top: 82px;position: absolute;width: 8.4%;left: 3711.5px;background-color: black;"></th>`;
     generatedHTML += "</tr>";
     generatedHTML += "<tr class='table-header'>";
-    generatedHTML += `<th class='table-header' rowspan='4' style='border: 1px solid black;background-color: #eee;font-family: Verdana;font-weight: normal;'>Code<hr style="margin: 0;height: 0.6px;position: absolute;width: 100%;left: 0;top: 177px;background-color: black;"></th>`;
-    generatedHTML += `<th class='table-header' rowspan='4' style='border: 1px solid black;background-color: #eee;font-family: Verdana;font-weight: normal;'>Group or individual</th>`;
-    generatedHTML += `<th class='table-header' rowspan='4' style='border: 1px solid black;background-color: #eee;font-family: Verdana;font-weight: normal;'>Transactions where there is an exposure to underlying assets</th>`;
-    generatedHTML += `<th class='table-header' rowspan='4' style='border: 1px solid black;background-color: #eee;font-family: Verdana;'><b>Total original exposure</b></th>`;
+    generatedHTML += `<th class='table-header' rowspan='4' style='border: 1px solid black;background-color: #eee;font-family: Calibri;font-weight: normal;'>Code<hr style="margin: 0;height: 0.6px;position: absolute;width: 100%;left: 0;top: 177px;background-color: black;"></th>`;
+    generatedHTML += `<th class='table-header' rowspan='4' style='border: 1px solid black;background-color: #eee;font-family: Calibri;font-weight: normal;'>Group or individual</th>`;
+    generatedHTML += `<th class='table-header' rowspan='4' style='border: 1px solid black;background-color: #eee;font-family: Calibri;font-weight: normal;'>Transactions where there is an exposure to underlying assets</th>`;
+    generatedHTML += `<th class='table-header' rowspan='4' style='border: 1px solid black;background-color: #eee;font-family: Calibri;'><b>Total original exposure</b></th>`;
     generatedHTML += `<th class='table-header' colspan='14' style='height:25px;background-color: #eee;color: #eee'><hr style="background-color: #eee;margin: 0;position: absolute;height: 0.6px;top: 55px;width:37.89%;background-color: #262d33;left: 442px;"></th>`;
-    generatedHTML += `<th class='table-header' colspan='6' rowspan='2' style='border: 1px solid black;background-color: #eee;font-family: Verdana;font-weight: normal;'>(-) Substitution effect of eligible credit risk mitigation techniques</th>`;
-    generatedHTML += `<th class='table-header' rowspan='4' style='border: 1px solid black;background-color: #eee;font-family: Verdana;font-weight: normal;'>(-) Funded credit protection other than substitution effect</th>`;
-    generatedHTML += `<th class='table-header' rowspan='4' style='border: 1px solid black;background-color: #eee;font-family: Verdana;font-weight: normal;'>(-) Real estate</th>`;
+    generatedHTML += `<th class='table-header' colspan='6' rowspan='2' style='border: 1px solid black;background-color: #eee;font-family: Calibri;font-weight: normal;'>(-) Substitution effect of eligible credit risk mitigation techniques</th>`;
+    generatedHTML += `<th class='table-header' rowspan='4' style='border: 1px solid black;background-color: #eee;font-family: Calibri;font-weight: normal;'>(-) Funded credit protection other than substitution effect</th>`;
+    generatedHTML += `<th class='table-header' rowspan='4' style='border: 1px solid black;background-color: #eee;font-family: Calibri;font-weight: normal;'>(-) Real estate</th>`;
     generatedHTML += "</tr>";
     generatedHTML += "<tr>";
-    generatedHTML += `<th class='table-header' colspan='1' style='border: 1px solid black;background-color: #eee;font-family: Verdana;'></th>`;
-    generatedHTML += `<th class='table-header' colspan='6' style='height:25px;border: 1px solid black;background-color: #eee;font-family: Verdana;font-weight: normal;'>Direct exposures<hr style="margin: 0;position: absolute;height: 0.6px;top: 82.5px;width: 36.16%;left: 442px;background-color: black;"></th>`;
-    generatedHTML += `<th class='table-header' colspan='6' style='height:25px;border: 1px solid black;background-color: #eee;font-family: Verdana;font-weight: normal;'>Indirect exposures</th>`;
-    generatedHTML += `<th class='table-header' rowspan='3' style='border: 1px solid black;background-color: #eee;font-family: Verdana;font-weight: normal;'>Additional exposures arising from transactions where there is an exposure to underlying assets</th>`;
+    generatedHTML += `<th class='table-header' colspan='1' style='border: 1px solid black;background-color: #eee;font-family: Calibri;'></th>`;
+    generatedHTML += `<th class='table-header' colspan='6' style='height:25px;border: 1px solid black;background-color: #eee;font-family: Calibri;font-weight: normal;'>Direct exposures<hr style="margin: 0;position: absolute;height: 0.6px;top: 82.5px;width: 36.16%;left: 442px;background-color: black;"></th>`;
+    generatedHTML += `<th class='table-header' colspan='6' style='height:25px;border: 1px solid black;background-color: #eee;font-family: Calibri;font-weight: normal;'>Indirect exposures</th>`;
+    generatedHTML += `<th class='table-header' rowspan='3' style='border: 1px solid black;background-color: #eee;font-family: Calibri;font-weight: normal;'>Additional exposures arising from transactions where there is an exposure to underlying assets</th>`;
     generatedHTML += "</tr>";
     generatedHTML += "<tr>";
-    generatedHTML += `<th class='table-header' rowspan='2' style='border: 1px solid black;background-color: #eee;font-family: Verdana;font-weight: normal;'><i>Of which: defaulted</i></th>`;
-    generatedHTML += `<th class='table-header' rowspan='2' style='border: 1px solid black;background-color: #eee;font-family: Verdana;font-weight: normal;'>Debt instruments</th>`;
-    generatedHTML += `<th class='table-header' rowspan='2' style='border: 1px solid black;background-color: #eee;font-family: Verdana;font-weight: normal;'>Equity instruments</th>`;
-    generatedHTML += `<th class='table-header' rowspan='2' style='border: 1px solid black;background-color: #eee;font-family: Verdana;font-weight: normal;'>Derivatives</th>`;
-    generatedHTML += `<th class='table-header' colspan='3' style='border: 1px solid black;background-color: #eee;font-family: Verdana;font-weight: normal;'>Off balance sheet items<hr style="margin: 0;height: 0.6px;position: absolute;width: 6.52%;top: 134px;background-color: black;left: 956px;"></th>`;
-    generatedHTML += `<th class='table-header' rowspan='2' style='border: 1px solid black;background-color: #eee;font-family: Verdana;font-weight: normal;'>Debt instruments</th>`;
-    generatedHTML += `<th class='table-header' rowspan='2' style='border: 1px solid black;background-color: #eee;font-family: Verdana;font-weight: normal;'>Equity instruments</th>`;
-    generatedHTML += `<th class='table-header' rowspan='2' style='border: 1px solid black;background-color: #eee;font-family: Verdana;font-weight: normal;'>Derivatives</th>`;
-    generatedHTML += `<th class='table-header' colspan='3' style='border: 1px solid black;background-color: #eee;font-family: Verdana;font-weight: normal;'>Off balance sheet items<hr style="margin: 0;height: 0.6px;position: absolute;width: 6.49%;top: 134px;background-color: black;left: 1644.5px;"></th>`;
-    generatedHTML += `<th class='table-header' rowspan='2' style='border: 1px solid black;background-color: #eee;font-family: Verdana;'><b>Total</b></th>`;
-    generatedHTML += `<th class='table-header' rowspan='2' style='border: 1px solid black;background-color: #eee;font-family: Verdana;font-weight: normal;'><i>Of which: Non-trading book</i></th>`;
-    generatedHTML += `<th class='table-header' rowspan='2' style='border: 1px solid black;background-color: #eee;font-family: Verdana;font-weight: normal;'>% of Tier 1 capital </th>`;
-    generatedHTML += `<th class='table-header' rowspan='2' style='border: 1px solid black;background-color: #eee;font-family: Verdana;font-weight: normal;'>(-) Debt instruments</th>`;
-    generatedHTML += `<th class='table-header' rowspan='2' style='border: 1px solid black;background-color: #eee;font-family: Verdana;font-weight: normal;'>(-) Equity instruments</th>`;
-    generatedHTML += `<th class='table-header' rowspan='2' style='border: 1px solid black;background-color: #eee;font-family: Verdana;font-weight: normal;'>(-) Derivatives</th>`;
-    generatedHTML += `<th class='table-header' colspan='3' style='border: 1px solid black;background-color: #eee;font-family: Verdana;font-weight: normal;'>(-) Off balance sheet items<hr style="margin: 0;height: 0.6px;position: absolute;width: 6.5%;top: 134px;background-color: black;left: 3024.7px;"></th>`;
-    generatedHTML += `<th class='table-header' rowspan='2' style='border: 1px solid black;background-color: #eee;font-family: Verdana;'><b>Total</b></th>`;
-    generatedHTML += `<th class='table-header' rowspan='2' style='border: 1px solid black;background-color: #eee;font-family: Verdana;font-weight: normal;'><i>Of which: Non-trading book</i></th>`;
-    generatedHTML += `<th class='table-header' rowspan='2' style='border: 1px solid black;background-color: #eee;font-family: Verdana;font-weight: normal;'>% of Tier 1 capital</th>`;
+    generatedHTML += `<th class='table-header' rowspan='2' style='border: 1px solid black;background-color: #eee;font-family: Calibri;font-weight: normal;'><i>Of which: defaulted</i></th>`;
+    generatedHTML += `<th class='table-header' rowspan='2' style='border: 1px solid black;background-color: #eee;font-family: Calibri;font-weight: normal;'>Debt instruments</th>`;
+    generatedHTML += `<th class='table-header' rowspan='2' style='border: 1px solid black;background-color: #eee;font-family: Calibri;font-weight: normal;'>Equity instruments</th>`;
+    generatedHTML += `<th class='table-header' rowspan='2' style='border: 1px solid black;background-color: #eee;font-family: Calibri;font-weight: normal;'>Derivatives</th>`;
+    generatedHTML += `<th class='table-header' colspan='3' style='border: 1px solid black;background-color: #eee;font-family: Calibri;font-weight: normal;'>Off balance sheet items<hr style="margin: 0;height: 0.6px;position: absolute;width: 6.52%;top: 134px;background-color: black;left: 956px;"></th>`;
+    generatedHTML += `<th class='table-header' rowspan='2' style='border: 1px solid black;background-color: #eee;font-family: Calibri;font-weight: normal;'>Debt instruments</th>`;
+    generatedHTML += `<th class='table-header' rowspan='2' style='border: 1px solid black;background-color: #eee;font-family: Calibri;font-weight: normal;'>Equity instruments</th>`;
+    generatedHTML += `<th class='table-header' rowspan='2' style='border: 1px solid black;background-color: #eee;font-family: Calibri;font-weight: normal;'>Derivatives</th>`;
+    generatedHTML += `<th class='table-header' colspan='3' style='border: 1px solid black;background-color: #eee;font-family: Calibri;font-weight: normal;'>Off balance sheet items<hr style="margin: 0;height: 0.6px;position: absolute;width: 6.49%;top: 134px;background-color: black;left: 1644.5px;"></th>`;
+    generatedHTML += `<th class='table-header' rowspan='2' style='border: 1px solid black;background-color: #eee;font-family: Calibri;'><b>Total</b></th>`;
+    generatedHTML += `<th class='table-header' rowspan='2' style='border: 1px solid black;background-color: #eee;font-family: Calibri;font-weight: normal;'><i>Of which: Non-trading book</i></th>`;
+    generatedHTML += `<th class='table-header' rowspan='2' style='border: 1px solid black;background-color: #eee;font-family: Calibri;font-weight: normal;'>% of Tier 1 capital </th>`;
+    generatedHTML += `<th class='table-header' rowspan='2' style='border: 1px solid black;background-color: #eee;font-family: Calibri;font-weight: normal;'>(-) Debt instruments</th>`;
+    generatedHTML += `<th class='table-header' rowspan='2' style='border: 1px solid black;background-color: #eee;font-family: Calibri;font-weight: normal;'>(-) Equity instruments</th>`;
+    generatedHTML += `<th class='table-header' rowspan='2' style='border: 1px solid black;background-color: #eee;font-family: Calibri;font-weight: normal;'>(-) Derivatives</th>`;
+    generatedHTML += `<th class='table-header' colspan='3' style='border: 1px solid black;background-color: #eee;font-family: Calibri;font-weight: normal;'>(-) Off balance sheet items<hr style="margin: 0;height: 0.6px;position: absolute;width: 6.5%;top: 134px;background-color: black;left: 3024.7px;"></th>`;
+    generatedHTML += `<th class='table-header' rowspan='2' style='border: 1px solid black;background-color: #eee;font-family: Calibri;'><b>Total</b></th>`;
+    generatedHTML += `<th class='table-header' rowspan='2' style='border: 1px solid black;background-color: #eee;font-family: Calibri;font-weight: normal;'><i>Of which: Non-trading book</i></th>`;
+    generatedHTML += `<th class='table-header' rowspan='2' style='border: 1px solid black;background-color: #eee;font-family: Calibri;font-weight: normal;'>% of Tier 1 capital</th>`;
     generatedHTML += "</tr>";
     generatedHTML += "<tr>";
-    generatedHTML += `<th class='table-header' rowspan='1' style='border: 1px solid black;background-color: #eee;font-family: Verdana;font-weight: normal;'>Loan commitments</th>`;
-    generatedHTML += `<th class='table-header' rowspan='1' style='border: 1px solid black;background-color: #eee;font-family: Verdana;font-weight: normal;'>Financial guarantees</th>`;
-    generatedHTML += `<th class='table-header' rowspan='1' style='border: 1px solid black;background-color: #eee;font-family: Verdana;font-weight: normal;'>Other commit-ments</th>`;
-    generatedHTML += `<th class='table-header' rowspan='1' style='border: 1px solid black;background-color: #eee;font-family: Verdana;font-weight: normal;'>Loan commitments</th>`;
-    generatedHTML += `<th class='table-header' rowspan='1' style='border: 1px solid black;background-color: #eee;font-family: Verdana;font-weight: normal;'>Financial guarantees</th>`;
-    generatedHTML += `<th class='table-header' rowspan='1' style='border: 1px solid black;background-color: #eee;font-family: Verdana;font-weight: normal;'>Other commit-ments</th>`;
-    generatedHTML += `<th class='table-header' rowspan='1' style='border: 1px solid black;background-color: #eee;font-family: Verdana;font-weight: normal;'>(-) Loan commitments</th>`;
-    generatedHTML += `<th class='table-header' rowspan='1' style='border: 1px solid black;background-color: #eee;font-family: Verdana;font-weight: normal;'>(-) Financial guarantees</th>`;
-    generatedHTML += `<th class='table-header' rowspan='1' style='border: 1px solid black;background-color: #eee;font-family: Verdana;font-weight: normal;'>(-) Other commit-ments</th>`;
+    generatedHTML += `<th class='table-header' rowspan='1' style='border: 1px solid black;background-color: #eee;font-family: Calibri;font-weight: normal;'>Loan commitments</th>`;
+    generatedHTML += `<th class='table-header' rowspan='1' style='border: 1px solid black;background-color: #eee;font-family: Calibri;font-weight: normal;'>Financial guarantees</th>`;
+    generatedHTML += `<th class='table-header' rowspan='1' style='border: 1px solid black;background-color: #eee;font-family: Calibri;font-weight: normal;'>Other commit-ments</th>`;
+    generatedHTML += `<th class='table-header' rowspan='1' style='border: 1px solid black;background-color: #eee;font-family: Calibri;font-weight: normal;'>Loan commitments</th>`;
+    generatedHTML += `<th class='table-header' rowspan='1' style='border: 1px solid black;background-color: #eee;font-family: Calibri;font-weight: normal;'>Financial guarantees</th>`;
+    generatedHTML += `<th class='table-header' rowspan='1' style='border: 1px solid black;background-color: #eee;font-family: Calibri;font-weight: normal;'>Other commit-ments</th>`;
+    generatedHTML += `<th class='table-header' rowspan='1' style='border: 1px solid black;background-color: #eee;font-family: Calibri;font-weight: normal;'>(-) Loan commitments</th>`;
+    generatedHTML += `<th class='table-header' rowspan='1' style='border: 1px solid black;background-color: #eee;font-family: Calibri;font-weight: normal;'>(-) Financial guarantees</th>`;
+    generatedHTML += `<th class='table-header' rowspan='1' style='border: 1px solid black;background-color: #eee;font-family: Calibri;font-weight: normal;'>(-) Other commit-ments</th>`;
     generatedHTML += "</tr>";
 
 
@@ -605,7 +606,7 @@ looker.plugins.visualizations.add({
     // First row is the header
     generatedHTML += "<tr class='table-header'>";
     for (let i=0;i<header.length;i++) {
-      generatedHTML += `<th class='table-header' style='border: 1px solid black;background-color: #eee;font-family: Verdana;font-weight: normal;mso-number-format: "\ \@";'>${header[i]}<hr style="margin: 0;height: 0.6px;position: absolute;width: 100%;left: 0;top: 193px;background-color: black;"></th>`;
+      generatedHTML += `<th class='table-header' style='border: 1px solid black;background-color: #eee;font-family: Calibri;font-weight: normal;mso-number-format: "\ \@";'>${header[i]}<hr style="margin: 0;height: 0.6px;position: absolute;width: 100%;left: 0;top: 193px;background-color: black;"></th>`;
     }
     generatedHTML += "</tr>";
     generatedHTML += "</thead>";
