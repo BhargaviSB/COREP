@@ -171,6 +171,10 @@ looker.plugins.visualizations.add({
 
         const wsheet = XLSX.utils.table_to_sheet(tdata, {origin: 'A4'});
 
+        var wscols = [];
+        wscols.push({wch: 125});
+        wsheet['!cols'] = wscols;
+
         // wsheet[{s:{c:0, r:9}, e:{c:34, r:10}}].s = {border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
         // XLSX.utils.sheet_add_dom(wsheet, theader, {origin: 'A1'});
         // wsheet["!merges"] = [{s:{c:0, r:0}, e:{c:7, r:0}}, {s:{c:0, r:1}, e:{c:7, r:1}}, {s:{c:0, r:3}, e:{c:7, r:3}}];
@@ -510,7 +514,8 @@ looker.plugins.visualizations.add({
             const celllval = colnamee;
             // console.log("typeOf" + typeof celllval)
             // console.log(colnamee);
-            wsheet[celllval].s = {border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
+            wsheet[celllval].s = {alignment: {vertical: "center", horizontal: "center", wrapText: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
+            
           }
         }
 
