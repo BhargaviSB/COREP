@@ -101,7 +101,7 @@ looker.plugins.visualizations.add({
     // document.head.appendChild(fileSaver);
 
     const xlsxstyle = document.createElement('script');
-    xlsxstyle.src = "https://cdn.jsdelivr.net/npm/xlsx-style@0.8.13/dist/xlsx.full.min.js";
+    xlsxstyle.src = "https://cdn.jsdelivr.net/npm/xlsx-style@0.8.13/dist/xlsx.core.min.js";
     // document.head.appendChild(xlsxstyle);
 
     const xlsxjsstyle = document.createElement('script');
