@@ -163,9 +163,10 @@ looker.plugins.visualizations.add({
             }
           }
     
-          for (var x = 6; x < 10; x++){
+          for (var x = 5; x < 9; x++){
             for (var y = 2; y < (k+2); y++){
               const colnamee = XLSX.utils.encode_cell({r:x, c:y});
+              console.log(colnamee);
               const celllval = colnamee;
               wsheet[celllval].s = {alignment: {vertical: "center", horizontal: "center", wrapText: false}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}}; 
             }
