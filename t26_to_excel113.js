@@ -98,17 +98,17 @@ looker.plugins.visualizations.add({
         }
     
           var type = "xlsx";
-        //   var tdata = htmlTable;
-        //   var trows = tdata.rows;
-        //   for(var i = 0; i < trows.length; i++){
-        //     var tcells = trows[i].cells;
-        //     for(var j = 0; j < tcells.length; j++){
-        //       var icells = trows[i].cells[j];
-        //       icells.s = {border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
-        //     }
-        //   }
+          var tdata = htmlTable;
+          var trows = tdata.rows;
+          for(var i = 0; i < trows.length; i++){
+            var tcells = trows[i].cells;
+            for(var j = 0; j < tcells.length; j++){
+              var icells = trows[i].cells[j];
+              icells.s = {border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
+            }
+          }
     
-          const wsheet = XLSX.utils.table_to_sheet(htmlTable, {origin: 'A4'});
+          const wsheet = XLSX.utils.table_to_sheet(tdata, {origin: 'A4'});
     
           wsheet.A1 = {v: "C 26.00 - Large Exposures limits (LE Limits)", t: "s", s: {font: {name: "Calibri", sz: 16, bold: true}, border: {top: {style: "thick"}, left: {style: "thick"}, bottom: {style: "medium"}, right: {style: "medium"}}}};
           wsheet.B1 = {v: "C 26.00 - Large Exposures limits (LE Limits)", t: "s", s: {font: {name: "Calibri", sz: 16, bold: true}, border: {top: {style: "thick"}, left: {style: "thick"}, bottom: {style: "medium"}, right: {style: "medium"}}}};
@@ -152,30 +152,33 @@ looker.plugins.visualizations.add({
           wsheet.B9 = {v: "Globally Systemic Important Institutions (G-SIIs)", t: "s", s: {alignment: {vertical: "center", horizontal: "center", wrapText: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}}};
           
           for (var a = 3; a < 5; a++){
-            for (var b = 2; b < (k+2); b++){
+            for (var b = 2; b < (k+1); b++){
                 const headername = XLSX.utils.encode_cell({r:a, c:b});
+                console.log("headername " + headername);
                 if(a == 3) 
-                wsheet[headername] = {v: "Applicable limit", t: "s", s: {font: {bold: true}, alignment: {vertical: "center", horizontal: "center", wrapText: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}}};
+                wsheet[headername] = {v: "Applicable limit", t: "s", s: {font: {bold: true}, alignment: {vertical: "center", horizontal: "center", wrapText: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium", color: {theme: 4}}}}};
                 if(a == 4)
                 wsheet[headername] = {v: "010", t: "s", s: {alignment: {vertical: "center", horizontal: "center", wrapText: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}}};
             }
           }
     
           for (var x = 5; x < 9; x++){
-            for (var y = 2; y < (k+2); y++){
+            for (var y = 2; y < (k+1); y++){
               const colnamee = XLSX.utils.encode_cell({r:x, c:y});
               const celllval = colnamee;
+              console.log("celllval " + celllval);
               wsheet[celllval].s = {alignment: {vertical: "center", horizontal: "center", wrapText: false}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}}; 
             }
           }
           
           // to get range of cells to merge for header
-          var headermerge1 = XLSX.utils.encode_range({ s: { c: 2, r: 3 }, e: { c: (k+2), r: 3 } });
-          var headermerge2 = XLSX.utils.encode_range({ s: { c: 2, r: 4 }, e: { c: (k+2), r: 4 } });
-          console.log(headermerge1 + " " + headermerge2);
+          var headermerge1 = XLSX.utils.encode_range({ s: { c: 2, r: 3 }, e: { c: (k+1), r: 3 } });
+          var headermerge2 = XLSX.utils.encode_range({ s: { c: 2, r: 4 }, e: { c: (k+1), r: 4 } });
+          console.log(headermerge1 + " and " + headermerge2);
 
           if(!wsheet["!merges"]) wsheet["!merges"] = [];
           wsheet["!merges"].push(XLSX.utils.decode_range("A1:K1"), XLSX.utils.decode_range("A2:K2"), XLSX.utils.decode_range("A4:B5"), XLSX.utils.decode_range(headermerge1), XLSX.utils.decode_range(headermerge2));
+          
           var wbook = XLSX.utils.book_new();
           XLSX.utils.book_append_sheet(wbook, wsheet, "C26");
           var wbexport = XLSX.write(wbook, {
