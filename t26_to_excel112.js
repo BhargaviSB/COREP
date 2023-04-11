@@ -91,7 +91,7 @@ looker.plugins.visualizations.add({
         var rows = htmlTable.rows;
         var l = rows.length;
         for (var i = 0; i < l; i++) {
-            var cells = rows[i].cells;
+            var cells = rows[i].cells;  
             for (var j = 0; j < cells.length; j++) {
                 var cell = cells[j];
             }
@@ -154,9 +154,9 @@ looker.plugins.visualizations.add({
           for (var a = 3; a < 5; a++){
             for (var b = 2; b < (k+2); b++){
                 const headername = XLSX.utils.encode_cell({r:a, c:b});
-                if(a = 3) 
+                if(a == 3) 
                 wsheet[headername] = {v: "Applicable limit", t: "s", s: {font: {bold: true}, alignment: {vertical: "center", horizontal: "center", wrapText: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}}};
-                if(a = 4)
+                if(a == 4)
                 wsheet[headername] = {v: "010", t: "s", s: {alignment: {vertical: "center", horizontal: "center", wrapText: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}}};
             }
           }
@@ -172,6 +172,7 @@ looker.plugins.visualizations.add({
           // to get range of cells to merge for header
           var headermerge1 = XLSX.utils.encode_range({ s: { c: 2, r: 3 }, e: { c: (k+2), r: 3 } });
           var headermerge2 = XLSX.utils.encode_range({ s: { c: 2, r: 4 }, e: { c: (k+2), r: 4 } });
+          console.log(headermerge1 + " " + headermerge2);
 
           if(!wsheet["!merges"]) wsheet["!merges"] = [];
           wsheet["!merges"].push(XLSX.utils.decode_range("A1:K1"), XLSX.utils.decode_range("A2:K2"), XLSX.utils.decode_range("A4:B5"), XLSX.utils.decode_range(headermerge1), XLSX.utils.decode_range(headermerge2));
