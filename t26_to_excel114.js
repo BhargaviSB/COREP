@@ -151,19 +151,19 @@ looker.plugins.visualizations.add({
           wsheet.B8 = {v: "Institutions in %", t: "s", s: {alignment: {vertical: "center", horizontal: "center", wrapText: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}}};
           wsheet.B9 = {v: "Globally Systemic Important Institutions (G-SIIs)", t: "s", s: {alignment: {vertical: "center", horizontal: "center", wrapText: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}}};
           
-          for (var a = 3; a < 5; a++){
-            for (var b = 2; b < (k+1); b++){
-                const headername = XLSX.utils.encode_cell({r:a, c:b});
-                console.log("headername " + headername);
-                if(a == 3) 
-                wsheet[headername] = {v: "Applicable limit", t: "s", s: {font: {bold: true}, alignment: {vertical: "center", horizontal: "center", wrapText: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium", color: {theme: 4}}}}};
-                if(a == 4)
-                wsheet[headername] = {v: "010", t: "s", s: {alignment: {vertical: "center", horizontal: "center", wrapText: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}}};
-            }
-          }
+        //   for (var a = 3; a < 5; a++){
+        //     for (var b = 2; b < (k+2); b++){
+        //         const headername = XLSX.utils.encode_cell({r:a, c:b});
+        //         console.log("headername " + headername);
+        //         if(a == 3) 
+        //         wsheet[headername] = {v: "Applicable limit", t: "s", s: {font: {bold: true}, alignment: {vertical: "center", horizontal: "center", wrapText: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium", color: {theme: 4}}}}};
+        //         if(a == 4)
+        //         wsheet[headername] = {v: "010", t: "s", s: {alignment: {vertical: "center", horizontal: "center", wrapText: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}}};
+        //     }
+        //   }
     
           for (var x = 5; x < 9; x++){
-            for (var y = 2; y < (k+1); y++){
+            for (var y = 2; y < (k+2); y++){
               const colnamee = XLSX.utils.encode_cell({r:x, c:y});
               const celllval = colnamee;
               console.log("celllval " + celllval);
