@@ -154,9 +154,9 @@ looker.plugins.visualizations.add({
                 const headername = XLSX.utils.encode_cell({r:a, c:b});
                 console.log("headername " + headername);
                 if(a == 3) 
-                wsheet[headername].s = {font: {bold: true}, alignment: {vertical: "center", horizontal: "center", wrapText: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium", color: {theme: 4}}}};
+                wsheet[headername] = {v: "Applicable limit", t: "s", s: {font: {bold: true}, alignment: {vertical: "center", horizontal: "center", wrapText: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium", color: {theme: 4}}}}};
                 if(a == 4)
-                wsheet[headername].s = {alignment: {vertical: "center", horizontal: "center", wrapText: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
+                wsheet[headername] = {v: "010", t: "s", s: {alignment: {vertical: "center", horizontal: "center", wrapText: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}}};
             }
           }
 
@@ -185,7 +185,7 @@ looker.plugins.visualizations.add({
           console.log(headermerge1 + " and " + headermerge2);
 
           if(!wsheet["!merges"]) wsheet["!merges"] = [];
-          wsheet["!merges"].push(XLSX.utils.decode_range("A1:K1"), XLSX.utils.decode_range("A2:K2"), { s: { c: 2, r: 3 }, e: { c: (k+1), r: 3 } }, { s: { c: 2, r: 4 }, e: { c: (k+1), r: 4 } });
+          wsheet["!merges"].push(XLSX.utils.decode_range("A1:K1"), XLSX.utils.decode_range("A2:K2"));
           
           var wbook = XLSX.utils.book_new();
           XLSX.utils.book_append_sheet(wbook, wsheet, "C26");
