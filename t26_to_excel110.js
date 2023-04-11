@@ -154,9 +154,9 @@ looker.plugins.visualizations.add({
           for (var a = 3; a < 5; a++){
             for (var b = 2; b < (k+2); b++){
                 const headername = XLSX.utils.encode_cell({r:a, c:b});
-                if(a = 4) 
+                if(a = 3) 
                 wsheet[headername] = {v: "Applicable limit", t: "s", s: {font: {bold: true}, alignment: {vertical: "center", horizontal: "center", wrapText: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}}};
-                if(a = 5)
+                if(a = 4)
                 wsheet[headername] = {v: "010", t: "s", s: {alignment: {vertical: "center", horizontal: "center", wrapText: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}}};
             }
           }
