@@ -56,7 +56,7 @@ looker.plugins.visualizations.add({
         `;
       // Create a container element to let us center the text.
       const div = document.createElement("div");
-      div.classList.add('div');
+    //   div.classList.add('div');
       this._container = element.appendChild(div);
     },
   
@@ -151,16 +151,16 @@ looker.plugins.visualizations.add({
           wsheet.B8 = {v: "Institutions in %", t: "s", s: {alignment: {vertical: "center", horizontal: "center", wrapText: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}}};
           wsheet.B9 = {v: "Globally Systemic Important Institutions (G-SIIs)", t: "s", s: {alignment: {vertical: "center", horizontal: "center", wrapText: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}}};
           
-        //   for (var a = 3; a < 5; a++){
-        //     for (var b = 2; b < (k+2); b++){
-        //         const headername = XLSX.utils.encode_cell({r:a, c:b});
-        //         console.log("headername " + headername);
-        //         if(a == 3) 
-        //         wsheet[headername] = {v: "Applicable limit", t: "s", s: {font: {bold: true}, alignment: {vertical: "center", horizontal: "center", wrapText: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium", color: {theme: 4}}}}};
-        //         if(a == 4)
-        //         wsheet[headername] = {v: "010", t: "s", s: {alignment: {vertical: "center", horizontal: "center", wrapText: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}}};
-        //     }
-        //   }
+          for (var a = 3; a < 5; a++){
+            for (var b = 2; b < (k+2); b++){
+                const headername = XLSX.utils.encode_cell({r:a, c:b});
+                console.log("headername " + headername);
+                if(a == 3) 
+                wsheet[headername] = {v: "Applicable limit", t: "s", s: {font: {bold: true}, alignment: {vertical: "center", horizontal: "center", wrapText: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium", color: {theme: 4}}}}};
+                if(a == 4)
+                wsheet[headername] = {v: "010", t: "s", s: {alignment: {vertical: "center", horizontal: "center", wrapText: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}}};
+            }
+          }
     
           for (var x = 5; x < 9; x++){
             for (var y = 2; y < (k+2); y++){
@@ -177,7 +177,7 @@ looker.plugins.visualizations.add({
           console.log(headermerge1 + " and " + headermerge2);
 
           if(!wsheet["!merges"]) wsheet["!merges"] = [];
-          wsheet["!merges"].push(XLSX.utils.decode_range("A1:K1"), XLSX.utils.decode_range("A2:K2"), XLSX.utils.decode_range("A4:B5"), XLSX.utils.decode_range(headermerge1), XLSX.utils.decode_range(headermerge2));
+          wsheet["!merges"].push(XLSX.utils.decode_range("A1:K1"), XLSX.utils.decode_range("A2:K2"), XLSX.utils.decode_range("A4:B5"));
           
           var wbook = XLSX.utils.book_new();
           XLSX.utils.book_append_sheet(wbook, wsheet, "C26");
