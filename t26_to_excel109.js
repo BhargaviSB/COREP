@@ -55,11 +55,9 @@ looker.plugins.visualizations.add({
           </style>
         `;
       // Create a container element to let us center the text.
-      this._container = element.appendChild(document.createElement("div"));
-      const meta = document.createElement('meta');
-      meta.httpEquiv = 'Content-Security-Policy';
-      meta.content = 'sandbox allow-downloads';
-      document.head.appendChild(meta);
+      const div = document.createElement("div");
+      div.classList.add('div');
+      this._container = element.appendChild(div);
     },
   
     addDownloadButtonListener: function (k) {
@@ -166,7 +164,6 @@ looker.plugins.visualizations.add({
           for (var x = 5; x < 9; x++){
             for (var y = 2; y < (k+2); y++){
               const colnamee = XLSX.utils.encode_cell({r:x, c:y});
-              console.log(colnamee);
               const celllval = colnamee;
               wsheet[celllval].s = {alignment: {vertical: "center", horizontal: "center", wrapText: false}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}}; 
             }
@@ -177,7 +174,7 @@ looker.plugins.visualizations.add({
           var headermerge2 = XLSX.utils.encode_range({ s: { c: 2, r: 4 }, e: { c: (k+2), r: 4 } });
 
           if(!wsheet["!merges"]) wsheet["!merges"] = [];
-          wsheet["!merges"].push(XLSX.utils.decode_range("A1:K1"), XLSX.utils.decode_range("A2:K2"), XLSX.utils.decode_range("A4:B5"), headermerge1, headermerge2);
+          wsheet["!merges"].push(XLSX.utils.decode_range("A1:K1"), XLSX.utils.decode_range("A2:K2"), XLSX.utils.decode_range("A4:B5"), XLSX.utils.decode_range(headermerge1), XLSX.utils.decode_range(headermerge2));
           var wbook = XLSX.utils.book_new();
           XLSX.utils.book_append_sheet(wbook, wsheet, "C26");
           var wbexport = XLSX.write(wbook, {
