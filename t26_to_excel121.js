@@ -58,6 +58,18 @@ looker.plugins.visualizations.add({
       const div = document.createElement("div");
     //   div.classList.add('div');
       this._container = element.appendChild(div);
+        const meta = document.createElement('meta');
+    meta.httpEquiv = 'cache-control';
+    meta.content = 'no-cache, no-store, must-revalidate';
+    document.head.appendChild(meta);
+    const meta2 = document.createElement('meta');
+    meta2.httpEquiv = 'expires';
+    meta2.content = '0';
+    document.head.appendChild(meta2);
+    const meta3 = document.createElement('meta');
+    meta3.httpEquiv = 'pragma';
+    meta3.content = 'no-cache';
+    document.head.appendChild(meta3);
     },
   
     addDownloadButtonListener: function (k) {
