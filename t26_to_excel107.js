@@ -88,6 +88,7 @@ looker.plugins.visualizations.add({
       //downloadButton.className = 'download-button';   
       this._container.prepend(downloadButton);
       downloadButton.addEventListener('click', (event) => {
+
         var htmlTable = document.querySelector('table');
         var rows = htmlTable.rows;
         var l = rows.length;
@@ -99,17 +100,17 @@ looker.plugins.visualizations.add({
         }
     
           var type = "xlsx";
-          var tdata = htmlTable;
-          var trows = tdata.rows;
-          for(var i = 0; i < trows.length; i++){
-            var tcells = trows[i].cells;
-            for(var j = 0; j < tcells.length; j++){
-              var icells = trows[i].cells[j];
-              icells.s = {border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
-            }
-          }
+        //   var tdata = htmlTable;
+        //   var trows = tdata.rows;
+        //   for(var i = 0; i < trows.length; i++){
+        //     var tcells = trows[i].cells;
+        //     for(var j = 0; j < tcells.length; j++){
+        //       var icells = trows[i].cells[j];
+        //       icells.s = {border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
+        //     }
+        //   }
     
-          const wsheet = XLSX.utils.table_to_sheet(tdata, {origin: 'A4'});
+          const wsheet = XLSX.utils.table_to_sheet(htmlTable, {origin: 'A4'});
     
           wsheet.A1 = {v: "C 26.00 - Large Exposures limits (LE Limits)", t: "s", s: {font: {name: "Calibri", sz: 16, bold: true}, border: {top: {style: "thick"}, left: {style: "thick"}, bottom: {style: "medium"}, right: {style: "medium"}}}};
           wsheet.B1 = {v: "C 26.00 - Large Exposures limits (LE Limits)", t: "s", s: {font: {name: "Calibri", sz: 16, bold: true}, border: {top: {style: "thick"}, left: {style: "thick"}, bottom: {style: "medium"}, right: {style: "medium"}}}};
@@ -135,44 +136,47 @@ looker.plugins.visualizations.add({
           wsheet.J2 = {v: "* All values reported are in millions", t: "s", s: {font: {name: "Calibri", sz: 9}}};
           wsheet.K2 = {v: "* All values reported are in millions", t: "s", s: {font: {name: "Calibri", sz: 9}}};
           
-        //   wsheet.A4 = {v: "COUNTERPARTY IDENTIFICATION", t: "s", s: {font: {bold: true}, alignment: {vertical: "center", horizontal: "center", wrapText: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}}};
-        //   wsheet.B4 = {v: "COUNTERPARTY IDENTIFICATION", t: "s", s: {font: {bold: true}, alignment: {vertical: "center", horizontal: "center", wrapText: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}}};
-        //   wsheet.C4 = {v: "COUNTERPARTY IDENTIFICATION", t: "s", s: {font: {bold: true}, alignment: {vertical: "center", horizontal: "center", wrapText: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}}};
-        //   wsheet.D4 = {v: "COUNTERPARTY IDENTIFICATION", t: "s", s: {font: {bold: true}, alignment: {vertical: "center", horizontal: "center", wrapText: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}}};
-        //   wsheet.E4 = {v: "COUNTERPARTY IDENTIFICATION", t: "s", s: {font: {bold: true}, alignment: {vertical: "center", horizontal: "center", wrapText: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}}};
-        //   wsheet.F4 = {v: "COUNTERPARTY IDENTIFICATION", t: "s", s: {font: {bold: true}, alignment: {vertical: "center", horizontal: "center", wrapText: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}}};
-        //   wsheet.G4 = {v: "COUNTERPARTY IDENTIFICATION", t: "s", s: {font: {bold: true}, alignment: {vertical: "center", horizontal: "center", wrapText: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}}};
-        //   wsheet.H4 = {v: "COUNTERPARTY IDENTIFICATION", t: "s", s: {font: {bold: true}, alignment: {vertical: "center", horizontal: "center", wrapText: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}}};
+          wsheet.A4 = {v: "", t: "s", s: {alignment: {vertical: "center", horizontal: "center", wrapText: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}}};
+          wsheet.A5 = {v: "", t: "s", s: {alignment: {vertical: "center", horizontal: "center", wrapText: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}}};
+          wsheet.B4 = {v: "", t: "s", s: {alignment: {vertical: "center", horizontal: "center", wrapText: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}}};
+          wsheet.B5 = {v: "", t: "s", s: {alignment: {vertical: "center", horizontal: "center", wrapText: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}}};
           
-        //   wsheet.A5 = {v: "Code", t: "s", s: {font: {bold: false}, alignment: {vertical: "center", horizontal: "center", wrapText: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}}};
-        //   wsheet.B5 = {v: "Type of Code", t: "s", s: {font: {bold: false}, alignment: {vertical: "center", horizontal: "center", wrapText: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}}};
-        //   wsheet.C5 = {v: "Name", t: "s", s: {font: {bold: false}, alignment: {vertical: "center", horizontal: "center", wrapText: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}}};
-        //   wsheet.D5 = {v: "National Code", t: "s", s: {font: {bold: false}, alignment: {vertical: "center", horizontal: "center", wrapText: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}}};
-        //   wsheet.E5 = {v: "Residence of the Counterparty", t: "s", s: {font: {bold: false}, alignment: {vertical: "center", horizontal: "center", wrapText: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}}};
-        //   wsheet.F5 = {v: "Sector of the Counterparty", t: "s", s: {font: {bold: false}, alignment: {vertical: "center", horizontal: "center", wrapText: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}}};
-        //   wsheet.G5 = {v: "NACE Code", t: "s", s: {font: {bold: false}, alignment: {vertical: "center", horizontal: "center", wrapText: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}}};
-        //   wsheet.H5 = {v: "Type of Counterparty", t: "s", s: {font: {bold: false}, alignment: {vertical: "center", horizontal: "center", wrapText: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}}};
+          wsheet.A4 = {v: "", t: "s", s: {alignment: {vertical: "center", horizontal: "center", wrapText: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}}};
           
           wsheet.A6 = {v: "010", t: "s", s: {alignment: {vertical: "center", horizontal: "center", wrapText: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}}};
           wsheet.A7 = {v: "020", t: "s", s: {alignment: {vertical: "center", horizontal: "center", wrapText: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}}};
           wsheet.A8 = {v: "030", t: "s", s: {alignment: {vertical: "center", horizontal: "center", wrapText: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}}};
           wsheet.A9 = {v: "040", t: "s", s: {alignment: {vertical: "center", horizontal: "center", wrapText: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}}};
-        //   wsheet.E6 = {v: "040", t: "s", s: {alignment: {vertical: "center", horizontal: "center", wrapText: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}}};
-        //   wsheet.F6 = {v: "050", t: "s", s: {alignment: {vertical: "center", horizontal: "center", wrapText: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}}};
-        //   wsheet.G6 = {v: "060", t: "s", s: {alignment: {vertical: "center", horizontal: "center", wrapText: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}}};
-        //   wsheet.H6 = {v: "070", t: "s", s: {alignment: {vertical: "center", horizontal: "center", wrapText: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}}};
           
+          wsheet.B6 = {v: "Non institutions", t: "s", s: {alignment: {vertical: "center", horizontal: "center", wrapText: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}}};
+          wsheet.B7 = {v: "Institutions", t: "s", s: {alignment: {vertical: "center", horizontal: "center", wrapText: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}}};
+          wsheet.B8 = {v: "Institutions in %", t: "s", s: {alignment: {vertical: "center", horizontal: "center", wrapText: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}}};
+          wsheet.B9 = {v: "Globally Systemic Important Institutions (G-SIIs)", t: "s", s: {alignment: {vertical: "center", horizontal: "center", wrapText: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}}};
+          
+          for (var a = 3; a < 5; a++){
+            for (var b = 2; b < (k+2); b++){
+                const headername = XLSX.utils.encode_cell({r:a, c:b});
+                if(a = 4) 
+                wsheet[headername] = {v: "Applicable limit", t: "s", s: {font: {bold: true}, alignment: {vertical: "center", horizontal: "center", wrapText: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}}};
+                if(a = 5)
+                wsheet[headername] = {v: "010", t: "s", s: {alignment: {vertical: "center", horizontal: "center", wrapText: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}}};
+            }
+          }
     
-        //   for (var x = 6; x < (rows.length + 3); x++){
-        //     for (var y = 0; y < 8; y++){
-        //       const colnamee = XLSX.utils.encode_cell({r:x, c:y});
-        //       const celllval = colnamee;
-        //       wsheet[celllval].s = {alignment: {vertical: "center", horizontal: "center", wrapText: false}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}}; 
-        //     }
-        //   }
-    
+          for (var x = 6; x < 10; x++){
+            for (var y = 2; y < (k+2); y++){
+              const colnamee = XLSX.utils.encode_cell({r:x, c:y});
+              const celllval = colnamee;
+              wsheet[celllval].s = {alignment: {vertical: "center", horizontal: "center", wrapText: false}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}}; 
+            }
+          }
+          
+          // to get range of cells to merge for header
+          var headermerge1 = XLSX.utils.encode_range({ s: { c: 2, r: 3 }, e: { c: (k+2), r: 3 } });
+          var headermerge2 = XLSX.utils.encode_range({ s: { c: 2, r: 4 }, e: { c: (k+2), r: 4 } });
+
           if(!wsheet["!merges"]) wsheet["!merges"] = [];
-          wsheet["!merges"].push(XLSX.utils.decode_range("A1:K1"), XLSX.utils.decode_range("A2:K2"));
+          wsheet["!merges"].push(XLSX.utils.decode_range("A1:K1"), XLSX.utils.decode_range("A2:K2"), XLSX.utils.decode_range("A4:B5"), headermerge1, headermerge2);
           var wbook = XLSX.utils.book_new();
           XLSX.utils.book_append_sheet(wbook, wsheet, "C26");
           var wbexport = XLSX.write(wbook, {
