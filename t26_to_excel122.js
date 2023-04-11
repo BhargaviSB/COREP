@@ -56,7 +56,7 @@ looker.plugins.visualizations.add({
         `;
       // Create a container element to let us center the text.
       const div = document.createElement("div");
-    //   div.classList.add('div');
+      div.classList.add('div');
       this._container = element.appendChild(div);
         const meta = document.createElement('meta');
     meta.httpEquiv = 'cache-control';
