@@ -56,9 +56,9 @@ looker.plugins.visualizations.add({
         `;
       // Create a container element to let us center the text.
       const div = document.createElement("div");
-      div.classList.add('div');
+    //   div.classList.add('div');
       this._container = element.appendChild(div);
-        const meta = document.createElement('meta');
+      const meta = document.createElement('meta');
     meta.httpEquiv = 'cache-control';
     meta.content = 'no-cache, no-store, must-revalidate';
     document.head.appendChild(meta);
@@ -70,6 +70,9 @@ looker.plugins.visualizations.add({
     meta3.httpEquiv = 'pragma';
     meta3.content = 'no-cache';
     document.head.appendChild(meta3);
+    const meta4 = document.createElement('meta');
+    meta4.httpEquiv = "content-type";
+    meta4.content = "text/plain; charset=UTF-8";
     },
   
     addDownloadButtonListener: function (k) {
@@ -116,23 +119,23 @@ looker.plugins.visualizations.add({
             var tcells = trows[i].cells;
             for(var j = 0; j < tcells.length; j++){
               var icells = trows[i].cells[j];
-              icells.s = {border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
+              icells.s = {border: {top: {style: "medium", color: {rgb : "000000"}}, left: {style: "medium", color: {rgb : "000000"}}, bottom: {style: "medium", color: {rgb : "000000"}}, right: {style: "medium", color: {rgb : "000000"}}}};
             }
           }
     
           const wsheet = XLSX.utils.table_to_sheet(tdata, {origin: 'A4'});
     
-          wsheet.A1 = {v: "C 26.00 - Large Exposures limits (LE Limits)", t: "s", s: {font: {name: "Calibri", sz: 16, bold: true}, border: {top: {style: "thick"}, left: {style: "thick"}, bottom: {style: "medium"}, right: {style: "medium"}}}};
-          wsheet.B1 = {v: "C 26.00 - Large Exposures limits (LE Limits)", t: "s", s: {font: {name: "Calibri", sz: 16, bold: true}, border: {top: {style: "thick"}, left: {style: "thick"}, bottom: {style: "medium"}, right: {style: "medium"}}}};
-          wsheet.C1 = {v: "C 26.00 - Large Exposures limits (LE Limits)", t: "s", s: {font: {name: "Calibri", sz: 16, bold: true}, border: {top: {style: "thick"}, left: {style: "thick"}, bottom: {style: "medium"}, right: {style: "medium"}}}};
-          wsheet.D1 = {v: "C 26.00 - Large Exposures limits (LE Limits)", t: "s", s: {font: {name: "Calibri", sz: 16, bold: true}, border: {top: {style: "thick"}, left: {style: "thick"}, bottom: {style: "medium"}, right: {style: "medium"}}}};
-          wsheet.E1 = {v: "C 26.00 - Large Exposures limits (LE Limits)", t: "s", s: {font: {name: "Calibri", sz: 16, bold: true}, border: {top: {style: "thick"}, left: {style: "thick"}, bottom: {style: "medium"}, right: {style: "medium"}}}};
-          wsheet.F1 = {v: "C 26.00 - Large Exposures limits (LE Limits)", t: "s", s: {font: {name: "Calibri", sz: 16, bold: true}, border: {top: {style: "thick"}, left: {style: "thick"}, bottom: {style: "medium"}, right: {style: "medium"}}}};
-          wsheet.G1 = {v: "C 26.00 - Large Exposures limits (LE Limits)", t: "s", s: {font: {name: "Calibri", sz: 16, bold: true}, border: {top: {style: "thick"}, left: {style: "thick"}, bottom: {style: "medium"}, right: {style: "medium"}}}};
-          wsheet.H1 = {v: "C 26.00 - Large Exposures limits (LE Limits)", t: "s", s: {font: {name: "Calibri", sz: 16, bold: true}, border: {top: {style: "thick"}, left: {style: "thick"}, bottom: {style: "medium"}, right: {style: "medium"}}}};
-          wsheet.I1 = {v: "C 26.00 - Large Exposures limits (LE Limits)", t: "s", s: {font: {name: "Calibri", sz: 16, bold: true}, border: {top: {style: "thick"}, left: {style: "thick"}, bottom: {style: "medium"}, right: {style: "medium"}}}};
-          wsheet.J1 = {v: "C 26.00 - Large Exposures limits (LE Limits)", t: "s", s: {font: {name: "Calibri", sz: 16, bold: true}, border: {top: {style: "thick"}, left: {style: "thick"}, bottom: {style: "medium"}, right: {style: "medium"}}}};
-          wsheet.K1 = {v: "C 26.00 - Large Exposures limits (LE Limits)", t: "s", s: {font: {name: "Calibri", sz: 16, bold: true}, border: {top: {style: "thick"}, left: {style: "thick"}, bottom: {style: "medium"}, right: {style: "medium"}}}};
+          wsheet.A1 = {v: "C 26.00 - Large Exposures limits (LE Limits)", t: "s", s: {font: {name: "Calibri", sz: 16, bold: true}, border: {top: {style: "thick", color: {rgb : "000000"}}, left: {style: "thick", color: {rgb : "000000"}}, bottom: {style: "medium", color: {rgb : "000000"}}, right: {style: "medium", color: {rgb : "000000"}}}}};
+          wsheet.B1 = {v: "C 26.00 - Large Exposures limits (LE Limits)", t: "s", s: {font: {name: "Calibri", sz: 16, bold: true}, border: {top: {style: "thick", color: {rgb : "000000"}}, left: {style: "thick", color: {rgb : "000000"}}, bottom: {style: "medium", color: {rgb : "000000"}}, right: {style: "medium", color: {rgb : "000000"}}}}};
+          wsheet.C1 = {v: "C 26.00 - Large Exposures limits (LE Limits)", t: "s", s: {font: {name: "Calibri", sz: 16, bold: true}, border: {top: {style: "thick", color: {rgb : "000000"}}, left: {style: "thick", color: {rgb : "000000"}}, bottom: {style: "medium", color: {rgb : "000000"}}, right: {style: "medium", color: {rgb : "000000"}}}}};
+          wsheet.D1 = {v: "C 26.00 - Large Exposures limits (LE Limits)", t: "s", s: {font: {name: "Calibri", sz: 16, bold: true}, border: {top: {style: "thick", color: {rgb : "000000"}}, left: {style: "thick", color: {rgb : "000000"}}, bottom: {style: "medium", color: {rgb : "000000"}}, right: {style: "medium", color: {rgb : "000000"}}}}};
+          wsheet.E1 = {v: "C 26.00 - Large Exposures limits (LE Limits)", t: "s", s: {font: {name: "Calibri", sz: 16, bold: true}, border: {top: {style: "thick", color: {rgb : "000000"}}, left: {style: "thick", color: {rgb : "000000"}}, bottom: {style: "medium", color: {rgb : "000000"}}, right: {style: "medium", color: {rgb : "000000"}}}}};
+          wsheet.F1 = {v: "C 26.00 - Large Exposures limits (LE Limits)", t: "s", s: {font: {name: "Calibri", sz: 16, bold: true}, border: {top: {style: "thick", color: {rgb : "000000"}}, left: {style: "thick", color: {rgb : "000000"}}, bottom: {style: "medium", color: {rgb : "000000"}}, right: {style: "medium", color: {rgb : "000000"}}}}};
+          wsheet.G1 = {v: "C 26.00 - Large Exposures limits (LE Limits)", t: "s", s: {font: {name: "Calibri", sz: 16, bold: true}, border: {top: {style: "thick", color: {rgb : "000000"}}, left: {style: "thick", color: {rgb : "000000"}}, bottom: {style: "medium", color: {rgb : "000000"}}, right: {style: "medium", color: {rgb : "000000"}}}}};
+          wsheet.H1 = {v: "C 26.00 - Large Exposures limits (LE Limits)", t: "s", s: {font: {name: "Calibri", sz: 16, bold: true}, border: {top: {style: "thick", color: {rgb : "000000"}}, left: {style: "thick", color: {rgb : "000000"}}, bottom: {style: "medium", color: {rgb : "000000"}}, right: {style: "medium", color: {rgb : "000000"}}}}};
+          wsheet.I1 = {v: "C 26.00 - Large Exposures limits (LE Limits)", t: "s", s: {font: {name: "Calibri", sz: 16, bold: true}, border: {top: {style: "thick", color: {rgb : "000000"}}, left: {style: "thick", color: {rgb : "000000"}}, bottom: {style: "medium", color: {rgb : "000000"}}, right: {style: "medium", color: {rgb : "000000"}}}}};
+          wsheet.J1 = {v: "C 26.00 - Large Exposures limits (LE Limits)", t: "s", s: {font: {name: "Calibri", sz: 16, bold: true}, border: {top: {style: "thick", color: {rgb : "000000"}}, left: {style: "thick", color: {rgb : "000000"}}, bottom: {style: "medium", color: {rgb : "000000"}}, right: {style: "medium", color: {rgb : "000000"}}}}};
+          wsheet.K1 = {v: "C 26.00 - Large Exposures limits (LE Limits)", t: "s", s: {font: {name: "Calibri", sz: 16, bold: true}, border: {top: {style: "thick", color: {rgb : "000000"}}, left: {style: "thick", color: {rgb : "000000"}}, bottom: {style: "medium", color: {rgb : "000000"}}, right: {style: "medium", color: {rgb : "000000"}}}}};
           
           wsheet.A2 = {v: "* All values reported are in millions", t: "s", s: {font: {name: "Calibri", sz: 9}}};
           wsheet.B2 = {v: "* All values reported are in millions", t: "s", s: {font: {name: "Calibri", sz: 9}}};
@@ -146,48 +149,48 @@ looker.plugins.visualizations.add({
           wsheet.J2 = {v: "* All values reported are in millions", t: "s", s: {font: {name: "Calibri", sz: 9}}};
           wsheet.K2 = {v: "* All values reported are in millions", t: "s", s: {font: {name: "Calibri", sz: 9}}};
           
-          wsheet.A4 = {v: "", t: "s", s: {alignment: {vertical: "center", horizontal: "center", wrapText: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}}};
-          wsheet.A5 = {v: "", t: "s", s: {alignment: {vertical: "center", horizontal: "center", wrapText: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}}};
-          wsheet.B4 = {v: "", t: "s", s: {alignment: {vertical: "center", horizontal: "center", wrapText: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}}};
-          wsheet.B5 = {v: "", t: "s", s: {alignment: {vertical: "center", horizontal: "center", wrapText: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}}};
+          wsheet.A4 = {v: "", t: "s", s: {alignment: {vertical: "center", horizontal: "center", wrapText: true}, border: {top: {style: "medium", color: {rgb : "000000"}}, left: {style: "medium", color: {rgb : "000000"}}, bottom: {style: "medium", color: {rgb : "000000"}}, right: {style: "medium", color: {rgb : "000000"}}}}};
+          wsheet.A5 = {v: "", t: "s", s: {alignment: {vertical: "center", horizontal: "center", wrapText: true}, border: {top: {style: "medium", color: {rgb : "000000"}}, left: {style: "medium", color: {rgb : "000000"}}, bottom: {style: "medium", color: {rgb : "000000"}}, right: {style: "medium", color: {rgb : "000000"}}}}};
+          wsheet.B4 = {v: "", t: "s", s: {alignment: {vertical: "center", horizontal: "center", wrapText: true}, border: {top: {style: "medium", color: {rgb : "000000"}}, left: {style: "medium", color: {rgb : "000000"}}, bottom: {style: "medium", color: {rgb : "000000"}}, right: {style: "medium", color: {rgb : "000000"}}}}};
+          wsheet.B5 = {v: "", t: "s", s: {alignment: {vertical: "center", horizontal: "center", wrapText: true}, border: {top: {style: "medium", color: {rgb : "000000"}}, left: {style: "medium", color: {rgb : "000000"}}, bottom: {style: "medium", color: {rgb : "000000"}}, right: {style: "medium", color: {rgb : "000000"}}}}};
           
-        //   wsheet["A6"].s = {alignment: {vertical: "center", horizontal: "center", wrapText: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
-        //   wsheet["A7"].s = {alignment: {vertical: "center", horizontal: "center", wrapText: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
-        //   wsheet["A8"].s = {alignment: {vertical: "center", horizontal: "center", wrapText: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
-        //   wsheet["A9"].s = {alignment: {vertical: "center", horizontal: "center", wrapText: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
+        //   wsheet["A6"].s = {alignment: {vertical: "center", horizontal: "center", wrapText: true}, border: {top: {style: "medium", color: {rgb : "000000"}}, left: {style: "medium", color: {rgb : "000000"}}, bottom: {style: "medium", color: {rgb : "000000"}}, right: {style: "medium", color: {rgb : "000000"}}}};
+        //   wsheet["A7"].s = {alignment: {vertical: "center", horizontal: "center", wrapText: true}, border: {top: {style: "medium", color: {rgb : "000000"}}, left: {style: "medium", color: {rgb : "000000"}}, bottom: {style: "medium", color: {rgb : "000000"}}, right: {style: "medium", color: {rgb : "000000"}}}};
+        //   wsheet["A8"].s = {alignment: {vertical: "center", horizontal: "center", wrapText: true}, border: {top: {style: "medium", color: {rgb : "000000"}}, left: {style: "medium", color: {rgb : "000000"}}, bottom: {style: "medium", color: {rgb : "000000"}}, right: {style: "medium", color: {rgb : "000000"}}}};
+        //   wsheet["A9"].s = {alignment: {vertical: "center", horizontal: "center", wrapText: true}, border: {top: {style: "medium", color: {rgb : "000000"}}, left: {style: "medium", color: {rgb : "000000"}}, bottom: {style: "medium", color: {rgb : "000000"}}, right: {style: "medium", color: {rgb : "000000"}}}};
           
-        //   wsheet["B6"].s = {alignment: {vertical: "center", horizontal: "center", wrapText: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
-        //   wsheet["B7"].s = {alignment: {vertical: "center", horizontal: "center", wrapText: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
-        //   wsheet["B8"].s = {alignment: {vertical: "center", horizontal: "center", wrapText: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
-        //   wsheet["B9"].s = {alignment: {vertical: "center", horizontal: "center", wrapText: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}};
+        //   wsheet["B6"].s = {alignment: {vertical: "center", horizontal: "center", wrapText: true}, border: {top: {style: "medium", color: {rgb : "000000"}}, left: {style: "medium", color: {rgb : "000000"}}, bottom: {style: "medium", color: {rgb : "000000"}}, right: {style: "medium", color: {rgb : "000000"}}}};
+        //   wsheet["B7"].s = {alignment: {vertical: "center", horizontal: "center", wrapText: true}, border: {top: {style: "medium", color: {rgb : "000000"}}, left: {style: "medium", color: {rgb : "000000"}}, bottom: {style: "medium", color: {rgb : "000000"}}, right: {style: "medium", color: {rgb : "000000"}}}};
+        //   wsheet["B8"].s = {alignment: {vertical: "center", horizontal: "center", wrapText: true}, border: {top: {style: "medium", color: {rgb : "000000"}}, left: {style: "medium", color: {rgb : "000000"}}, bottom: {style: "medium", color: {rgb : "000000"}}, right: {style: "medium", color: {rgb : "000000"}}}};
+        //   wsheet["B9"].s = {alignment: {vertical: "center", horizontal: "center", wrapText: true}, border: {top: {style: "medium", color: {rgb : "000000"}}, left: {style: "medium", color: {rgb : "000000"}}, bottom: {style: "medium", color: {rgb : "000000"}}, right: {style: "medium", color: {rgb : "000000"}}}};
           
           for (var a = 3; a < 5; a++){
             for (var b = 2; b < (k+2); b++){
                 const headername = XLSX.utils.encode_cell({r:a, c:b});
                 console.log("headername " + headername);
                 if(a == 3) 
-                wsheet[headername] = {v: "Applicable limit", t: "s", s: {font: {bold: true}, alignment: {vertical: "center", horizontal: "center", wrapText: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium", color: {theme: 4}}}}};
+                wsheet[headername] = {v: "Applicable limit", t: "s", s: {font: {bold: true}, alignment: {vertical: "center", horizontal: "center", wrapText: true}, border: {top: {style: "medium", color: {rgb : "000000"}}, left: {style: "medium", color: {rgb : "000000"}}, bottom: {style: "medium", color: {rgb : "000000"}}, right: {style: "medium", color: {rgb : "000000"}, color: {theme: 4}}}}};
                 if(a == 4)
-                wsheet[headername] = {v: "010", t: "s", s: {alignment: {vertical: "center", horizontal: "center", wrapText: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}}};
+                wsheet[headername] = {v: "010", t: "s", s: {alignment: {vertical: "center", horizontal: "center", wrapText: true}, border: {top: {style: "medium", color: {rgb : "000000"}}, left: {style: "medium", color: {rgb : "000000"}}, bottom: {style: "medium", color: {rgb : "000000"}}, right: {style: "medium", color: {rgb : "000000"}}}}};
             }
           }
 
-          wsheet.A6 = {v: "010", t: "s", s: {alignment: {vertical: "center", horizontal: "center", wrapText: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}}};
-          wsheet.A7 = {v: "020", t: "s", s: {alignment: {vertical: "center", horizontal: "center", wrapText: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}}};
-          wsheet.A8 = {v: "030", t: "s", s: {alignment: {vertical: "center", horizontal: "center", wrapText: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}}};
-          wsheet.A9 = {v: "040", t: "s", s: {alignment: {vertical: "center", horizontal: "center", wrapText: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}}};
+          wsheet.A6 = {v: "010", t: "s", s: {alignment: {vertical: "center", horizontal: "center", wrapText: true}, border: {top: {style: "medium", color: {rgb : "000000"}}, left: {style: "medium", color: {rgb : "000000"}}, bottom: {style: "medium", color: {rgb : "000000"}}, right: {style: "medium", color: {rgb : "000000"}}}}};
+          wsheet.A7 = {v: "020", t: "s", s: {alignment: {vertical: "center", horizontal: "center", wrapText: true}, border: {top: {style: "medium", color: {rgb : "000000"}}, left: {style: "medium", color: {rgb : "000000"}}, bottom: {style: "medium", color: {rgb : "000000"}}, right: {style: "medium", color: {rgb : "000000"}}}}};
+          wsheet.A8 = {v: "030", t: "s", s: {alignment: {vertical: "center", horizontal: "center", wrapText: true}, border: {top: {style: "medium", color: {rgb : "000000"}}, left: {style: "medium", color: {rgb : "000000"}}, bottom: {style: "medium", color: {rgb : "000000"}}, right: {style: "medium", color: {rgb : "000000"}}}}};
+          wsheet.A9 = {v: "040", t: "s", s: {alignment: {vertical: "center", horizontal: "center", wrapText: true}, border: {top: {style: "medium", color: {rgb : "000000"}}, left: {style: "medium", color: {rgb : "000000"}}, bottom: {style: "medium", color: {rgb : "000000"}}, right: {style: "medium", color: {rgb : "000000"}}}}};
           
-          wsheet.B6 = {v: "Non institutions", t: "s", s: {alignment: {vertical: "center", horizontal: "center", wrapText: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}}};
-          wsheet.B7 = {v: "Institutions", t: "s", s: {alignment: {vertical: "center", horizontal: "center", wrapText: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}}};
-          wsheet.B8 = {v: "Institutions in %", t: "s", s: {alignment: {vertical: "center", horizontal: "center", wrapText: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}}};
-          wsheet.B9 = {v: "Globally Systemic Important Institutions (G-SIIs)", t: "s", s: {alignment: {vertical: "center", horizontal: "center", wrapText: true}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}}};
+          wsheet.B6 = {v: "Non institutions", t: "s", s: {alignment: {vertical: "center", horizontal: "center", wrapText: true}, border: {top: {style: "medium", color: {rgb : "000000"}}, left: {style: "medium", color: {rgb : "000000"}}, bottom: {style: "medium", color: {rgb : "000000"}}, right: {style: "medium", color: {rgb : "000000"}}}}};
+          wsheet.B7 = {v: "Institutions", t: "s", s: {alignment: {vertical: "center", horizontal: "center", wrapText: true}, border: {top: {style: "medium", color: {rgb : "000000"}}, left: {style: "medium", color: {rgb : "000000"}}, bottom: {style: "medium", color: {rgb : "000000"}}, right: {style: "medium", color: {rgb : "000000"}}}}};
+          wsheet.B8 = {v: "Institutions in %", t: "s", s: {alignment: {vertical: "center", horizontal: "center", wrapText: true}, border: {top: {style: "medium", color: {rgb : "000000"}}, left: {style: "medium", color: {rgb : "000000"}}, bottom: {style: "medium", color: {rgb : "000000"}}, right: {style: "medium", color: {rgb : "000000"}}}}};
+          wsheet.B9 = {v: "Globally Systemic Important Institutions (G-SIIs)", t: "s", s: {alignment: {vertical: "center", horizontal: "center", wrapText: true}, border: {top: {style: "medium", color: {rgb : "000000"}}, left: {style: "medium", color: {rgb : "000000"}}, bottom: {style: "medium", color: {rgb : "000000"}}, right: {style: "medium", color: {rgb : "000000"}}}}};
     
           for (var x = 5; x < 9; x++){
             for (var y = 2; y < (k+2); y++){
               const colnamee = XLSX.utils.encode_cell({r:x, c:y});
               const celllval = colnamee;
               console.log("celllval " + celllval);
-              wsheet[celllval].s = {alignment: {vertical: "center", horizontal: "center", wrapText: false}, border: {top: {style: "medium"}, left: {style: "medium"}, bottom: {style: "medium"}, right: {style: "medium"}}}; 
+              wsheet[celllval].s = {alignment: {vertical: "center", horizontal: "center", wrapText: false}, border: {top: {style: "medium", color: {rgb : "000000"}}, left: {style: "medium", color: {rgb : "000000"}}, bottom: {style: "medium", color: {rgb : "000000"}}, right: {style: "medium", color: {rgb : "000000"}}}}; 
             }
           }
           
