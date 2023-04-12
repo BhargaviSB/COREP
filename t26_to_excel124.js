@@ -73,6 +73,7 @@ looker.plugins.visualizations.add({
     const meta4 = document.createElement('meta');
     meta4.httpEquiv = "content-type";
     meta4.content = "text/plain; charset=UTF-8";
+        document.head.appendChild(meta4);
     },
   
     addDownloadButtonListener: function (k) {
